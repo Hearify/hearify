@@ -1,0 +1,51 @@
+@use '../../styles/helpers/index' as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.logo {
+  margin-top: 40px;
+  @include sm {
+    width: 120px;
+    height: 130px;
+  }
+}
+
+.info {
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.title {
+  @include text-heading-4;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--general-black);
+  @include sm {
+    @include text-heading-5;
+  }
+}
+
+.description {
+  @include text-main-2;
+  color: var(--general-black);
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+  gap: 24px;
+  @include sm {
+    flex-direction: column-reverse;
+    margin-top: 16px;
+    gap: 16px;
+  }
+}

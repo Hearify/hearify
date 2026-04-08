@@ -1,0 +1,51 @@
+@use 'src/styles/helpers' as *;
+
+// TODO(Sasha): Use border-radius and box-shadow inline instead of varibles
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 32px;
+  box-shadow: $shadow-card;
+  border-radius: $radius-small;
+}
+
+.image {
+  width: 100%;
+  height: 230px;
+  border-radius: $radius-small;
+  object-fit: cover;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.title {
+  @include text-subtitle-2;
+  margin-bottom: 24px;
+}
+
+.link {
+  transition: $default-transition;
+  &:hover {
+    color: var(--brand-purpe-400);
+  }
+}
+
+.description {
+  @include text-main-2;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  word-break: break-word;
+  overflow: hidden;
+}

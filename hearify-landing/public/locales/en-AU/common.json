@@ -1,0 +1,14 @@
+{
+  "pages": {
+    "HomePage": {
+      "title": "AI Quiz Generator: Quiz Maker for All Industries",
+      "description": "Design quizzes, surveys, and interactive content in Australia with our AI tool. Ideal for educators, HR teams, and professionals seeking to engage and gather insights effectively."
+    }
+  },
+  "templates": {
+    "HomeHero": {
+      "title": "Build Interactive Quizzes, Surveys, and Tests in Australia",
+      "description": "Turn text, PDFs, and videos into personalized interactive tools for learning, training, or audience engagement in Australia."
+    }
+  }
+}

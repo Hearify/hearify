@@ -1,0 +1,99 @@
+@use 'src/_v2/styles/helpers' as *;
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.container {
+  @include tile;
+  position: relative;
+  text-align: center;
+  gap: 24px;
+  padding: 40px 24px;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: -12.1766px 36.6898px 44.9014px rgba(81, 78, 120, 0.18), inset 1.31294px 1.96941px 0px rgba(255, 255, 255, 0.6);
+  @include sm {
+    gap: 16px;
+    padding: 24px;
+    max-width: 500px;
+  }
+}
+
+.title {
+  @include text-heading-1;
+
+  &--highlight {
+    color: var(--brand-purpe-400);
+  }
+}
+
+.subtitle {
+  @include text-heading-4;
+  @include sm {
+    @include text-subtitle-3;
+  }
+}
+
+.body {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  max-width: 600px;
+  width: 100%;
+  @include sm {
+    max-width: 400px;
+  }
+  @include xs {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  :global .AppButton {
+    width: 100%;
+    max-width: 180px;
+    @include sm {
+      max-width: 130px;
+    }
+    @include xs {
+      max-width: unset;
+    }
+  }
+}
+
+.text {
+  @include text-main-1;
+  text-align: center;
+  @include sm {
+    @include text-main-3;
+  }
+
+  a {
+    text-decoration: underline;
+    color: var(--general-black);
+    transition: $default-transition;
+
+    &:hover {
+      color: var(--brand-purpe-400);
+    }
+  }
+}
+
+.note {
+  @include text-subtitle-2;
+  @include sm {
+    @include text-main-2;
+  }
+
+  a {
+    color: var(--neural-600);
+    transition: $default-transition;
+
+    &:hover {
+      color: var(--brand-purpe-400);
+    }
+  }
+}

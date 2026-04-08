@@ -1,0 +1,30 @@
+@use 'src/_v2/styles/helpers' as *;
+
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  @include text-button-lg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background: var(--brand-purpe-400);
+  color: var(--general-white);
+}
+
+.title {
+  @include text-subtitle-3;
+  flex-grow: 1;
+  padding-left: 8px;
+}
+
+.text {
+  @include text-button-md;
+  text-align: end;
+  padding-bottom: 5px;
+}

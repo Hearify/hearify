@@ -1,0 +1,51 @@
+$breakpoints: sm, md, lg, xl, xxl;
+$screens: (xs: 575.98, sm: 767.98, md: 991.98, lg: 1199.98, xl: 1399.98);
+
+// X-Small devices (portrait phones, less than 576px)
+@mixin xs {
+  @media (max-width: map-get($screens, xs) + 'px') {
+    @content;
+  }
+}
+
+// Small devices (landscape phones, less than 768px)
+@mixin sm {
+  @media (max-width: map-get($screens, sm) + 'px') {
+    @content;
+  }
+}
+
+// Medium devices (tablets, less than 992px)
+@mixin md {
+  @media (max-width: map-get($screens, md) + 'px') {
+    @content;
+  }
+}
+
+// Large devices (desktops, less than 1200px)
+@mixin lg {
+  @media (max-width: map-get($screens, lg) + 'px') {
+    @content;
+  }
+}
+
+// X-Large devices (large desktops, less than 1400px)
+@mixin xl {
+  @media (max-width: map-get($screens, xl) + 'px') {
+    @content;
+  }
+}
+
+// Custom width device
+@mixin rwd($screens) {
+  @media (max-width: $screens + 'px') {
+    @content;
+  }
+}
+
+// Custom height device
+@mixin rhd($screens) {
+  @media (max-height: $screens + 'px') {
+    @content;
+  }
+}

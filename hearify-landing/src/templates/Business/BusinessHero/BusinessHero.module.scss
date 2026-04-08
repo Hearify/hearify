@@ -1,0 +1,176 @@
+@use 'src/styles/helpers' as *;
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 230px;
+
+  @include lg {
+    margin-bottom: 100px;
+  }
+
+  @include md {
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  @include sm {
+    display: grid;
+    grid-template-areas:
+      'title'
+      'description'
+      'img'
+      'button'
+      'animation';
+    gap: 24px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+
+    width: 466px;
+    height: 467px;
+    background: radial-gradient(rgba(172, 154, 255, 1) 25%, rgba(255, 255, 255, 1) 70%);
+
+    right: 25%;
+    top: 42%;
+    z-index: -1;
+    opacity: 0.5;
+
+    @include md {
+      width: 273.3px;
+      height: 273.88px;
+      top: 40%;
+      left: 50%;
+    }
+
+    @include sm {
+      width: 520px;
+      height: 280px;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%);
+
+      opacity: 0.65;
+    }
+  }
+}
+
+.title {
+  @include text-heading-1;
+  max-width: 690px;
+  margin-bottom: 64px;
+
+  @include md {
+    @include text-heading-4;
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  @include sm {
+    grid-area: title;
+  }
+}
+
+.description {
+  @include text-subtitle-2;
+  font-weight: 400;
+  margin-bottom: 64px;
+  max-width: 380px;
+
+  @include md {
+    @include text-main-2;
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  @include sm {
+    grid-area: description;
+  }
+}
+
+.button {
+  width: 384px;
+
+  @include md {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 0px;
+    font-size: 16px;
+    padding: 16px 24px;
+  }
+
+  @include sm {
+    grid-area: button;
+    margin-top: -35px;
+  }
+
+  @include xs {
+    width: 100%;
+  }
+}
+
+.img {
+  position: absolute;
+  border-radius: 20px;
+  top: 30%;
+  right: 0;
+  width: 590px;
+  height: 360px;
+
+  @include lg {
+    width: 440px;
+    height: 280px;
+    right: 5%;
+    top: 40%;
+  }
+
+  @include md {
+    position: static;
+    width: 100%;
+    max-width: 440px;
+    height: auto;
+    margin: 24px 0 0;
+  }
+
+  @include sm {
+    // display: none;
+    grid-area: img;
+    width: 70%;
+    height: auto;
+    margin: 24px auto 0;
+    display: block;
+  }
+}
+
+.animation {
+  width: 440px;
+  min-height: 210px;
+  margin-left: 45%;
+
+  @include md {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    min-height: 210px;
+    margin: -40px -100px 0;
+    right: initial;
+    top: initial;
+  }
+
+  @include sm {
+    grid-area: animation;
+    width: 100%;
+    max-width: 260px;
+    min-height: 140px;
+    margin: -25px auto 50px;
+  }
+
+  @include xs {
+    max-width: 100%;
+    max-height: 200px;
+  }
+}

@@ -1,0 +1,177 @@
+@use 'src/styles/helpers' as *;
+
+.wrapper {
+  position: relative;
+  margin-bottom: 100px;
+
+  @include lg {
+    margin-bottom: 0;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+  }
+
+  &::before {
+    width: 750px;
+    height: 550px;
+    background: radial-gradient(rgba(187, 143, 255, 0.9) 25%, rgba(255, 255, 255, 0) 70%);
+    right: 150px;
+    top: 150px;
+    z-index: -1;
+    opacity: 0.5;
+
+    @include lg {
+      top: unset;
+      bottom: -150px;
+    }
+  }
+
+  &::after {
+    width: 550px;
+    height: 500px;
+    background: radial-gradient(rgba(172, 154, 255, 0.9) 25%, rgba(255, 255, 255, 0) 70%);
+    top: 50px;
+    right: -50px;
+    z-index: -1;
+    opacity: 0.75;
+  }
+}
+
+.container {
+  position: relative;
+
+  @include lg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+}
+
+.body {
+  @include lg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.title {
+  @include text-heading-1;
+  max-width: 900px;
+  margin-bottom: 64px;
+
+  @include lg {
+    margin-bottom: 16px;
+  }
+
+  @include md {
+    @include text-heading-4;
+    text-align: center;
+    max-width: 600px;
+    margin-bottom: 32px;
+  }
+}
+
+.description {
+  @include text-subtitle-2;
+  font-weight: 400;
+  margin-bottom: 32px;
+  max-width: 470px;
+
+  @include md {
+    @include text-subtitle-3;
+    margin-bottom: 32px;
+    max-width: 600px;
+    font-size: clamp(14px, 2vw, 16px);
+  }
+}
+
+.button {
+  width: 280px;
+  margin-bottom: 16px;
+
+  @include md {
+    width: 100%;
+    max-width: 400px;
+    font-size: 16px;
+    padding: 16px 24px;
+  }
+
+  @include xs {
+    width: 100%;
+  }
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  max-width: 260px;
+  gap: 4px;
+  transition: $default-transition;
+
+  &:hover {
+    color: var(--brand-purpe-400);
+  }
+}
+
+.hint {
+  @include text-main-4;
+  text-align: start;
+
+  @include md {
+    @include text-main-4;
+    text-align: center;
+  }
+}
+
+.image {
+  position: absolute;
+  bottom: -140px;
+  right: 15px;
+
+  @include lg {
+    position: static;
+    max-width: 100%;
+    height: auto;
+  }
+
+  @include md {
+    position: static;
+    max-width: 100%;
+    height: auto;
+    margin: 0px 0px;
+    display: block;
+  }
+
+  @include sm {
+    max-width: 100%;
+  }
+}
+
+.star-1 {
+  color: var(--brand-purpe-500);
+  position: absolute;
+  top: 150px;
+  right: 40px;
+
+  @include lg {
+    display: none;
+  }
+}
+
+.star-2 {
+  color: var(--brand-purpe-200);
+  position: absolute;
+  top: 200px;
+  right: 500px;
+
+  @include lg {
+    display: none;
+  }
+}

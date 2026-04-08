@@ -1,0 +1,86 @@
+label,
+input {
+  display: block;
+}
+
+.container {
+  position: relative;
+
+  & > .error_icon {
+    position: absolute;
+    top: -5px;
+    right: 15px;
+    width: 16px;
+    height: 16px;
+  }
+
+  & > .error_icon_label {
+    position: absolute;
+    top: 13px !important;
+    right: -6px !important;
+    width: 16px;
+    height: 16px;
+  }
+}
+
+input {
+  width: calc(100% - 22px);
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #6444f4;
+
+  font-family: Nunito;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #666666;
+
+  &:focus {
+    outline: 1px solid #6444f4;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+
+  &.error {
+    border: 1px solid #ba3e00;
+
+    &:focus {
+      outline: 1px solid #ba3e00;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+  }
+}
+
+input:read-only {
+  border-radius: var(--components, 8px);
+  border: 1px solid var(--neutral-400, #94a3b8);
+  background: var(--neutral-100, #f1f5f9);
+}
+
+@media (max-width: 768px) {
+  input {
+    font-size: 16px !important;
+  }
+}
+
+// .formInput {
+//   width: 100%;
+// }
+
+// .rangeInput {
+//   max-width: 80px;
+//   max-height: 44px;
+//   width: 100%;
+// }
+
+// .questionTypeInput {
+//   margin-right: 8px;
+//   max-width: 80px;
+//   max-height: 44px;
+//   width: 100%;
+// }
+
+.form_error {
+  color: #ba3e00;
+}

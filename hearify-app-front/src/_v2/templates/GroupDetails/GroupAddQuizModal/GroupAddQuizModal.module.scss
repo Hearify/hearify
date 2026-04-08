@@ -1,0 +1,34 @@
+@use 'src/_v2/styles/helpers' as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @include sm {
+    gap: 12px;
+  }
+}
+
+.title {
+  @include text-heading-4;
+  text-align: center;
+}
+
+.list {
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 9px 40px 9px 30px;
+  background: var(--brand-purpe-50);
+  border-radius: 12px 12px 0 0;
+}
+.item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 35px 8px 30px;
+}

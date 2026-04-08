@@ -1,0 +1,32 @@
+@use "src/_v2/styles/helpers" as *;
+
+.AppSelectItem {
+  @include text-main-3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  text-align: left;
+  color: var(--general-black);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: $default-transition;
+
+  &:hover,
+  &--active {
+    background-color: var(--neural-100);
+  }
+
+  &--selected {
+    background-color: var(--brand-purpe-50);
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &--readonly {
+    cursor: default;
+    pointer-events: none;
+  }
+}

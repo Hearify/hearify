@@ -1,0 +1,275 @@
+@use "src/_v2/styles/helpers" as *;
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $z-index-modal;
+  width: 100%;
+  height: 100%;
+  background-color: var(--backdrop);
+  overflow: hidden;
+  will-change: opacity;
+
+  &-enter {
+    opacity: 0;
+
+    &-active {
+      opacity: 1;
+      transition: $default-transition;
+    }
+  }
+
+  &-exit {
+    opacity: 1;
+
+    &-active {
+      opacity: 0;
+      transition: $default-transition;
+    }
+  }
+}
+
+.wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  max-width: calc(100% - 32px);
+  max-height: calc(100% - 32px);
+  width: 1200px;
+  text-align: center;
+  border-radius: 12px;
+  overflow: hidden;
+  outline: none;
+  transform: scale(1) translate(-50%, -50%);
+  transform-origin: 0 0;
+  will-change: transform;
+  animation-name: modal-scale-in;
+  animation-duration: .3s;
+  animation-timing-function: ease-in-out;
+  @include md {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 0;
+  }
+}
+
+.close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 36px;
+  height: 36px;
+  padding: 4px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: $default-transition;
+  @include md {
+    top: 16px;
+    right: 16px;
+  }
+
+  &:hover {
+    background-color: var(--neural-200);
+  }
+}
+
+.container {
+  flex: 1;
+  background-color: var(--white);
+  padding: 48px 64px;
+  @include md {
+    display: none;
+  }
+}
+
+.title {
+  @include text-heading-5;
+  margin-bottom: 24px;
+  color: var(--neural-900);
+}
+
+.body {
+  display: flex;
+  align-content: flex-start;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.timeline {
+  flex: 1 0 250px;
+  max-width: 400px;
+
+  &__title {
+    @include text-subtitle-3;
+    margin-bottom: 16px;
+  }
+
+  &__body {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+
+    svg {
+      flex-shrink: 0;
+      width: 40px;
+      height: auto;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 8px;
+  }
+
+  &__subtitle {
+    @include text-subtitle-4;
+    margin-bottom: 6px;
+  }
+
+  &__text {
+    @include text-main-4;
+  }
+}
+
+.advantages {
+  &__title {
+    @include text-subtitle-3;
+    margin-bottom: 16px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__item {
+    @include text-main-4;
+    display: flex;
+    align-items: center;
+    text-align: start;
+    gap: 8px;
+
+    svg {
+      flex-shrink: 0;
+      color: var(--brand-purpe-400);
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+.review {
+  margin-bottom: 32px;
+
+  &__title {
+    @include text-subtitle-3;
+    margin-bottom: 12px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px;
+    background-color: var(--brand-purpe-10);
+    border-radius: 20px;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__name {
+    @include text-field-lg;
+  }
+
+  &__position {
+    @include text-field-sm;
+  }
+
+  &__body {
+    @include text-main-3;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  min-width: 300px;
+  min-height: 100%;
+  background-color: var(--brand-purpe-10);
+  @include md {
+    height: 100%;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &__body {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    overflow: auto;
+    flex-direction: column;
+    padding: 32px 32px 0;
+    @include md {
+      height: 100%;
+      padding: 16px 16px 0;
+    }
+  }
+}
+
+.logo {
+  display: none;
+  width: 200px;
+  margin-top: 16px;
+  @include md {
+    display: block;
+  }
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 24px;
+  background-color: var(--white);
+  @include md {
+    align-items: center;
+    position: sticky;
+    bottom: 0;
+  }
+
+  &__block {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    text-align: start;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+}
+
+@keyframes modal-scale-in {
+  from {
+    transform: scale(0.5) translate(-50%, -50%);
+  }
+
+  to {
+    transform: scale(1) translate(-50%, -50%);
+  }
+}
+

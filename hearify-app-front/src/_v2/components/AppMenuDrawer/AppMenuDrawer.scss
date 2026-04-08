@@ -1,0 +1,80 @@
+@use 'src/styles/helpers' as *;
+
+.AppMenuDrawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background: var(--white);
+  transform: translateX(100%);
+  z-index: $z-index-drawer;
+  transition: transform 0.3s ease-in-out;
+
+  &--active {
+    transform: translateX(0);
+  }
+
+  &__hamburger {
+    display: none;
+    @include sm {
+      display: block;
+      z-index: $z-index-hamburger;
+      cursor: pointer;
+    }
+
+    &--active {
+      .AppMenuDrawer__bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+
+      .AppMenuDrawer__bar:nth-child(2) {
+        opacity: 0;
+      }
+
+      .AppMenuDrawer__bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+    }
+  }
+
+  &__bar {
+    display: block;
+    width: 28px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: black;
+    transition: $default-transition;
+  }
+
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: $default-transition;
+    z-index: 10;
+
+    &--active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    padding: 20px;
+    height: 100%;
+  }
+}
+
+
+

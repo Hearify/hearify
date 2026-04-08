@@ -1,0 +1,68 @@
+name: Deploy to Azure
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+
+      - name: Add server to known_hosts
+        run: ssh-keyscan -H ${{ secrets.AZURE_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Copy SSH key to server
+        env:
+          AZURE_HOST: ${{ secrets.AZURE_HOST }}
+          AZURE_USERNAME: ${{ secrets.AZURE_USERNAME }}
+        run: |
+          scp -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ~/.ssh/id_rsa $AZURE_USERNAME@$AZURE_HOST:~/.ssh/id_rsa
+          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no $AZURE_USERNAME@$AZURE_HOST 'chmod 600 ~/.ssh/id_rsa'
+
+      - name: Copy environment configuration to server
+        env:
+          AZURE_HOST: ${{ secrets.AZURE_HOST }}
+          AZURE_USERNAME: ${{ secrets.AZURE_USERNAME }}
+          ENV_CONFIG: ${{ vars.ENV_CONFIG }}
+        run: |
+          echo "${{ env.ENV_CONFIG }}" | ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no $AZURE_USERNAME@$AZURE_HOST 'cat > blog/.env'
+
+      - name: Update project
+        env:
+          AZURE_HOST: ${{ secrets.AZURE_HOST }}
+          AZURE_USERNAME: ${{ secrets.AZURE_USERNAME }}
+          GIT_SSH_COMMAND: 'ssh -i ~/.ssh/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
+        run: |
+          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no $AZURE_USERNAME@$AZURE_HOST << 'EOF'
+            cd blog
+
+            # Ensure the correct branch is checked out
+            git checkout main
+
+            # Stash any local changes to avoid conflicts
+            git stash
+
+            # Force fetch the latest changes
+            GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" git fetch origin
+
+            # Pull the latest changes
+            GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" git pull origin main
+
+            npm install
+            npm run build
+
+            chmod +x deploy.sh
+            ./deploy.sh
+          EOF

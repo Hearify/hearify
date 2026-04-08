@@ -1,0 +1,92 @@
+@use 'src/_v2/styles/helpers' as *;
+
+.wrapper {
+  position: relative;
+  height: 100%;
+}
+
+.container {
+  gap: 8px;
+  width: 100%;
+  padding: 24px 56px 24px 24px;
+  border-radius: 12px;
+  height: 100%;
+  background-color: var(--white);
+  color: var(--general-black);
+  cursor: pointer;
+  transition: $default-transition;
+  box-shadow:
+    0px 144px 86px rgba(0, 0, 0, 0.01),
+    0px 64px 64px rgba(0, 0, 0, 0.02),
+    0px 16px 35px rgba(0, 0, 0, 0.02),
+    0px 0px 0px rgba(0, 0, 0, 0.02);
+
+  &:hover {
+    box-shadow:
+      0px 144px 86px rgba(0, 0, 0, 0.03),
+      0px 64px 64px rgba(0, 0, 0, 0.03),
+      0px 16px 35px rgba(0, 0, 0, 0.05),
+      0px 8px 15px rgba(0, 0, 0, 0.03);
+
+    .date,
+    .title,
+    .text,
+    .icon {
+      color: var(--brand-purpe-400);
+    }
+  }
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+}
+
+.title {
+  @include text-subtitle-3;
+  font-size: 18px;
+  transition: $default-transition;
+}
+
+.text {
+  @include text-main-3;
+  transition: $default-transition;
+}
+
+.date {
+  @include text-main-4;
+  color: var(--neural-400);
+  transition: $default-transition;
+}
+
+.image {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 56px;
+  top: 0;
+  right: 0;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+  -webkit-mask-image: -webkit-gradient(
+    linear,
+    center top,
+    center bottom,
+    color-stop(0, rgba(255, 255, 255, 0.6)),
+    color-stop(1, rgba(255, 255, 255, 0))
+  );
+
+  @include xs {
+    height: 64px;
+  }
+}
+
+.dropdown {
+  position: absolute;
+  z-index: 1;
+  top: 24px;
+  right: 24px;
+}

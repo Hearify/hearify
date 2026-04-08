@@ -1,0 +1,133 @@
+@use 'src/styles/helpers' as *;
+
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 20px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.11);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  scrollbar-width: none;
+}
+
+.table {
+  display: grid;
+  min-width: 875px;
+  grid-template-columns: repeat(5, minmax(150px, 1fr));
+  border-radius: 20px;
+  overflow: hidden;
+  border-left: 1px solid var(--brand-purpe-50);
+  border-right: 1px solid var(--brand-purpe-50);
+
+  @include md {
+    grid-template-columns: repeat(5, minmax(175px, 1fr));
+  }
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex: 0 1 25%;
+  padding: 16px;
+  border-bottom: 1px solid var(--brand-purpe-50);
+  background-color: var(--general-white);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+
+  &:last-child {
+    border-right: none;
+  }
+}
+
+.featureName {
+  justify-content: flex-start;
+  text-align: left;
+  font-weight: 600;
+}
+
+.header {
+  padding: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+  background-color: var(--brand-purpe-50);
+}
+
+.featureHeaderContent {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.featureHeader {
+  justify-content: flex-start;
+  padding-left: 16px;
+}
+
+.premium {
+  background-color: var(--brand-purpe-400);
+  color: var(--general-white);
+}
+
+.priceCell {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+
+  .monthly {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 150%;
+  }
+
+  .annual {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  .priceButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    height: 40px;
+    border: 2px solid var(--brand-purpe-400);
+    padding: 6px 32px;
+    color: var(--general-black);
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 150%;
+
+    @include lg {
+      padding: 4px 8px;
+      color: var(--general-black);
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 150%;
+    }
+
+    @include md {
+      padding: 6px 8px;
+      font-size: 12px;
+    }
+  }
+
+  .priceButtonPremium {
+    background-color: var(--brand-purpe-400);
+    color: var(--general-white);
+    border-color: var(--brand-purpe-400);
+  }
+}

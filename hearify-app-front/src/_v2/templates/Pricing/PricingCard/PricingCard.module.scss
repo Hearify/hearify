@@ -1,0 +1,80 @@
+@use "src/_v2/styles/helpers" as *;
+
+.wrapper {
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+  padding: 40px 24px;
+  border-radius: 10px;
+  background-color: var(--main-white);
+
+  box-shadow:
+          0 79px 32px rgba(134, 159, 172, 0.01),
+          0 44px 27px rgba(134, 159, 172, 0.05),
+          0 20px 20px rgba(134, 159, 172, 0.09),
+          0 5px 11px rgba(134, 159, 172, 0.1);
+}
+
+.deal {
+  @include text-subtitle-3;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  padding: 4px 16px;
+  text-align: center;
+  font-weight: 400;
+  color: var(--general-white);
+  background-color: var(--brand-purpe-400);
+}
+
+.title {
+  @include text-subtitle-3;
+  margin-bottom: 16px;
+}
+
+.price {
+  @include text-heading-4;
+  margin-bottom: 4px;
+ }
+
+.text {
+  @include text-subtitle-4;
+  text-align: center;
+  padding: 11.5px;
+  color: var(--black);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  min-height: 30px;
+  margin-bottom: 24px;
+}
+
+.tag {
+  @include text-subtitle-5;
+  padding: 4px 12px;
+  border-radius: 8px;
+  background-color: var(--brand-purpe-50);
+}
+
+.subtitle {
+  @include text-subtitle-3;
+  margin-top: 24px;
+}
+
+.features {
+  list-style-type: disc;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 24px;
+  margin-left: 16px;
+
+  &__item {
+    @include text-main-3;
+  }
+}

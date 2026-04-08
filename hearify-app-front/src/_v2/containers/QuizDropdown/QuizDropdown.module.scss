@@ -1,0 +1,81 @@
+@use 'src/_v2/styles/helpers' as *;
+
+.icon {
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  cursor: pointer;
+  border-radius: 50%;
+  //   z-index: 1001;
+  transition: $default-transition;
+  &:hover {
+    background-color: var(--neural-100);
+  }
+}
+
+.container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+
+  top: 40px;
+  left: -100px;
+
+  z-index: 1;
+
+  align-items: center;
+  justify-content: space-around;
+
+  padding: 20px;
+
+  max-width: 240px;
+
+  border-radius: var(--small_blocks, 12px);
+  background: var(--general-white, #fefdff);
+
+  animation: dropdown-animation 300ms ease-in-out;
+
+  box-shadow:
+    1.313px 1.969px 0px 0px rgba(255, 255, 255, 0.6) inset,
+    -12.177px 36.69px 44.901px 0px rgba(81, 78, 120, 0.18);
+}
+
+@keyframes dropdown-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dropdown-exit {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+/* Transition classes for CSSTransition */
+.dropdown-enter {
+  animation: dropdown-enter 0.3s ease-out forwards;
+}
+
+.dropdown-exit {
+  animation: dropdown-exit 0.3s ease-out forwards;
+}
+
+.dropdown-enter-active {
+  animation: dropdown-enter 0.3s ease-out forwards;
+}
+
+.dropdown-exit-active {
+  animation: dropdown-exit 0.3s ease-out forwards;
+}

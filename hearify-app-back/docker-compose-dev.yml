@@ -1,0 +1,42 @@
+version: '3.9'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    container_name: hearify_api_dev
+    command: uvicorn main:application_factory --workers 1 --host 0.0.0.0 --port 8001 --reload
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./web/:/usr/src/
+      - ./files/:/usr/files/
+    env_file:
+      - .env
+    mem_limit: 768m
+
+  celery:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    container_name: hearify_queue_dev
+    command: watchmedo auto-restart -d tasks/ -p '*.py' -- celery -A tasks.tasks worker -c 1 --prefetch-multiplier 1 --loglevel=info
+    volumes:
+      - ./web/:/usr/src/
+    env_file:
+      - .env
+    depends_on:
+      - redis
+    mem_limit: 768m
+
+  redis:
+    image: redis:6-alpine
+    container_name: hearify_redis_dev
+    volumes:
+      - redis_data:/data
+
+volumes:
+  mongodb_data:
+  mongodb_log:
+  redis_data:

@@ -1,0 +1,54 @@
+@use 'src/_v2/styles/helpers' as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  :global .AppPlaceholder {
+    margin-top: 64px;
+    @include sm {
+      margin-top: 32px;
+    }
+
+    .AppButton {
+      @include xs {
+        width: 100% !important;
+      }
+    }
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+  width: 100%;
+  @include xs {
+    justify-content: center;
+    margin-top: 0;
+  }
+}
+
+.title {
+  @include text-heading-2;
+  color: var(--brand-purpe-400);
+  @include xs {
+    @include text-heading-4;
+  }
+}
+
+.list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 40px 0;
+  @include lg {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include xs {
+    grid-template-columns: 1fr;
+    margin: 24px 0;
+  }
+}

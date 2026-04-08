@@ -1,0 +1,43 @@
+@use 'src/_v2/styles/helpers' as *;
+
+.AppCheckbox {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  position: relative;
+
+  &__input {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    border: 1px solid var(--neural-500);
+
+    &:checked {
+      background-image: url('../../../assets/svg/check-checkbox.svg');
+      background-color: var(--brand-purpe-400);
+      background-repeat: no-repeat;
+      background-position: center;
+      border-radius: 4px;
+      border: none;
+    }
+
+    &--error {
+      border: 1px solid var(--error-red-200);
+    }
+  }
+
+  &__label {
+    @include text-main-2;
+    display: inline;
+  }
+
+  &__note {
+    @include text-main-4;
+    margin-top: 2px;
+    &--error {
+      color: var(--error-red-200);
+    }
+  }
+}

@@ -1,0 +1,88 @@
+@use "src/_v2/styles/helpers" as *;
+
+.AppSelect {
+  width: 100%;
+  color: var(--general-black);
+  // TODO(Sasha): fix this after removing global styles
+  border: 1px solid var(--brand-purpe-400) !important;
+  border-radius: 8px;
+  background-color: var(--general-white) !important;
+  outline: none;
+  user-select: none;
+  cursor: pointer;
+  transition: $default-transition;
+
+  &::placeholder {
+    color: var(--neural-400);
+  }
+
+  &::selection {
+    background-color: transparent;
+  }
+
+  &:hover{
+    border: 1px solid var(--neural-500) !important;
+  }
+
+  &:disabled {
+    cursor: default;
+  }
+
+  &__wrapper {
+    width: 100%;
+  }
+
+  &__container {
+    position: relative;
+  }
+
+  &__icon {
+    pointer-events: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transition: $default-transition;
+
+    &--active {
+      transform: rotateX(180deg);
+    }
+  }
+
+  &__note {
+    @include text-main-4;
+    //min-height: 28px;
+    color: var(--general-error);
+    text-align: left;
+  }
+
+  &--sm {
+    @include text-field-sm;
+    padding: 7px 11px !important;
+
+    +.AppSelect__icon {
+      top: 8px;
+    }
+  }
+
+  &--md {
+    @include text-field-md;
+    padding: 9px 30px 9px 11px !important;
+  }
+
+  &--lg {
+    @include text-field-lg;
+    padding: 13px 11px 13px 11px !important;
+
+    +.AppSelect__icon {
+      top: 16px;
+    }
+  }
+
+  &--disabled {
+    .AppSelect {
+      border: 1px solid var(--neural-400) !important;
+      background-color: var(--neural-100) !important;
+      color: var(--neural-400) !important;
+    }
+  }
+}

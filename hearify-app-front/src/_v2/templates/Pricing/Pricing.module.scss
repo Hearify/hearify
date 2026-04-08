@@ -1,0 +1,65 @@
+@use "src/_v2/styles/helpers" as *;
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include lg {
+    justify-content: center;
+  }
+}
+
+.title {
+  @include text-heading-2;
+  margin-bottom: 24px;
+  @include md {
+    @include text-heading-4;
+  }
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(250px, 400px));
+  padding-bottom: 32px;
+  column-gap: 16px;
+  row-gap: 24px;
+  max-width: 100%;
+}
+
+.tabs {
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  overflow: scroll;
+
+  // TODO(Sasha): Separate scrollbar styles to a separate util
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &__item {
+    @include text-subtitle-3;
+    padding: 8px 20px;
+    color: var(--neural-600);
+    border: none;
+    border-bottom: 3px solid transparent;
+    transition: $default-transition;
+    cursor: pointer;
+    background: transparent;
+
+    &--active,
+    &:hover {
+      color: var(--brand-purpe-400);
+      border-bottom: 3px solid var(--brand-purpe-400);
+    }
+  }
+}
+
+.content {
+  width: 100%;
+  max-width: 350px;
+}

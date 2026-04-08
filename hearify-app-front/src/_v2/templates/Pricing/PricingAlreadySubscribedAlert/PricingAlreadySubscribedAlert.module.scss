@@ -1,0 +1,47 @@
+@use "src/_v2/styles/helpers" as *;
+
+.wrapper {
+  width: 100%;
+  max-width: 1230px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 40px;
+  margin-bottom: 24px;
+  border-radius: 12px;
+  background: var(--gradient-violet);
+  @include lg {
+    flex-direction: column;
+  }
+  @include sm {
+    gap: 16px;
+    padding: 12px;
+    margin-bottom: 24px;
+  }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  color: var(--brand-purpe-100);
+  @include sm {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.text {
+  @include text-subtitle-2;
+  font-weight: 500;
+  color: var(--neural-50);
+  @include sm {
+    @include text-subtitle-5;
+  }
+}

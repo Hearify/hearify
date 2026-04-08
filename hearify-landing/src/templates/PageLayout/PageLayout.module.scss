@@ -1,0 +1,53 @@
+@use 'src/styles/helpers' as *;
+
+.wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  color: var(--general-black);
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: $z-index-header;
+  transition: $default-transition;
+  background-color: var(--white);
+
+  &--scroll {
+    box-shadow: $shadow-header;
+  }
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+.body {
+  display: flex;
+  width: 100%;
+  padding: 0 32px 40px;
+  max-width: $max-page-width;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+
+  main {
+    width: 100%;
+  }
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}

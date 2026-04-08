@@ -1,0 +1,32 @@
+@use 'src/styles/helpers' as *;
+
+.wrapper {
+  position: relative;
+  text-align: center;
+  color: var(--general-black);
+
+  &--h1 {
+    @include text-heading-1;
+  }
+
+  &--h2 {
+    @include text-heading-2;
+  }
+
+  &--h3 {
+    @include text-heading-3;
+  }
+}
+
+.container {
+  position: relative;
+  display: inline;
+  padding: 0 20px;
+}
+
+.image {
+  z-index: $z-index-background-header-image;
+  @include sm {
+    display: none;
+  }
+}

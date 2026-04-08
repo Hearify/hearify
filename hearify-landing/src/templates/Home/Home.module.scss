@@ -1,0 +1,12 @@
+@use 'src/styles/helpers' as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  padding-top: 80px;
+  @include md {
+    padding-top: 40px;
+    gap: 48px;
+  }
+}

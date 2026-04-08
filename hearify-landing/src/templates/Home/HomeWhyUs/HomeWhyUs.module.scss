@@ -1,0 +1,88 @@
+@use 'src/styles/helpers' as *;
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  @include md {
+    display: none;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    opacity: 0.5;
+  }
+
+  &::before {
+    width: 900px;
+    height: 800px;
+    background: radial-gradient(rgba(172, 154, 255, 0.9) 25%, rgba(255, 255, 255, 0) 70%);
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+  }
+
+  &::after {
+    width: 600px;
+    height: 500px;
+    transform: rotate(-16deg);
+    background: radial-gradient(rgba(172, 154, 255, 0.9) 25%, rgba(255, 255, 255, 0) 70%);
+    top: -20px;
+    right: -50px;
+    z-index: -1;
+  }
+}
+
+.title {
+  margin-bottom: 24px;
+
+  @include md {
+    @include text-heading-4;
+    text-align: center;
+    max-width: 600px;
+    margin-bottom: 32px;
+  }
+}
+
+.description {
+  @include text-subtitle-2;
+  max-width: 800px;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 64px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 600px;
+  flex-basis: 500px;
+  flex-shrink: 0;
+}
+
+.subtitle {
+  @include text-heading-4;
+  margin-bottom: 8px;
+}
+
+.text {
+  @include text-subtitle-3;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}

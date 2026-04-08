@@ -1,0 +1,47 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 16px 8px 8px;
+  border-radius: 8px;
+  background: #f0ecff;
+  color: #6444f4;
+  cursor: pointer;
+
+  .button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 10.5px;
+    text-transform: uppercase;
+    border: none;
+    color: #fefdff;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #4452f4 62.04%, #775cf1 102.04%);
+
+
+    &:disabled {
+      cursor: default;
+    }
+  }
+
+  .count {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+
+    &--lg {
+      font-size: 32px;
+      line-height: 36px;
+    }
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+    color: #fff;
+  }
+}

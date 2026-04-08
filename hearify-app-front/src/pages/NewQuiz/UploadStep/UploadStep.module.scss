@@ -1,0 +1,159 @@
+@use "src/_v2/styles/helpers" as *;
+
+.wrapper {
+  @include tile;
+}
+
+.title {
+  @include text-heading-4;
+  margin-bottom: 24px;
+  text-align: center;
+  color: var(--brand-purpe-400);
+}
+
+.container {
+  width: 100%;
+  max-width: 460px;
+}
+
+.subtitle {
+  @include text-subtitle-1;
+  margin-bottom: 16px;
+  color: var(--neural-600);
+  @include sm {
+    @include text-button-lg;
+    font-weight: 600;
+  }
+}
+
+.tab {
+  @include text-subtitle-1;
+  flex: 1;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--brand-purpe-400);
+  padding: 8px 16px;
+  color: var(--neural-600);
+  background-color: transparent;
+  cursor: pointer;
+  @include sm {
+    @include text-subtitle-4;
+    padding: 8px;
+  }
+
+  &--active {
+    color: var(--general-white);
+    background: var(--brand-purpe-400);
+
+    img {
+      // TODO(Sasha): Fix this when images become svgs
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  &:first-child {
+    border-radius: 8px 0 0 8px;
+  }
+
+  &:last-child {
+    border-radius: 0 8px 8px 0;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 24px;
+  }
+
+  img {
+    width: 24px;
+    height: 24px;
+    @include sm {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.footer {
+  margin: 24px 0;
+}
+
+.input {
+  @include text-field-md;
+  color: var(--general-black);
+  width: 100%;
+
+  &.error {
+    border: 1px solid #ba3e00 !important;
+
+    &:focus {
+      outline: 1px solid #ba3e00 !important;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;
+    }
+  }
+}
+
+.textarea {
+  @include text-field-md;
+  position: relative;
+  width: 100%;
+  height: 230px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--brand-purpe-400);
+  background: var(--general-white);
+  color: var(--general-black);
+  scrollbar-width: thin;
+
+  &.error {
+    border: 1px solid #ba3e00;
+
+    &:focus {
+      outline: 1px solid #ba3e00;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+  }
+
+  &__container {
+    position: relative;
+  }
+
+  &__text {
+    @include text-field-md;
+    position: absolute;
+    right: 0;
+    color: var(--neural-500);
+  }
+}
+
+.error-text {
+  @include text-field-md;
+  color: #ba3e00 !important;
+}
+
+// TODO(Sasha): Remove this, idk.
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type='number'] {
+  -moz-appearance: textfield; /* Firefox */
+}
+
+input:disabled {
+  border-radius: var(--components, 8px);
+  border: 1px solid var(--neutral-400, #94a3b8);
+  background: var(--neutral-100, #f1f5f9);
+}

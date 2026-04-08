@@ -1,0 +1,30 @@
+@use 'src/_v2/styles/helpers' as *;
+
+.button {
+  @include text-button-lg;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding: 16px;
+  text-align: center;
+  min-height: 47px;
+  width: 100%;
+  border-radius: 8px;
+  border: 2px solid var(--brand-purpe-400);
+  background: none;
+  transition: $default-transition;
+  overflow: hidden;
+  white-space: nowrap;
+
+  @include sm {
+    @include text-button-md;
+    padding: 9px 16px;
+  }
+
+  &:hover {
+    background: var(--brand-purpe-400);
+    color: var(--white);
+  }
+}

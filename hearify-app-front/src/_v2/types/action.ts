@@ -1,0 +1,17 @@
+export type Action =
+  | 'start-quiz'
+  | 'choose-quiz-options'
+  | 'manage-brand-kit'
+  | 'upload-logo'
+  | 'enable-timer'
+  | 'enable-leaderboard'
+  | 'add-quiz-cover'
+  | 'add-question-cover'
+  | 'export-google-form'
+  | 'export-quiz-pdf'
+  | 'share-quiz-code'
+  | 'share-quiz-link'
+  | 'share-quiz-access'
+  | 'add-question-manually'
+  | 'export-student-results-pdf'
+  | 'open-summary-tab';

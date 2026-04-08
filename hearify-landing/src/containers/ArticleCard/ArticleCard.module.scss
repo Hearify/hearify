@@ -1,0 +1,77 @@
+@use 'src/styles/helpers' as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 32px;
+  box-shadow: $shadow-card;
+  border-radius: $radius-small;
+}
+
+.image {
+  width: 100%;
+  height: 230px;
+  border-radius: $radius-small;
+  object-fit: cover;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section {
+  @include text-subtitle-3;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: var(--brand-purpe-50);
+}
+
+.minutes {
+  @include text-main-3;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.title {
+  @include text-subtitle-2;
+  margin-bottom: 24px;
+}
+
+.link {
+  transition: $default-transition;
+  &:hover {
+    color: var(--brand-purpe-400);
+  }
+}
+
+.description {
+  @include text-main-2;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  word-break: break-word;
+  overflow: hidden;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.date {
+  @include text-subtitle-3;
+}

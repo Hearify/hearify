@@ -1,0 +1,70 @@
+@use 'src/styles/helpers' as *;
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  flex-shrink: 0;
+  position: relative;
+
+  &__image {
+    border-radius: 50%;
+    box-shadow: $shadow-card;
+    @include sm {
+      width: 60px;
+      height: 60px;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    bottom: 8px;
+    right: 0;
+    background-color: var(--white);
+    border-radius: 4px;
+    @include sm {
+      width: 24px;
+      height: 24px;
+      bottom: 2px;
+    }
+  }
+}
+
+.content {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  @include sm {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
+
+.body {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.name {
+  @include text-field-lg;
+  white-space: nowrap;
+}
+
+.role {
+  @include text-subtitle-4;
+  background-color: var(--white);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.description {
+  @include text-field-sm;
+  @include sm {
+    display: none;
+  }
+}

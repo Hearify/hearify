@@ -1,0 +1,12 @@
+# Dependencies
+node_modules
+
+# Production
+dist
+dist-ssr
+build
+
+# Config files
+vite.config.ts
+.eslintrc.js
+.prettierrc.js

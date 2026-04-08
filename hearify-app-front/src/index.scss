@@ -1,0 +1,68 @@
+@use "src/_v2/styles/helpers" as *;
+@use 'three-dots';
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap');
+@import "src/_v2/styles/theme.scss";
+
+:root {
+  --main-white: #fefdff;
+  --main-purple: #6444f4;
+  --main-black: #15343a;
+  --main-font: 'Nunito';
+  --main-light-purple: #dcd6f8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #faf9ff;
+  box-shadow: inset 0 0 1px var(--brand-purpe-50);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--brand-purpe-100);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background: rgba($color: #faf9ff, $alpha: 0.2);
+  border-radius: 10px;
+}
+
+.preselect {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.no-scroll {
+  overflow: hidden;
+  height: 100%;
+}
+
+#zpcookie-banner-msgbar p {
+  @include md {
+    flex-direction: column;
+  }
+}

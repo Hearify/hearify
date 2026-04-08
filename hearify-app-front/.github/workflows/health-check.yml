@@ -1,0 +1,55 @@
+name: Health Check
+
+on:
+  schedule:
+    # Runs every hour
+    - cron: '0 * * * *'
+
+jobs:
+  check_urls:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+
+    steps:
+      - name: Check URLs
+        id: url_check
+        run: |
+          urls=(
+            "https://hearify.org"
+            "https://app.hearify.org/login"
+            "https://api.hearify.org/docs"
+            "https://test.hearify.org/login"
+            "https://test.hearify.org/docs"
+          )
+          
+          failed_urls=""
+          
+          for url in "${urls[@]}"; do
+            # Use curl with a timeout of 5 seconds
+            status=$(curl --max-time 5 -o /dev/null -s -w "%{http_code}" "$url")
+            if [ "$status" -ne 200 ]; then
+              failed_urls+="$url returned status $status\n"
+            fi
+          done
+          
+          if [ ! -z "$failed_urls" ]; then
+            echo "One or more URLs are down!"
+            echo -e "$failed_urls"
+            # Save the failed URLs in an environment variable, properly handling newlines
+            failed_urls=$(echo -e "$failed_urls" | sed ':a;N;$!ba;s/\n/%0A/g')
+            echo "FAILED_URLS=$failed_urls" >> $GITHUB_ENV
+            exit 1
+          else
+            echo "All URLs returned status 200."
+          fi
+      - name: Send Telegram Notification on Failure
+        if: failure()
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            Health Check Failed! 🚨
+            The following URLs did not return status 200:
+
+            ${{ env.FAILED_URLS }}

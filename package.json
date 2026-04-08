@@ -1,0 +1,9 @@
+{
+  "name": "hearify",
+  "private": true,
+  "scripts": {
+    "dev:landing": "cd hearify-landing && npm run dev",
+    "dev:app": "cd hearify-app-front && npm run dev",
+    "build": "cd hearify-app-front && npm run build && cd ../hearify-landing && npm run build"
+  }
+}

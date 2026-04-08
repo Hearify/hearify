@@ -1,0 +1,64 @@
+version: '3.9'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    container_name: hearify_api
+    command: uvicorn main:application_factory --workers 2 --host 0.0.0.0 --port 8001
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./web/:/usr/src/
+      - ./files/:/usr/files/
+    env_file:
+      - prod.env
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    deploy:
+      resources:
+        limits:
+          memory: 512M   # Set memory limit for the API service
+        reservations:
+          memory: 256M   # Set a memory reservation (soft limit)
+
+  celery:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    container_name: hearify_queue
+    command: celery -A tasks.tasks worker -c 1 --prefetch-multiplier 1 --loglevel=info
+    volumes:
+      - ./web/:/usr/src/
+    env_file:
+      - prod.env
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    depends_on:
+      - redis
+    deploy:
+      resources:
+        limits:
+          memory: 256M   # Set memory limit for the Celery service
+        reservations:
+          memory: 128M   # Set a memory reservation (soft limit)
+
+  redis:
+    image: redis:6-alpine
+    container_name: hearify_redis
+    volumes:
+      - redis_data:/data
+    deploy:
+      resources:
+        limits:
+          memory: 128M   # Set memory limit for Redis
+        reservations:
+          memory: 64M    # Set a memory reservation (soft limit)
+
+volumes:
+  mongodb_data:
+  mongodb_log:
+  redis_data:

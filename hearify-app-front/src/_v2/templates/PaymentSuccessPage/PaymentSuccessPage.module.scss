@@ -1,0 +1,46 @@
+@use "src/_v2/styles/helpers" as *;
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-top: 40px;
+}
+
+.container {
+  @include tile;
+  position: relative;
+  text-align: center;
+  padding: 40px;
+  gap: 24px;
+  max-width: 100%;
+  box-shadow: -12.1766px 36.6898px 44.9014px rgba(81, 78, 120, 0.18), inset 1.31294px 1.96941px 0px rgba(255, 255, 255, 0.6);
+  @include md {
+    gap: 16px;
+    padding: 24px;
+  }
+}
+
+.title {
+  @include text-heading-3;
+  margin: 0;
+}
+
+.description {
+  @include text-heading-5;
+  text-align: center;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 8px;
+  text-align: start;
+  list-style-type: disc;
+}
+
+.item {
+  @include text-subtitle-3;
+}

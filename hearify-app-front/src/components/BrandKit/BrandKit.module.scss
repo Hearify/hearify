@@ -1,0 +1,270 @@
+.container {
+  background: var(--main-white);
+  border-radius: 1.25rem;
+  box-shadow: 0px 64px 64px 0px rgba(0, 0, 0, 0.02);
+  width: 90%;
+  margin: auto;
+}
+
+.kitSettings {
+  display: grid;
+  grid-template-columns: 27% 27% 45%;
+  margin: 26px;
+
+  @media screen and (max-width: 950px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.kitSetting {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 18px;
+
+  @media screen and (max-width: 950px) {
+    width: 100%;
+    align-items: start;
+  }
+
+  & > h3 {
+    @media screen and (max-width: 950px) {
+      margin-top: 18px;
+    }
+  }
+}
+
+.inputGroup {
+  display: flex;
+  width: 100%;
+  border: 2px solid #6444F4;
+  border-radius: 8px;
+  max-width: 200px;
+  height: 44px;
+
+  @media screen and (max-width: 950px) {
+    width: 95%;
+    max-width: none;
+  }
+
+  & > input {
+    border: none;
+    cursor: pointer;
+    background: var(--main-white);
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+
+    @media screen and (max-width: 950px) {
+      max-width: none;
+    }
+  }
+
+  & > button {
+    background: #6444F4;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    width: 49px;
+    height: 35px;
+    cursor: pointer;
+    margin: 3px;
+
+    &:hover {
+      border: 2px solid #6444f4;
+      background: white;
+      color: #6444f4;
+    }
+
+    @media screen and (max-width: 950px) {
+      width: 20%;
+    }
+  }
+}
+
+.uploadButton {
+  max-width: 205px;
+  max-height: 44px;
+  padding-right: 5px;
+  padding-left: 5px;
+
+  @media screen and (max-width: 950px) {
+    max-width: none;
+  }
+}
+
+.buttonInnerText {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.colorSetting {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  @media screen and (max-width: 1490px) {
+    flex-direction: column;
+    align-items: start;
+  }
+}
+
+.backgroundColours {
+  display: flex;
+  justify-content: space-between;
+}
+
+.optionText {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-right: 10px;
+}
+
+.backgroundColor {
+  width: 32px;
+  height: 32px;
+  border: 2px solid;
+  border-radius: 4px;
+  margin-left: 4px;
+  cursor: pointer;
+}
+
+.buttonColours {
+  display: flex;
+  justify-content: start;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.answerColours {
+  display: flex;
+  justify-content: start;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.colorPickerContainer {
+  display: flex;
+
+  @media screen and (max-width: 1490px) {
+    margin-bottom: 18px;
+    margin-left: 16px;
+  }
+}
+
+.colorPickerOuter {
+  z-index: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #CBD5E1;
+  position: relative;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.colorPickerInner {
+  z-index: 0;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: none;
+  background-color: red;
+  position: absolute;
+  top: 3px;
+  left: 2.75px;
+}
+
+.hexColorPickerContainer {
+  z-index: 2;
+  position: absolute;
+  right: 20px;
+  top: 23px;
+  border: 0.8px solid #E0E0E0;
+  background-color: #FFFFFF;
+  padding: 5px 5px;
+  height: 250px;
+}
+
+.colorPicker {
+
+}
+
+.hexInputGroup {
+  display: flex;
+}
+
+.hexInput {
+  margin-top: 3px;
+  height: 37px;
+  border: 1px solid;
+}
+
+.copyHex {
+  margin-top: 3px;
+  margin-left: 2px;
+  height: 37px;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+}
+
+.pageExampleText {
+  margin-left: 26px;
+  margin-bottom: -26px;
+}
+
+.quizPreviewContainer {
+  z-index: 0;
+  position: relative;
+  min-height: 711px;
+  margin: 26px;
+}
+
+.saveChangesContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.saveChanges {
+  border-radius: 8px;
+  white-space: nowrap;
+  background-color: #6444F4;
+  border: 2px solid #6444F4;
+
+  cursor: pointer;
+
+  padding: 16px;
+  margin-bottom: 24px;
+
+  width: 270px;
+  max-height: 56px;
+
+  color: var(--main-white, #fefdff);
+  text-align: center;
+  line-height: 24px;
+
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  transition: 0.3s ease-out;
+
+  &:hover {
+    background-color: white;
+    color: #6444F4;
+  }
+}
+

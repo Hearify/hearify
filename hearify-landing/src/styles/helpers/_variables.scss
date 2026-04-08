@@ -1,0 +1,33 @@
+$max-page-width: 1264px;
+$header-height: 100px;
+$header-height-sm: 68px;
+
+// z-index
+$z-index-background-header-image: -1 !default;
+$z-index-dropdown: 1000 !default;
+$z-index-tooltip: 1010 !default;
+$z-index-footer: 1020 !default;
+$z-index-loader: 1030 !default;
+$z-index-header: 1040 !default;
+$z-index-overlay: 1050 !default;
+$z-index-drawer: 1060 !default;
+$z-index-hamburger: 1070 !default;
+$z-index-modal: 1080 !default;
+$z-index-notification: 1090 !default;
+$z-index-prescreen: 1100 !default;
+
+// Border radius
+$radius-button: 8px;
+$radius-small: 12px;
+$radius-big: 20px;
+
+// Shadows
+$shadow-header: 0 2px 4px rgba(239, 236, 254, 0.8);
+$shadow-card: 0px 20px 20px 0px rgba(134, 159, 172, 0.09);
+
+// Transitions
+$default-transition: all 0.3s ease-in-out;
+
+// Fonts
+$font-nunito: var(--font-nunito), 'Roboto', 'Arial', sans-serif;
+$font-caveat: var(--font-caveat), 'Roboto', 'Arial', sans-serif;

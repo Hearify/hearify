@@ -1,0 +1,52 @@
+@use "src/_v2/styles/helpers" as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+}
+
+.icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 24px;
+  color: var(--brand-purpe-400);
+}
+
+.title {
+  @include text-heading-4;
+  margin-bottom: 24px;
+}
+
+.text {
+  @include text-main-2;
+  max-width: 360px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.link {
+  text-decoration: underline;
+  color: var(--neural-600);
+  transition: $default-transition;
+
+  &:hover {
+    color: var(--brand-purpe-400);
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+
+  :global .AppButton {
+    width: 180px;
+
+    @include sm {
+      width: auto;
+    }
+  }
+}

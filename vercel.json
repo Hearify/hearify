@@ -1,0 +1,6 @@
+{
+  "buildCommand": "cd hearify-landing && npm run build",
+  "outputDirectory": "hearify-landing/.next",
+  "framework": "nextjs",
+  "installCommand": "cd hearify-landing && npm install"
+}

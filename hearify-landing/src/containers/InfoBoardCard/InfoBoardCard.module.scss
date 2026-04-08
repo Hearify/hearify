@@ -1,0 +1,53 @@
+@use 'src/styles/helpers' as *;
+
+.content-item {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 16px;
+
+  @include md {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.image-box {
+  display: flex;
+}
+
+.image {
+  width: 19px;
+  height: 20px;
+
+  @include md {
+    margin-top: -25px;
+  }
+
+  @include sm {
+    width: 45px;
+    height: 45px;
+    margin-top: -25px;
+  }
+}
+
+.item-text {
+  @include text-subtitle-2;
+  text-align: left;
+  max-width: 900px;
+  font-weight: normal;
+
+  @include md {
+    @include text-subtitle-3;
+    margin-bottom: 24px;
+    margin-left: 10px;
+    max-width: 500px;
+    font-size: clamp(14px, 2vw, 16px);
+    text-align: left;
+  }
+
+  @include xs {
+    @include text-main-3;
+    max-width: 300px;
+  }
+}

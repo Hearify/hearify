@@ -1,0 +1,147 @@
+[
+  {
+    "slug": "how-to-create-effective-quizzes-for-student-learning",
+    "tag": "Education",
+    "title": "How to Create Effective Quizzes for Student Learning",
+    "headline": "A complete guide to designing quizzes that actually improve student outcomes",
+    "description": "Learn how to create effective quizzes for student learning. This evidence-based guide covers question types, difficulty progression, instant feedback, and how AI quiz generators can save teachers hours of work.",
+    "date": "2025-03-10",
+    "minutesToRead": 9,
+    "coverUrl": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200&h=630&fit=crop",
+    "authorSlug": "sarah-mitchell",
+    "editorSlug": "james-okonkwo",
+    "faq": [
+      {
+        "question": "What makes a quiz effective for learning?",
+        "answer": "An effective quiz tests understanding rather than memorization, uses varied question formats, provides immediate feedback, and is spaced over time to leverage the testing effect. Questions should progress from recall to application."
+      },
+      {
+        "question": "How many questions should a quiz have?",
+        "answer": "Research suggests 5–15 questions is optimal for a single study session. Shorter, more frequent quizzes (low-stakes testing) outperform long infrequent exams for long-term retention."
+      },
+      {
+        "question": "Can AI tools create good quiz questions?",
+        "answer": "Yes. Modern AI quiz generators like Hearify can produce well-formed questions from any text, PDF, or topic in seconds. Teachers still benefit from reviewing AI-generated questions to ensure alignment with learning objectives."
+      }
+    ],
+    "meta": {
+      "keywords": "how to create quizzes, effective quiz design, quiz for students, educational quiz, quiz maker for teachers"
+    }
+  },
+  {
+    "slug": "science-of-active-recall-why-quizzes-boost-learning",
+    "tag": "Learning Science",
+    "title": "The Science of Active Recall: Why Quizzes Boost Learning by 50%",
+    "headline": "Decades of research prove testing yourself is the most powerful study method",
+    "description": "Discover the neuroscience behind active recall and the testing effect. Learn why quizzing yourself beats re-reading, highlighting, and note-taking for long-term memory retention.",
+    "date": "2025-02-18",
+    "minutesToRead": 7,
+    "coverUrl": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=1200&h=630&fit=crop",
+    "authorSlug": "sarah-mitchell",
+    "editorSlug": "james-okonkwo",
+    "faq": [
+      {
+        "question": "What is active recall in learning?",
+        "answer": "Active recall is the practice of retrieving information from memory without looking at your notes. It forces the brain to reconstruct knowledge, strengthening neural pathways far more effectively than passive review."
+      },
+      {
+        "question": "What is the testing effect?",
+        "answer": "The testing effect (also called retrieval practice effect) is the well-documented phenomenon where being tested on material improves long-term memory more than additional studying. First described by Roediger & Karpicke in 2006."
+      },
+      {
+        "question": "How often should students quiz themselves?",
+        "answer": "Spaced repetition research suggests reviewing material at increasing intervals: 1 day, 3 days, 7 days, 14 days, and 30 days after first learning. Even brief 5-minute quiz sessions at these intervals dramatically improve retention."
+      }
+    ],
+    "meta": {
+      "keywords": "active recall, testing effect, spaced repetition, quiz learning, retrieval practice, memory retention"
+    }
+  },
+  {
+    "slug": "ai-quiz-generator-complete-guide",
+    "tag": "AI Tools",
+    "title": "AI Quiz Generator: Create Tests in Minutes, Not Hours",
+    "headline": "How AI is transforming quiz creation for teachers, trainers, and content creators",
+    "description": "A complete guide to AI quiz generators. Learn how tools like Hearify can automatically create multiple-choice, true/false, and open-ended questions from any document, video, or topic in under 60 seconds.",
+    "date": "2025-01-25",
+    "minutesToRead": 8,
+    "coverUrl": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1200&h=630&fit=crop",
+    "authorSlug": "james-okonkwo",
+    "editorSlug": "sarah-mitchell",
+    "faq": [
+      {
+        "question": "What is an AI quiz generator?",
+        "answer": "An AI quiz generator is a tool that uses large language models to automatically create quiz questions from source material such as text, PDFs, YouTube videos, or topic keywords. It eliminates the manual effort of writing questions from scratch."
+      },
+      {
+        "question": "How accurate are AI-generated quiz questions?",
+        "answer": "Modern AI quiz generators achieve 85-95% accuracy for factual questions when given high-quality source material. We always recommend a quick human review before deploying quizzes to students or employees."
+      },
+      {
+        "question": "What types of questions can AI generate?",
+        "answer": "AI quiz tools can generate multiple-choice questions, true/false questions, fill-in-the-blank, short answer, matching questions, and even scenario-based questions for professional training."
+      }
+    ],
+    "meta": {
+      "keywords": "AI quiz generator, automatic quiz maker, quiz from PDF, AI test generator, create quiz with AI"
+    }
+  },
+  {
+    "slug": "best-practices-online-assessment-2025",
+    "tag": "Assessment",
+    "title": "10 Best Practices for Online Assessment in 2025",
+    "headline": "How to design fair, engaging, and effective digital assessments",
+    "description": "Online assessment best practices for educators and L&D professionals. Covers question design, reducing academic dishonesty, accessibility, rubric alignment, and using analytics to improve future assessments.",
+    "date": "2025-01-08",
+    "minutesToRead": 10,
+    "coverUrl": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1200&h=630&fit=crop",
+    "authorSlug": "sarah-mitchell",
+    "editorSlug": "james-okonkwo",
+    "faq": [
+      {
+        "question": "What are the key principles of good online assessment?",
+        "answer": "Validity (tests what it claims to test), reliability (consistent results), fairness (accessible to all learners), and authenticity (reflects real-world application). Online assessments should also include clear instructions, time limits, and immediate feedback."
+      },
+      {
+        "question": "How do you prevent cheating in online quizzes?",
+        "answer": "Use randomized question order, draw from large question banks so each student gets a different set, set reasonable time limits, and design questions that require application rather than just recall. For high-stakes tests, proctoring tools add another layer."
+      },
+      {
+        "question": "What analytics should I track from online assessments?",
+        "answer": "Track average score, completion rate, time spent per question, most missed questions, and score distribution. Item analysis (difficulty index and discrimination index) helps identify poorly written questions."
+      }
+    ],
+    "meta": {
+      "keywords": "online assessment best practices, digital assessment, quiz design, e-learning assessment, formative assessment"
+    }
+  },
+  {
+    "slug": "quizzes-for-employee-training-and-onboarding",
+    "tag": "Corporate Training",
+    "title": "How to Use Quizzes for Employee Training & Onboarding",
+    "headline": "Boost knowledge retention and cut onboarding time with strategic quiz checkpoints",
+    "description": "Discover how HR and L&D teams use quizzes in employee onboarding and training programs. Includes proven frameworks for compliance training, product knowledge assessments, and measuring training ROI.",
+    "date": "2024-12-15",
+    "minutesToRead": 8,
+    "coverUrl": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=630&fit=crop",
+    "authorSlug": "james-okonkwo",
+    "editorSlug": "sarah-mitchell",
+    "faq": [
+      {
+        "question": "Why should companies use quizzes in employee training?",
+        "answer": "Quizzes increase knowledge retention by up to 40% compared to passive training alone, identify knowledge gaps early, keep employees engaged, create a paper trail for compliance, and give managers data on training effectiveness."
+      },
+      {
+        "question": "When should you quiz employees during onboarding?",
+        "answer": "Best practice is to quiz at three points: after each module (knowledge check), after completing a full section (application check), and 2-4 weeks after training ends (retention check). Avoid front-loading all assessment to the final day."
+      },
+      {
+        "question": "How do I measure training ROI using quiz data?",
+        "answer": "Compare pre-training and post-training quiz scores to measure knowledge gain. Track whether employees with higher post-training scores perform better on the job (correlate with manager ratings or KPIs). Time-to-competency is another valuable metric."
+      }
+    ],
+    "meta": {
+      "keywords": "employee training quiz, onboarding quiz, corporate training assessment, L&D quiz, training ROI, compliance training"
+    }
+  }
+]

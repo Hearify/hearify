@@ -1,0 +1,39 @@
+@use 'src/_v2/styles/helpers' as *;
+
+.title {
+  text-align: center;
+  padding-bottom: 24px;
+  @include sm {
+    @include text-heading-5;
+  }
+}
+
+.text {
+  @include text-heading-5;
+  @include sm {
+    @include text-subtitle-2;
+  }
+}
+
+.wrapper {
+  display: flex;
+  gap: 16px;
+  padding: 16px 0 24px;
+  @include sm {
+    flex-direction: column;
+  }
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  @include xs {
+    justify-content: space-between;
+  }
+}
+
+.icons {
+  display: flex;
+  gap: 12px;
+}

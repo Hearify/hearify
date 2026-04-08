@@ -1,0 +1,165 @@
+@use "src/_v2/styles/helpers" as *;
+
+// TODO(Sasha): Add this fun animation from old button
+.AppButton {
+  flex-shrink: 0;
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-family: $font-nunito;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+  background: transparent;
+  border: 3px solid transparent;
+  outline: 0;
+  transition: $default-transition;
+  overflow: hidden;
+  cursor: pointer;
+
+  &:disabled,
+  &--loading,
+  &--disabled {
+    pointer-events: none;
+  }
+
+  &__text {
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  &--lg {
+    @include text-button-lg;
+    padding: 13px;
+    border-radius: 8px;
+    @include sm {
+      @include text-button-md;
+      padding: 9px 16px;
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+      @include sm {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  &--md {
+    @include text-button-md;
+    padding: 9px 13px;
+    border-radius: 8px;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &--sm {
+    @include text-button-sm;
+    padding: 7px 9px;
+    border-radius: 8px;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &--icon {
+    padding: 7px;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &--primary {
+    color: var(--general-white);
+    background-color: var(--brand-purpe-400);
+    border-color: var(--brand-purpe-400);
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: var(--brand-purpe-600);
+      border-color: var(--brand-purpe-600);
+    }
+
+    &:disabled,
+    &.AppButton--disabled {
+      color: var(--neural-400);
+      background-color: var(--neural-100);
+      border-color: transparent;
+    }
+  }
+
+  &--gradient {
+    color: var(--general-white);
+    background: var(--gradient-violet);
+    border-color: var(--gradient-color-1);
+
+    &:hover,
+    &:focus,
+    &:active {
+      // add darker filter but only for background
+      background: var(--gradient-violet);
+      border-color: var(--brand-purpe-600);
+    }
+
+    &:disabled,
+    &.AppButton--disabled {
+      color: var(--neural-400);
+      background: var(--neural-100);
+    }
+  }
+
+  &--secondary {
+    color: var(--general-black);
+    background-color: var(--general-white);
+    border-color: var(--brand-purpe-400);
+
+    &:hover,
+    &:focus,
+    :active {
+      border-color: var(--brand-purpe-600);
+    }
+
+    &:disabled,
+    &.AppButton--disabled {
+      color: var(--neural-400);
+      background-color: var(--neural-100);
+      border-color: var(--neural-100);
+    }
+  }
+
+  &--tertiary {
+    color: var(--neutral-600);
+    border-color: transparent;
+
+    &:hover,
+    &:focus,
+    :active {
+      background-color: var(--neural-100);
+      border-color: var(--neural-100);
+    }
+
+    &:disabled,
+    &.AppButton--disabled {
+      color: var(--neural-400);
+      background-color: transparent;
+      border-color: transparent;
+    }
+  }
+
+  &--block {
+    width: 100%;
+  }
+}

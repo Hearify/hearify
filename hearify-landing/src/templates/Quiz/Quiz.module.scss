@@ -1,0 +1,209 @@
+@use 'src/styles/helpers' as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-size: 100% 100%;
+    width: 100%;
+    height: 100%;
+    background-image: url('/gradient.png');
+    background-repeat: no-repeat;
+  }
+}
+
+.main {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.body {
+  flex: 1;
+  margin-right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.authors {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  @include xs {
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+.title {
+  text-align: center;
+  @include text-heading-1;
+  margin-bottom: 24px;
+  @include sm {
+    @include text-heading-3;
+  }
+}
+
+.text {
+  @include text-main-3;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  max-width: 800px;
+
+  h1 {
+    @include text-heading-1;
+    margin-bottom: 24px;
+    @include sm {
+      @include text-heading-3;
+    }
+  }
+
+  h2 {
+    @include text-heading-2;
+    margin-bottom: 24px;
+
+    // Hack to add offset for anchor links work
+    padding-top: 150px;
+    margin-top: -150px;
+    display: inline-block; /* required for webkit browsers */
+
+    @include sm {
+      @include text-heading-4;
+    }
+  }
+
+  h3 {
+    @include text-heading-3;
+    margin-bottom: 24px;
+    @include sm {
+      @include text-heading-4;
+    }
+  }
+
+  h4 {
+    @include text-heading-4;
+    margin-bottom: 24px;
+  }
+
+  p {
+    @include text-subtitle-2;
+    margin-bottom: 24px;
+  }
+
+  em {
+    @include text-main-2;
+    color: var(--neural-400);
+  }
+
+  img {
+    width: 100%;
+    align-self: center;
+    margin-bottom: 12px;
+    border-radius: 12px;
+
+    & + em {
+      text-align: center;
+      font-style: unset;
+    }
+  }
+
+  li {
+    @include text-subtitle-2;
+    margin-bottom: 12px;
+    margin-left: 24px;
+  }
+
+  a {
+    color: var(--brand-purpe-400);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.popup {
+  position: relative;
+  margin-bottom: 40px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  a {
+    color: var(--general-white);
+    text-decoration: none !important;
+  }
+
+  &__image {
+    width: 100%;
+    object-fit: cover;
+    align-self: center;
+    margin-bottom: 12px;
+    border-radius: 12px;
+  }
+
+  &__container {
+    width: 100%;
+    max-width: 435px;
+    position: absolute;
+    padding: 16px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__background {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    background-color: var(--general-white);
+    border-radius: 8px;
+  }
+
+  &__title {
+    @include text-heading-4;
+    text-align: center;
+  }
+
+  &__button {
+    width: 330px;
+    @include md {
+      width: 100%;
+    }
+  }
+}
+
+.suggestions {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
+    gap: 24px;
+    @include lg {
+      grid-template-columns: repeat(2, minmax(300px, 1fr));
+    }
+    @include sm {
+      grid-template-columns: repeat(1, minmax(300px, 1fr));
+    }
+  }
+}

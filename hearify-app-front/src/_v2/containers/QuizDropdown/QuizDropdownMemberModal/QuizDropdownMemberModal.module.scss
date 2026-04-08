@@ -1,0 +1,25 @@
+@use "src/_v2/styles/helpers" as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+  width: 100%;
+  min-height: 400px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.title {
+  @include text-subtitle-2;
+  text-align: start;
+  margin-bottom: 8px;
+}
+

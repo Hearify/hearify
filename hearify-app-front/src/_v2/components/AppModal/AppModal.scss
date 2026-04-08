@@ -1,0 +1,75 @@
+@use "src/_v2/styles/helpers" as *;
+
+.AppModal {
+  background-color: var(--white);
+  border-radius: 12px;
+  padding: 32px;
+  width: calc(100% - 64px);
+  max-height: calc(100% - 64px);
+  overflow-y: auto;
+  position: relative;
+  animation: modal-scale-in 300ms ease-in-out;
+  transform-origin: center;
+
+  @include sm {
+    padding: 16px;
+    max-width: calc(100% - 32px);
+  }
+
+  &__backgrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: $z-index-modal;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    will-change: opacity;
+
+    &-enter {
+      opacity: 0;
+    }
+
+    &-enter-active {
+      opacity: 1;
+      transition: opacity 300ms;
+    }
+
+    &-exit {
+      opacity: 1;
+    }
+
+    &-exit-active {
+      opacity: 0;
+      transition: opacity 300ms;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--black);
+    transition: $default-transition;
+
+    &:hover {
+      color: var(--brand-purpe-400);
+    }
+  }
+}
+
+@keyframes modal-scale-in {
+  from {
+    transform: scale(0.9);
+  }
+  to {
+    transform: scale(1);
+  }
+}

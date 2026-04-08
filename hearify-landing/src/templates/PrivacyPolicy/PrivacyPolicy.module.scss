@@ -1,0 +1,50 @@
+@use 'src/styles/helpers' as *;
+
+.wrapper {
+  margin-top: 24px;
+}
+
+.date {
+  @include text-main-2;
+  margin-top: 12px;
+  text-align: center;
+}
+
+.title {
+  @include text-heading-1;
+  margin-bottom: 24px;
+}
+
+.content {
+  h2 {
+    @include text-heading-2;
+    margin-top: 16px;
+  }
+
+  h3 {
+    @include text-heading-4;
+    margin-top: 16px;
+    @include sm {
+      @include text-heading-5;
+    }
+  }
+
+  p {
+    @include text-main-2;
+    margin-bottom: 12px;
+  }
+
+  li {
+    @include text-main-2;
+    margin-bottom: 12px;
+    margin-left: 24px;
+  }
+
+  a {
+    color: var(--brand-purpe-400);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

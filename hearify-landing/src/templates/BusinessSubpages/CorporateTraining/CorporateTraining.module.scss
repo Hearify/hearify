@@ -1,0 +1,9 @@
+@use 'src/styles/helpers' as *;
+
+.wrapper {
+  padding-top: 80px;
+
+  @include lg {
+    padding-top: 40px;
+  }
+}

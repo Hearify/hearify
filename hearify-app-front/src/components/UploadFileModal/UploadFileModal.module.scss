@@ -1,0 +1,121 @@
+@use "src/styles/helpers" as *;
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(71, 85, 105, 0.3);
+  z-index: 999;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 560px;
+  height: 760px;
+  z-index: 999;
+  background-color: #ffffff;
+  padding: 24px 32px;
+  border-radius: 12px;
+  gap: 24px;
+
+  @include md {
+    width: 560px;
+    height: 700px;
+    gap: 12px;
+    padding: 20px 28px;
+  }
+
+  @include sm {
+    width: 310px;
+    height: 540px;
+    padding: 8px 12px;
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+
+  @include xs {
+    font-size: 20px;
+  }
+
+}
+
+.close_modal_btn {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.gallery_title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #475569;
+
+  @include xs {
+    font-size: 14px;
+  }
+
+}
+
+.upload_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.upload_btn {
+  border: none;
+  outline: none;
+  padding: 16px;
+  border-radius: 12px;
+  background-color: #6444F4;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease-in-out;
+
+  @include md {
+    padding: 12px;
+  }
+
+  @include xs {
+    padding: 12px;
+    font-size: 18px;
+  }
+
+  &:hover {
+    transform: scale(1.03);
+    transition: transform 0.15s ease-in-out;
+  }
+}
+.uploaded {
+  background-color: #a9a9a9;
+  cursor: not-allowed;
+}

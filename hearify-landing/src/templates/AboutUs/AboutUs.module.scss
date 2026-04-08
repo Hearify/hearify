@@ -1,0 +1,116 @@
+@use 'src/styles/helpers' as *;
+
+.wrapper {
+  position: relative;
+  margin-top: 80px;
+  @include lg {
+    margin-top: 40px;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    opacity: 0.8;
+    z-index: -1;
+    background: radial-gradient(rgba(206, 195, 255, 1) 25%, rgba(255, 255, 255, 0) 70%);
+  }
+
+  &::before {
+    width: 415px;
+    height: 400px;
+    transform: rotate(161deg);
+    top: 30px;
+    right: 100px;
+  }
+
+  &::after {
+    width: 425px;
+    height: 380px;
+    transform: rotate(-168deg);
+    top: -70px;
+    right: -50px;
+  }
+}
+
+.list {
+  width: 100%;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    opacity: 0.8;
+    z-index: -1;
+    background: radial-gradient(rgba(206, 195, 255, 1) 25%, rgba(255, 255, 255, 0) 70%);
+  }
+
+  &::before {
+    width: 540px;
+    height: 520px;
+    transform: rotate(18deg);
+    bottom: 60px;
+    left: 120px;
+  }
+
+  &::after {
+    width: 550px;
+    height: 490px;
+    transform: rotate(-12deg);
+    bottom: 200px;
+    left: -100px;
+  }
+}
+
+.title {
+  @include text-heading-1;
+  text-align: center;
+  margin-bottom: 30px;
+  @include xs {
+    margin-bottom: 16px;
+  }
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 100px;
+  @include xs {
+    padding-bottom: 48px;
+  }
+}
+
+.item-title {
+  @include text-heading-2;
+  padding-bottom: 24px;
+}
+
+.description {
+  @include text-subtitle-2;
+  max-width: 590px;
+  text-align: center;
+}
+
+.box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 160px;
+  gap: 19px;
+  @include md {
+    margin-bottom: 100px;
+  }
+}
+
+.box-title {
+  @include text-heading-2;
+}
+
+.box-description {
+  @include text-subtitle-2;
+  max-width: 610px;
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "slug": "sarah-mitchell",
+    "name": "Sarah Mitchell",
+    "description": "Education technology researcher and instructional designer with 10+ years of experience building learning systems.",
+    "avatarUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop",
+    "linkedInUrl": "https://linkedin.com",
+    "aboutMe": "Sarah specializes in evidence-based learning design and has helped over 50 educational institutions adopt AI-powered assessment tools."
+  },
+  {
+    "slug": "james-okonkwo",
+    "name": "James Okonkwo",
+    "description": "Learning & Development specialist focused on corporate training, employee engagement, and knowledge retention strategies.",
+    "avatarUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop",
+    "linkedInUrl": "https://linkedin.com",
+    "aboutMe": "James has designed training programs for Fortune 500 companies and writes about the intersection of neuroscience and workplace learning."
+  }
+]

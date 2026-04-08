@@ -1,0 +1,57 @@
+@use 'src/_v2/styles/helpers' as *;
+
+.wrapper {
+  //   overflow: auto;
+
+  @include sm {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.text {
+  @include text-subtitle-4;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 10px 30px;
+  background: var(--brand-purpe-50);
+}
+
+.content-item {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+  padding: 5px 30px;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    margin-left: 15px;
+  }
+}
+
+.content {
+  min-width: 1000px;
+  overflow: scroll;
+}
+
+.role {
+  width: 200px;
+}

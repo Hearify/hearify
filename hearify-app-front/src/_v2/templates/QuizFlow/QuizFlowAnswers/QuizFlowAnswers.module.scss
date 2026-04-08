@@ -1,0 +1,93 @@
+@use "src/_v2/styles/helpers" as *;
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 16px;
+  margin: 16px 0;
+  width: 100%;
+  @include md {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include xs {
+      grid-template-columns: 1fr;
+  }
+
+  &--matching {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 16px;
+    width: 100%;
+  }
+
+  &--open {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-top: 16px;
+    width: 100%;
+
+    :global .AppInput__wrapper {
+       max-width: 580px;
+    }
+  }
+}
+
+.card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  height: 100%;
+  min-height: 100px;
+  border: 2px solid var(--brand-purpe-400);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: $default-transition;
+  width: 100%;
+  @include md {
+    min-height: unset;
+  }
+
+  &--active,
+  &:hover {
+    background-color: var(--brand-purpe-400);
+    color: var(--white);
+  }
+}
+
+.text {
+  @include text-subtitle-3;
+  width: 100%;
+}
+
+.checkbox {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 22px;
+  height: 22px;
+  border-radius: 2px;
+  background-color: var(--general-white);
+  border: 1px solid var(--brand-purpe-400);
+
+  svg {
+    width: 20px;
+    height: 20px;
+    color: var(--brand-purpe-400) !important;
+  }
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  @include sm {
+    flex-direction: column;
+  }
+}

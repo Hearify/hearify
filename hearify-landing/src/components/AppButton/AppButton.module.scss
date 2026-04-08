@@ -1,0 +1,100 @@
+@use 'src/styles/helpers' as *;
+
+.AppButton {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-family: $font-nunito;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+  background: transparent;
+  border: 3px solid transparent;
+  outline: 0;
+  transition: $default-transition;
+  overflow: hidden;
+  cursor: pointer;
+
+  &:disabled,
+  &--loading,
+  &--disabled {
+    pointer-events: none;
+  }
+
+  &__text {
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  &--lg {
+    @include text-button-lg;
+    padding: 13px;
+    border-radius: $radius-button;
+  }
+
+  &--md {
+    @include text-button-md;
+    padding: 9px 13px;
+    border-radius: $radius-button;
+  }
+
+  &--sm {
+    @include text-button-sm;
+    padding: 7px 9px;
+    border-radius: $radius-button;
+  }
+
+  &--primary {
+    color: var(--general-white);
+    background-color: var(--brand-purpe-400);
+    border-color: var(--brand-purpe-400);
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: var(--brand-purpe-600);
+      border-color: var(--brand-purpe-600);
+    }
+
+    &:disabled,
+    &.AppButton--disabled {
+      color: var(--neural-400);
+      background-color: var(--neural-100);
+      border-color: transparent;
+    }
+  }
+
+  &--secondary {
+    color: var(--general-black);
+    border-color: var(--brand-purpe-400);
+
+    &:hover,
+    &:focus,
+    :active {
+      border-color: var(--brand-purpe-600);
+    }
+
+    &:disabled,
+    &.AppButton--disabled {
+      color: var(--neural-400);
+      background-color: var(--neural-100);
+      border-color: var(--neural-100);
+    }
+  }
+
+  &--block {
+    width: 100%;
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+    @include md {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

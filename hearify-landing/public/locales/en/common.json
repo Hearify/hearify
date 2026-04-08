@@ -1,0 +1,1260 @@
+{
+  "pages": {
+    "HomePage": {
+      "title": "AI Quiz Maker from PDF, Video & Text by Hearify Quiz Generator",
+      "description": "Transform your content (any text, PDF, or video) effortlessly with our AI quiz generator for creating quizzes, surveys, and interactive content. Easily customize questions, track performance, and improve learning and training outcomes."
+    }
+  },
+  "templates": {
+    "HomeHero": {
+      "title": "AI Quiz Generator for Tests, Surveys, and Interactive Content Creation",
+      "description": "Transform any text, PDF, or video into interactive quizzes, surveys, or assessments by AI quiz maker. Ideal for educators, HR teams, event planners, and professionals looking to engage audiences, gather insights, or gamify experiences across multiple industries.",
+      "button": "TRY FOR FREE",
+      "hint": "Loved by users in 113+ countries"
+    },
+    "HomeFeatured": {
+      "title": "Featured by:",
+      "button": "LOAD MORE"
+    },
+    "HomeCreateQuiz": {
+      "title": "Create Quiz with AI in No Time!",
+      "description": "Easily create your own quizzes from videos, PDFs, or text. Hearify AI Quiz Maker brings adaptive learning to life, making assessments faster, smarter, and more fun.",
+      "steps": [
+        {
+          "title": "Upload a file",
+          "description": "Pick the PDF or text file on your gadget or insert the link to the YouTube video you wish to transform into a quiz."
+        },
+        {
+          "title": "Customize",
+          "description": "Pick the page range, difficulty level of quiz options, timer, the number and type of questions, and the quiz language."
+        },
+        {
+          "title": "Generate",
+          "description": "Once all quiz options are specified, our free quiz generator will process them to create a detailed quiz."
+        },
+        {
+          "title": "Share & Play",
+          "description": "Make your own quiz and share it with your peers, colleagues, friends, etc."
+        },
+        {
+          "title": "Get Analytics",
+          "description": "The system automatically grades and creates a rating among all participants."
+        }
+      ]
+    },
+    "HomeBenefits": {
+      "title": "Top Benefits of the Best AI Question Generator",
+      "description": "Our AI quiz maker offers a wide range of benefits for first-time and skilled users. The key advantages include but not limited to:",
+      "benefits": [
+        {
+          "title": "Create in one click",
+          "description": "Our AI test creation tool lets you generate a complete test in minutes. It's the perfect solution for those who are pressed for time, whether they're students, business leaders, or teachers who need to get quality results quickly"
+        },
+        {
+          "title": "Adaptive content at any level",
+          "description": "Hearify automatically selects the type and difficulty of questions depending on the user's level. This allows you to create customized tasks that meet learning, skill development, or team engagement goals."
+        },
+        {
+          "title": "Multilingual support",
+          "description": "Our platform supports multiple languages, ensuring accessibility to a global audience. You can create content in the right language to suit different cultural and educational environments."
+        },
+        {
+          "title": "Customization with White-Label options",
+          "description": "Hearify allows you to brand your tests and surveys with custom logos, colors, and styles. This is an ideal choice for companies that want to integrate testing into their corporate identity."
+        },
+        {
+          "title": "Support for multimedia content",
+          "description": "Add images, videos, and charts to your tests to make them more visual and engaging for users. This is especially useful for teaching complex topics and increasing engagement."
+        },
+        {
+          "title": "Advanced analytics",
+          "description": "Our system analyzes answers and provides insights into users' knowledge levels, gaps, and strengths. Educators and HR professionals can use this information to adapt approaches and improve learning and teamwork."
+        },
+        {
+          "title": "Interactive formats for different purposes",
+          "description": "In addition to educational tasks, our tool is suitable for HR surveys, team psychological tests, and gamified events, which increases engagement and interactivity."
+        },
+        {
+          "title": "Seamless integration with platforms",
+          "description": "We integrate seamlessly with popular learning and enterprise platforms, such as LMS systems and team collaboration tools, ensuring a seamless engagement process with content and users."
+        }
+      ]
+    },
+    "HomeReviews": {
+      "title": "Hearify Reviews: Hear Our Happy Customers!",
+      "description": "Find out why our customers love Hearify. Read their testimonials and learn how our AI quiz builder transforms the content creation process by making it faster, smarter, and more efficient. From educators to businesses, you can turn PDF, video, and text into interactive quizzes in just a few clicks.",
+      "reviews": [
+        {
+          "name": "Yuliia Gorbatenko",
+          "position": "English teacher",
+          "text": "I tried Hearify several times, and I must say it's much better than ChatGPT, especially taking into account the number of mistakes and redundancy in questions, when I asked ChatGPT to create some quizzes for me. Hearify creates really interesting questions, that make sense - I admired it. I tried it with the difficult topics my student asked me to help with and I am happy with the results ❤\uFE0F"
+        },
+        {
+          "name": "Artem Oharkov",
+          "position": "IT teacher",
+          "text": "Hearify provides a good starting point, while you stay in control and can edit, discard, or add extra questions. It helps me with writer's block and provides a fresh perspective of what might be asked."
+        },
+        {
+          "name": "Valeriia Chorna",
+          "position": "Medical student, entrepreneur",
+          "text": "Hearify saved us during the most stressful moment when we urgently needed a real-time quiz for our event. The platform is really user-friendly, everything was quick and easy to set up, and it perfectly met our needs \uD83D\uDE4F"
+        },
+        {
+          "name": "Maria Revenko",
+          "position": "COO @ Crosscheck",
+          "text": "The tool is very user-friendly and understandable. It was easy for me to create a quiz and to modify it. We've used quizes after training as a proof of successful material learning. We like the function that it's possible to see the detailed results and to export them."
+        }
+      ]
+    },
+    "HomeAudience": {
+      "title": "For whom",
+      "description": "Hearify helps solve specific tasks and problems in various fields. Our platform is ideal for:",
+      "blocks": [
+        {
+          "title": "HR managers and recruiters:",
+          "text": "Conduct cultural fit tests when hiring new employees to ensure harmony in the team."
+        },
+        {
+          "title": "Organizers of corporate events:",
+          "text": "Encouraging employees to get to know each other and interact more at corporate events through interactive quizzes."
+        },
+        {
+          "title": "Sales managers:",
+          "text": "Onboard new sales managers and check their readiness to start and understand the product or service."
+        },
+        {
+          "title": "Community managers:",
+          "text": "Engaging community members to fill out gamified forms to collect information and increase engagement and interaction."
+        },
+        {
+          "title": "Marketers and business owners:",
+          "text": "Creating marketing quiz funnels from landing pages to personalize the user experience and increase conversions."
+        },
+        {
+          "title": "Trainers and consultants:",
+          "text": "Preparing clients for sustainability certifications or other professional qualifications."
+        },
+        {
+          "title": "Teachers and educators:",
+          "text": "Enhance courses with quizzes to identify and close gaps in student knowledge."
+        },
+        {
+          "title": "Students and professionals:",
+          "text": "Preparing for international exams such as medical or language exams."
+        },
+        {
+          "title": "Parents and educators:",
+          "text": "Conducting learning quests for children to encourage them to learn more about space or other interesting topics."
+        },
+        {
+          "title": "Friends and social groups:",
+          "text": " Organizing fun quizzes to see who knows the most world capitals or other interesting facts."
+        },
+        {
+          "title": "You?",
+          "text": "If you somehow teach people we could find solution for your own case"
+        }
+      ]
+    },
+    "HomeWhyUs": {
+      "title": "Why Choose Our AI Quiz Generator",
+      "description": "Using our question answer generator makes the process of creating, managing, and analyzing quizzes a breeze. Here’s why you should make your next quiz with us:",
+      "blocks": [
+        {
+          "title": "It’s time-saving",
+          "description": "Our platform quickly produces quizzes by effectively leveraging databases of questions and answers, saving precious time of students, trainers, educators, business owners, etc."
+        },
+        {
+          "title": "It deals with diverse question types",
+          "description": "Our question generator creates various types of questions (fill-in, multiple choice, etc.) that work well with your particular learning style."
+        },
+        {
+          "title": "Engagement enhancement",
+          "description": "Adaptive and interactive quizzes tend to make learning more enjoyable and engaging. You’re welcome to share the quiz with your college fellows (suitable for large classes and online courses)."
+        },
+        {
+          "title": "Content flexibility",
+          "description": "Hearify generates quizzes using content from various sources. We offer an easy-to-use question generator from PDF, text, video files. This allows students to test their skills from the comfort of their home."
+        }
+      ]
+    },
+    "HomeFAQ": {
+      "title": "FAQs",
+      "blocks": [
+        {
+          "question": "Is there a limit to the number of quizzes or questions I can create?",
+          "answer": "This depends on the plan you choose. With our free quiz generator, you can create up to 5 quizzes. For more flexibility, you can upgrade to a plan that meets your needs: Basic, Premium, or Max. Find more information here."
+        },
+        {
+          "question": "Can I customize the questions in the quizzes?",
+          "answer": "Absolutely! Our question generator allows you to create a base set of questions, and once you've created your quiz, you can fully customize it by editing, adding, or deleting questions. This flexibility will help you create the perfect quiz tailored to your specific needs, ensuring that every question meets your objectives."
+        },
+        {
+          "question": "Does the platform provide analytics based on test results?",
+          "answer": "Yes, Hearify offers comprehensive analytics to help you track participant progress and measure the effectiveness of your quizzes. With our quiz builder tools, you can get detailed information about completion rates, question performance, and individual scores. This data will allow you to fine-tune your quizzes for better engagement and retention, making it easier to measure success and identify areas for improvement."
+        },
+        {
+          "question": "What are the advantages of your test maker over other tools?",
+          "answer": "Our quiz creator stands out because it automates the quiz creation process with advanced artificial intelligence, saving you time and effort. It supports various types of content, including text, PDF, and video, allowing you to create quizzes from various sources. It also provides extensive customization tools that allow you to fully edit questions, add multimedia, and customize question types. Such flexibility ensures that your quizzes are perfectly tailored to your audience and goals, making it a versatile solution for any field of activity."
+        },
+        {
+          "question": " Does Hearify support multiple languages for creating tests?",
+          "answer": "Definitely! Our quiz maker supports creating quizzes in multiple languages, allowing you to reach a wider audience. Whether you're creating quizzes for international teams, multilingual classes, or diverse communities, Hearify's quiz creator ensures that language is not a barrier. This flexibility makes it easy to engage users with different language backgrounds, ensuring a truly inclusive and accessible quiz experience."
+        }
+      ]
+    },
+    "HomeGenerateQuestions": {
+      "title": "Generate Questions with Hearify!",
+      "blocks": [
+        {
+          "title": "31660+",
+          "text": "questions created"
+        },
+        {
+          "title": "3+ files",
+          "text": "to transform into quizzes"
+        },
+        {
+          "title": "277",
+          "text": "active users"
+        },
+        {
+          "title": "10+ schools",
+          "text": "use our platform regularly"
+        }
+      ]
+    },
+    "PageNotFound": {
+      "title": "Page Not Found",
+      "description": "The page you’re looking for may have been moved, deleted, or the URL might be incorrect. While this content isn't available, your next quiz is just a click away.",
+      "primary-button": "GENERATE QUIZ",
+      "secondary-button": "EXPLORE MORE"
+    },
+    "BusinessHomeHero": {
+      "title": "Interactive AI Quizzes for Businesses",
+      "description": "Automate content creation for training, education, and customer engagement. Perfect for any business.",
+      "button": "GET A DEMO"
+    },
+    "BusinessForWhom": {
+      "title": "For whom",
+      "data": [
+        {
+          "title": "HR and Corporate Training",
+          "description": "Automate quiz creation for corporate training, monitor progress, and improve team productivity."
+        },
+        {
+          "title": "Educational Institutions",
+          "description": "AI-powered quizzes tailored for schools, universities, and online courses."
+        },
+        {
+          "title": "Marketing and Customer Engagement",
+          "description": "Use AI quizzes to increase lead generation and engage your customers with interactive content."
+        },
+        {
+          "title": "Small and Medium Businesses",
+          "description": "Affordable, easy-to-use AI quiz tools for small and medium-sized businesses."
+        },
+        {
+          "title": "Partner Programs and Agencies",
+          "description": "Offer AI quiz solutions under your brand through flexible partner programs."
+        },
+        {
+          "title": "Specialized Industries",
+          "description": "AI quizzes designed for specialized fields requiring high-level customization such as medicine, finance, and technology."
+        }
+      ]
+    },
+    "BusinessInfoBoard": {
+      "data": [
+        {
+          "title": "Effective Learning and Corporate Training",
+          "description": "Optimize your corporate training programs with AI-powered quizzes that effectively save time, improve learning, and track progress. Hearify is ideal for onboarding, compliance training, and employee development, as well as for creating interactive learning content effortlessly.",
+          "button": "GET A DEMO",
+          "text_list": [
+            "Automated quiz creation: Quickly create engaging quizzes from your training materials.",
+            "Seamless integration with LMS: Easily integrate with existing platforms to ensure a seamless learning experience.",
+            "Instant analytics: Track progress and identify knowledge gaps in real-time.",
+            "Gamified learning: Increase engagement with interactive and fun learning methods."
+          ]
+        },
+        {
+          "title": "AI for Automating Educational Processes",
+          "description": "Simplify the learning process with AI tools designed to create engaging quizzes for schools, universities, and online courses. Tailor content to meet the unique needs of each student, improving retention and overall performance.",
+          "button": "LEARN MORE",
+          "text_list": [
+            "Automatic adaptation to the level of knowledge: Personalize tests according to each learner's ability.",
+            "Instant feedback: Help students improve by providing instant feedback on their performance.",
+            "Create quizzes from PDFs, videos, and texts: Quickly turn your materials into interactive assessments.",
+            "Improve learning outcomes: Track progress and ensure a deeper understanding of key concepts."
+          ]
+        },
+        {
+          "title": "Interactive Quizzes for Customer Engagement",
+          "description": "Use AI quizzes to engage your audience, attract new customers, and deepen engagement. Turn your marketing campaigns into interactive experiences that drive results and build stronger connections.",
+          "button": "CREATE A QUIZ",
+          "text_list": [
+            "Quizzes for marketing campaigns: Create customized quizzes that resonate with your audience.",
+            "Increase customer engagement: Increase participation and engagement with engaging, interactive content.",
+            "Interaction analytics: Gain valuable insights into customer behavior and preferences.",
+            "Lead generation: Turn engagement into real leads by collecting customer data."
+          ]
+        },
+        {
+          "title": "Affordable Solution for Small Businesses",
+          "description": "Give your small team a simple, fast, cost-effective AI-powered quiz solution. Hearify is ideal for training, team building, or customer engagement, ensuring you can do more with less. Plus, it's easy to customize and scale to meet your needs.",
+          "button": "TRY FOR FREE",
+          "text_list": [
+            "Fast implementation: Get set up and start creating quizzes in minutes.",
+            "Easy to use: The intuitive and user-friendly interface requires no technical knowledge.",
+            "Affordable price: Designed with small and medium-sized businesses in mind.",
+            "Scalable for growth: Start small and expand the use of quizzes as your business grows."
+          ]
+        },
+        {
+          "title": "Partner Program for Agencies",
+          "description": "Expand your agency's service offerings with AI-powered quiz solutions that you can brand as your own. Help your clients optimize their training, engagement, or marketing campaigns while opening up new revenue streams for your business.",
+          "button": "LEARN MORE",
+          "text_list": [
+            "Flexible partnership terms: Customized agreements to meet your agency's goals and client needs.",
+            "Agency-level branding: Offer white-label solutions that showcase your brand, not ours.",
+            "Additional revenue streams: Earn recurring revenue by offering automated quiz solutions to your clients.",
+            "Comprehensive support: Access to tools, resources, and expert assistance to ensure your success."
+          ]
+        },
+        {
+          "title": "AI Quizzes for Specialized Industries",
+          "description": "Simplify learning and assessment in specialized fields with AI-powered tests tailored to the needs of a specific industry. Whether it's medical education, financial training, or technical skill development, Hearify provides a flexible tool to ensure accurate and effective learning outcomes.",
+          "button": "GET INDUSTRY SOLUTION",
+          "text_list": [
+            "Industry-specific learning: Design quizzes that meet the unique requirements of your industry.",
+            "Accurate testing and feedback: Provide accurate assessments with actionable insights for improvement.",
+            "Support for various industries: From healthcare to IT, finance, and manufacturing, we have a solution for every industry.",
+            "Scalable and adaptable solutions: Ideal for teams of all sizes, with the flexibility to grow with your needs."
+          ]
+        }
+      ],
+      "alert-title": "Ready to Get Started?",
+      "alert-text": "Try our AI quiz creator now—completely free of charge!",
+      "alert-button": "GET A DEMO"
+    },
+    "CorporateTrainingHero": {
+      "title": "Revolutionize Corporate Training with AI Quizzes",
+      "description": "Transform your employee training programs with AI quizzes from Hearify. Automate learning, track progress and deliver engaging content that boosts team productivity and improves memorization.",
+      "button": "GET A DEMO"
+    },
+    "WhyCorporateTraining": {
+      "title": "Why Choose Hearify for Employee Training?",
+      "benefits": [
+        {
+          "title": "Automated quiz creation",
+          "description": "Instantly create customized quizzes from PDFs, videos, or text materials with just a few clicks. Save time and focus on your strategic learning goals."
+        },
+        {
+          "title": "Real-time analytics",
+          "description": "Get instant insights into employee performance. Track progress, identify skill gaps, and ensure every team member is on the right track."
+        },
+        {
+          "title": "Seamless integration with LMS",
+          "description": "Hearify seamlessly integrates with your existing learning management system, making quiz deployment and management simple and efficient."
+        },
+        {
+          "title": "Adaptive training courses",
+          "description": "Provide a personalized learning experience by adapting quizzes to each employee's knowledge level."
+        }
+      ]
+    },
+    "CorporateTrainingFAQ": {
+      "title": "Frequently Asked Questions",
+      "blocks": [
+        {
+          "question": "What is AI Employee Training?",
+          "answer": "Hearify uses artificial intelligence to automate and improve employee training processes. This includes creating personalized learning modules, automating tests, tracking progress, and providing real-time feedback to increase employee productivity and engagement."
+        },
+        {
+          "question": "How can I start using AI for corporate training?",
+          "answer": "Start by defining your learning objectives. Upload your existing content (PDFs, videos, or text), use AI to create interactive quizzes, and integrate the platform with your learning management system (LMS) for a seamless deployment."
+        },
+        {
+          "question": "How is AI transforming corporate training?",
+          "answer": "AI is revolutionizing corporate training by automating the creation of learning materials, personalizing the learning experience, tracking employee progress, and providing data-driven insights to improve learning outcomes."
+        },
+        {
+          "question": "How can AI quizzes improve employee engagement?",
+          "answer": "AI quizzes make learning interactive, engaging, and fun. By providing personalized learning experiences, real-time feedback, and adaptive training modules, AI quizzes keep employees motivated and focused on their learning goals."
+        }
+      ]
+    },
+    "CorporateTrainingInfoBoard": {
+      "title": "AI Skills Training for a Smarter Workforce",
+      "description": "Hearify's AI tools simplify enterprise learning by automating repetitive tasks and delivering interactive content that resonates with your team. Whether you're training new employees, ensuring regulatory compliance, or upskilling staff, our platform provides your organization with scalable solutions.",
+      "button": "GET A DEMO",
+      "text_list": [
+        "Accelerate onboarding with tests designed to familiarize employees with company policies.",
+        "Simplify compliance training to keep teams up to date with regulatory requirements.",
+        "Simplify skill development and training programs for continuous professional development."
+      ],
+      "alert-title": "Ready to transform corporate learning?",
+      "alert-text": "Empower your employees with smarter learning tools that get results. Get started today with Hearify and see how effective AI quizzes can be.",
+      "alert-button": "GET A DEMO"
+    },
+    "CorporateTrainingForWhom": {
+      "title": "How Businesses Use Hearify",
+      "data": [
+        {
+          "title": "Compliance training",
+          "description": "Ensure your team complies with industry standards with quizzes that reinforce important information."
+        },
+        {
+          "title": "Onboarding new employees",
+          "description": "Help new employees quickly adapt to their roles with interactive quizzes that test their understanding of company values and policies."
+        },
+        {
+          "title": "Team development",
+          "description": "Identify knowledge gaps and offer targeted training programs to help employees learn new skills."
+        }
+      ]
+    },
+    "EduInstitutionsHero": {
+      "title": "Transform Education with AI-powered Quizzes",
+      "description": "Simplify learning, engage students, and improve results with AI-powered quizzes for schools, universities, and online courses.",
+      "button": "GET A DEMO"
+    },
+    "WhyEduInstitutions": {
+      "title": "Why Choose Hearify for Educational Institutions?",
+      "benefits": [
+        {
+          "title": "Simplified quiz creation",
+          "description": "Create quizzes in seconds using existing content such as textbooks, lecture notes, PDFs, or videos."
+        },
+        {
+          "title": "Adaptive learning",
+          "description": "Tailor quizzes to each student's knowledge level, providing a personalized learning experience."
+        },
+        {
+          "title": "Instant feedback",
+          "description": "Provide students with instant feedback on their performance to help them identify and address gaps in their understanding."
+        },
+        {
+          "title": "Enhanced student engagement",
+          "description": "Use interactive and gamified quizzes to keep students motivated and focused on their studies."
+        }
+      ]
+    },
+    "EduInstitutionsInfoBoard": {
+      "title": "Revolutionize Education with AI Test Creator for Teachers",
+      "description": "Hearify's AI-powered platform enables educators to save time and improve learning outcomes by automating repetitive tasks and delivering personalized learning experiences.",
+      "button": "LEARN MORE",
+      "text_list": [
+        "For schools: Create quizzes that align with the curriculum and reinforce classroom learning.",
+        "For universities: Automate assessments and offer adaptive testing for different groups of students.",
+        "For online courses: Create interactive quizzes to keep students engaged and track their progress effectively."
+      ],
+      "alert-title": "Ready to Transform Your Institution?",
+      "alert-text": "Save time, improve outcomes, and engage your students with Hearify's AI quiz platform.",
+      "alert-button": "LEARN MORE"
+    },
+    "EduInstitutionsForWhom": {
+      "title": "How AI Quiz Maker for Educators Helps to Transform Learning",
+      "data": [
+        {
+          "title": "Create quizzes based on the curriculum",
+          "description": "Create quizzes based on national or regional educational standards to test how students have mastered the material they've learned."
+        },
+        {
+          "title": "Enhance online learning",
+          "description": "Use interactive quizzes to encourage students to participate in distance or hybrid learning."
+        },
+        {
+          "title": "Support personalized learning",
+          "description": "Tailor quizzes to individual student levels to provide differentiated learning and improve outcomes."
+        }
+      ]
+    },
+    "EduInstitutionsFAQ": {
+      "title": "Frequently Asked Questions",
+      "blocks": [
+        {
+          "question": "Can Hearify support large institutions with multiple classes?",
+          "answer": "Yes, Hearify's scalable solutions are perfect for schools and universities with diverse student groups."
+        },
+        {
+          "question": "Does Hearify provide real-time performance tracking?",
+          "answer": "Absolutely! Our platform offers detailed analytics to track student progress and identify learning gaps."
+        },
+        {
+          "question": "What content formats does Hearify support for quiz creation?",
+          "answer": "You can use text documents, PDFs, videos, and lecture notes to create quizzes effortlessly."
+        },
+        {
+          "question": "Can Hearify integrate with existing learning management systems?",
+          "answer": "Yes, Hearify seamlessly integrates with popular LMS platforms to ensure a smooth learning experience."
+        }
+      ]
+    },
+    "MarketingHero": {
+      "title": "Quizzes for Marketing and Customer Engagement",
+      "description": "Transform your marketing strategy with quizzes that capture leads and personalize the customer journey. Hearify’s AI quiz generator helps businesses attract new customers and strengthen brand loyalty.",
+      "button": "CREATE A QUIZ"
+    },
+    "WhyMarketing": {
+      "title": "Why Use Interactive Quizzes in Marketing?",
+      "benefits": [
+        {
+          "title": "Lead Generation & Data Collection",
+          "description": "Capture high-quality leads by engaging users with fun, interactive quizzes that collect valuable insights."
+        },
+        {
+          "title": "Engagement & Brand Awareness",
+          "description": "Quizzes keep your audience engaged longer, increasing website interaction and social media shares."
+        },
+        {
+          "title": "Personalized Customer Journeys",
+          "description": "AI-generated quizzes help you deliver tailored recommendations and content to potential customers."
+        },
+        {
+          "title": "Higher Conversion Rates",
+          "description": "Users interacting with quizzes are more likely to convert into paying customers or subscribers."
+        }
+      ]
+    },
+    "MarketingInfoBoard": {
+      "title": "How AI-Powered Quizzes Improve Customer Engagement",
+      "description": "Hearify's AI quiz platform helps businesses create meaningful interactions that drive real results. Whether you're launching a new product, building brand awareness, or improving customer retention, interactive quizzes make every engagement count.",
+      "button": "CREATE A QUIZ",
+      "text_list": [
+        "Create AI-driven quizzes based on customer behavior and preferences to drive engagement.",
+        "Embed quizzes on websites, emails, or social media to maximize reach and interaction.",
+        "Analyze real-time data to refine your marketing strategy and boost conversions and ROI."
+      ],
+      "alert-title": "Turn Engagement into Conversions!",
+      "alert-text": "Make your marketing campaigns more interactive, data-driven, and conversion-focused with Hearify's AI quiz generator.",
+      "alert-button": "CREATE A QUIZ"
+    },
+    "MarketingForWhom": {
+      "title": "Use Cases: How Businesses Are Winning with AI Quizzes",
+      "data": [
+        {
+          "title": "Content Marketing & Lead Generation",
+          "description": "Use quizzes to capture leads, segment audiences, and deliver targeted content."
+        },
+        {
+          "title": "Events & Webinars",
+          "description": "Engage attendees with pre-event quizzes and post-event feedback surveys."
+        },
+        {
+          "title": "Brand Awareness Campaigns",
+          "description": "Gamify your content to create viral, shareable marketing experiences."
+        },
+        {
+          "title": "SaaS & Tech",
+          "description": "Use quizzes to educate potential clients and guide them toward the right solution."
+        },
+        {
+          "title": "Customer Loyalty & Retention",
+          "description": "Reward users with personalized content, offers, and discounts based on quiz responses."
+        },
+        {
+          "title": "E-Commerce & Retail",
+          "description": "Help customers find the perfect product with quiz-based recommendations."
+        }
+      ]
+    },
+    "MarketingFAQ": {
+      "title": "Frequently Asked Questions",
+      "blocks": [
+        {
+          "question": "How can quizzes help with lead generation?",
+          "answer": "Quizzes collect user responses and emails, helping businesses generate qualified leads and personalize follow-ups."
+        },
+        {
+          "question": "Where can I share my quizzes?",
+          "answer": "You can embed quizzes on websites, share them via email marketing, or post them on social media to reach a wider audience."
+        },
+        {
+          "question": "Can I integrate quizzes with my CRM?",
+          "answer": "Yes! Hearify supports CRM integrations, allowing you to automate lead collection and follow-up strategies."
+        },
+        {
+          "question": "Can I track quiz performance and ROI?",
+          "answer": "Hearify provides detailed analytics to help you measure quiz performance, track conversions, and optimize your marketing strategy."
+        }
+      ]
+    },
+    "SMBHero": {
+      "title": "Cost-Effective AI Quiz Solution for Businesses",
+      "description": "Give your team a simple, cost-effective AI quiz solution. Whether you're training employees or engaging customers, Hearify provides an affordable platform designed to help businesses thrive.",
+      "button": "TRY FOR FREE"
+    },
+    "WhySMB": {
+      "title": "Why Businesses Choose Hearify?",
+      "benefits": [
+        {
+          "title": "Quick Setup & Easy to Use",
+          "description": "Get started in minutes—no technical skills required! Our intuitive interface ensures seamless quiz creation."
+        },
+        {
+          "title": "Cost-Effective Solution",
+          "description": "Designed to fit small business budgets, offering powerful AI-driven features without high costs."
+        },
+        {
+          "title": "Training & Team Building",
+          "description": "Create engaging quizzes to onboard new employees, reinforce company knowledge, and boost collaboration."
+        },
+        {
+          "title": "Lead Generation & Engagement",
+          "description": "Use AI-generated quizzes to attract new customers, collect insights, and increase engagement."
+        }
+      ]
+    },
+    "SMBInfoBoard": {
+      "title": "Streamline Learning & Engagement for Teams",
+      "description": "Hearify helps small businesses maximize efficiency without adding complexity. Whether you need a tool for employee training, customer engagement, or team-building activities, our AI quiz platform delivers results with minimal effort.",
+      "button": "TRY FOR FREE",
+      "text_list": [
+        "Train employees faster with automated quizzes. No coding or technical skills required.",
+        "Improve teamwork with fun and interactive knowledge tests. Boost engagement and collaboration.",
+        "Boost customer retention with personalized engagement quizzes. Collect valuable insights and feedback.",
+        "Scale effortlessly as your business grows. Our platform grows with you, offering more features and capabilities."
+      ],
+      "alert-title": "Get Started with AI Quizzes Today!",
+      "alert-text": "Affordable, scalable, and easy to use AI quiz solution for small businesses looking to train teams and engage customers.",
+      "alert-button": "TRY FOR FREE"
+    },
+    "SMBForWhom": {
+      "title": "How Businesses Are Using AI Quizzes",
+      "data": [
+        {
+          "title": "Onboarding & Training",
+          "description": "Quickly get new employees up to speed with structured training quizzes."
+        },
+        {
+          "title": "Team Collaboration",
+          "description": "Strengthen internal communication and knowledge-sharing through interactive quizzes."
+        },
+        {
+          "title": "Customer Feedback & Surveys",
+          "description": "Use AI-powered quizzes to understand customer needs and preferences."
+        },
+        {
+          "title": "Product Recommendations",
+          "description": "Help customers find the right product or service with AI-driven quiz interactions."
+        },
+        {
+          "title": "Lead Generation",
+          "description": "Attract new leads and collect valuable data through engaging quizzes."
+        },
+        {
+          "title": "Brand Awareness",
+          "description": "Increase brand visibility and engagement with interactive quizzes."
+        }
+      ]
+    },
+    "SMBFAQ": {
+      "title": "Frequently Asked Questions",
+      "blocks": [
+        {
+          "question": "Is Hearify suitable for small businesses with no technical expertise?",
+          "answer": "Yes! Hearify is designed for ease of use—anyone can create and manage quizzes without coding or advanced skills."
+        },
+        {
+          "question": "Can I use quizzes to improve team productivity?",
+          "answer": "Absolutely! Use quizzes for knowledge sharing, onboarding, and training to enhance teamwork and efficiency."
+        },
+        {
+          "question": "How can AI quizzes help with customer engagement?",
+          "answer": "AI quizzes allow businesses to collect insights, recommend products, and create interactive experiences that drive conversions."
+        },
+        {
+          "question": "Can I customize quizzes to match my brand?",
+          "answer": "Yes! Hearify offers customization options to match your brand colors, logo, and messaging for a seamless user experience."
+        }
+      ]
+    },
+    "PartnerProgramsHero": {
+      "title": "White-Label AI Quiz Solutions for Partners and Agencies",
+      "description": "Expand your agency's service offerings with white-label AI quizzes that you can brand as your own. Deliver powerful training, engagement, and marketing solutions to your clients while unlocking new revenue streams. ",
+      "button": "LEARN MORE"
+    },
+    "WhyPartnerPrograms": {
+      "title": "Why Partner with Hearify?",
+      "benefits": [
+        {
+          "title": "White-Label Branding",
+          "description": "Offer AI quiz solutions under your own brand, strengthening your service portfolio without additional development costs."
+        },
+        {
+          "title": "Flexible Partnership Models",
+          "description": "Choose the partnership level that fits your business—reseller, affiliate, or full white-label solution."
+        },
+        {
+          "title": "Recurring Revenue Streams",
+          "description": "Earn from subscriptions, custom solutions, and premium feature offerings for your clients."
+        },
+        {
+          "title": "AI-Powered Automation",
+          "description": "Provide clients with an intelligent quiz generator that saves time, enhances engagement, and delivers real-time analytics."
+        }
+      ]
+    },
+    "PartnerProgramsInfoBoard": {
+      "title": "How Our Partner Program Works",
+      "description": "Partnering with Hearify is easy—whether you're a digital agency, marketing firm, or e-learning provider, we help you scale your services with AI-powered quiz solutions.",
+      "button": "BECOME A PARTNER",
+      "text_list": [
+        "Customize the platform with your branding – Logo, colors, and domain personalization.",
+        "Offer quiz automation to your clients – Training, lead generation, and customer engagement.",
+        "Earn recurring revenue – Get commissions on every client subscription.",
+        "Access premium partner support – Dedicated resources to help you grow."
+      ],
+      "alert-title": "Start Growing Your Agency Today!",
+      "alert-text": "Join Hearify's Partner Program and offer our AI solutions under your own brand. Increase revenue and provide engagement tools to your clients.",
+      "alert-button": "BECOME A PARTNER"
+    },
+    "PartnerProgramsForWhom": {
+      "title": "Who Can Benefit from Our Partner Program?",
+      "data": [
+        {
+          "title": "Marketing Agencies",
+          "description": "Provide interactive quizzes for lead generation, customer engagement, and brand awareness."
+        },
+        {
+          "title": "Training & e-Learning Providers",
+          "description": "Automate corporate training, onboarding, and knowledge assessment for businesses."
+        },
+        {
+          "title": "HR & Recruitment Agencies",
+          "description": "Help companies streamline hiring processes and employee assessments with AI-driven quizzes."
+        },
+        {
+          "title": "Tech & SaaS Companies",
+          "description": "Offer AI-powered quiz solutions as an additional service or integration for your clients."
+        },
+        {
+          "title": "Educational Institutions",
+          "description": "Enhance learning experiences with interactive quizzes tailored to students' needs."
+        },
+        {
+          "title": "You?",
+          "description": "If you have clients who could benefit from AI quizzes, we have a solution for you."
+        }
+      ]
+    },
+    "PartnerProgramsFAQ": {
+      "title": "Frequently Asked Questions",
+      "blocks": [
+        {
+          "question": "Can I fully brand Hearify's platform as my own?",
+          "answer": "Yes! Our white-label solution allows full customization, including branding, domain integration, and personalized UI."
+        },
+        {
+          "question": "What industries can benefit from AI quizzes?",
+          "answer": "Marketing, education, corporate training, HR, SaaS, and many more industries can use AI-powered quizzes for engagement and learning."
+        },
+        {
+          "question": "How does revenue sharing work?",
+          "answer": "As a partner, you earn commissions on client subscriptions, with flexible models to maximize profitability."
+        },
+        {
+          "question": "What support do you offer to partners?",
+          "answer": "We provide dedicated resources and support to help you grow your business and maximize the value of our partnership."
+        }
+      ]
+    },
+    "IndustriesHero": {
+      "title": "Industry-Specific AI Training",
+      "description": "Simplify learning and assessment in specialized fields with AI tests tailored to your industry’s unique demands. Whether in medical education, financial training, IT, or manufacturing, Hearify ensures effective learning outcomes.",
+      "button": "GET INDUSTRY SOLUTION"
+    },
+    "WhyIndustries": {
+      "title": "Why Use AI Quizzes for Specialized Training?",
+      "benefits": [
+        {
+          "title": "Industry-Specific Content",
+          "description": "Create quizzes tailored to your field, ensuring relevance and high-quality assessments."
+        },
+        {
+          "title": "Precision Testing & Feedback",
+          "description": "AI-driven analytics provide accurate evaluation and personalized feedback to enhance learning."
+        },
+        {
+          "title": "Compliance & Certification Support",
+          "description": "Ensure employees and trainees meet industry standards with automated assessments."
+        },
+        {
+          "title": "Adaptive Learning & Skill Tracking",
+          "description": "Customize quizzes to match learners' levels and track their progress over time."
+        }
+      ]
+    },
+    "IndustriesInfoBoard": {
+      "title": "How AI-Powered Quizzes Enhance Industry Training",
+      "description": "Hearify's AI-driven quiz platform allows organizations in healthcare, finance, engineering, technology, and other industries to streamline training and certification processes with automated, customizable assessments.",
+      "button": "GET INDUSTRY SOLUTION",
+      "text_list": [
+        "Automate complex assessments for technical knowledge, certifications, and skills testing.",
+        "Ensure compliance by integrating industry-specific regulations into quiz content.",
+        "Deliver precise feedback with AI-driven performance tracking and personalized learning paths.",
+        "Boost engagement with interactive learning experiences tailored to your workforce."
+      ],
+      "alert-title": "Optimize Learning & Compliance !",
+      "alert-text": "Take training and certification to the next level with industry-specific AI quizzes. Automate assessments, track progress and ensure compliance.",
+      "alert-button": "GET SOLUTION"
+    },
+    "IndustriesForWhom": {
+      "title": "AI Quizzes for Industry-Specific Learning",
+      "data": [
+        {
+          "title": "Medical & Healthcare Training",
+          "description": "Create knowledge assessments for medical students, healthcare professionals, and compliance training."
+        },
+        {
+          "title": "Financial Services & Banking",
+          "description": "Evaluate financial literacy, risk assessment skills, and regulatory compliance."
+        },
+        {
+          "title": "Engineering & Manufacturing",
+          "description": "Train employees on safety standards, technical protocols, and operational efficiency."
+        },
+        {
+          "title": "IT & Software Development",
+          "description": "Test coding skills, cybersecurity knowledge, and technical certifications."
+        },
+        {
+          "title": "Legal & Compliance",
+          "description": "Ensure adherence to industry laws and ethical guidelines through AI-powered quizzes."
+        },
+        {
+          "title": "Other Specialized Fields",
+          "description": "Customize quizzes for any industry, from aviation to hospitality, to meet unique training needs."
+        }
+      ]
+    },
+    "IndustriesFAQ": {
+      "title": "Frequently Asked Questions",
+      "blocks": [
+        {
+          "question": "Can Hearify create quizzes specific to my industry?",
+          "answer": "Yes! Our AI quiz generator is designed to customize assessments based on industry requirements, from healthcare to finance."
+        },
+        {
+          "question": "Does Hearify support compliance and certification quizzes?",
+          "answer": "Absolutely. Our platform helps industries meet regulatory standards with accurate and automated certification assessments."
+        },
+        {
+          "question": "How does AI improve industry-specific training?",
+          "answer": "AI ensures precision testing, real-time analytics, and adaptive learning paths to optimize skill development."
+        },
+        {
+          "question": "Is Hearify suitable for large organizations with complex training needs?",
+          "answer": "Yes! Our scalable solutions are designed to meet the demands of large organizations with diverse training requirements."
+        }
+      ]
+    },
+    "TermsOfUse": {
+      "title": "Terms of Use",
+      "date": "(Last updated: December 29th, 2023)",
+      "introduction": "<h2>Introduction</h2><p>Welcome to <strong>Hearify, Inc</strong></p><p>Hearify, Inc («us», «we», or «our») operates <a>https://hearify.org</a> (hereinafter referred to as «Service»).</p><p>These Terms of Service (“Terms”, “Terms of Service”, “Terms & Conditions”) govern your use of our web pages located at https://hearify.org operated by Hearify Inc</p><p>Our Privacy Policy also governs your use of our Service and explains how we collect, safeguard and disclose information that results from your use of our web pages. Please read it here <a href='https://hearify.org/privacy-policy'>https://hearify.org/privacy-policy</a></p><p>Your agreement with us includes these Terms and our Privacy Policy (“Agreements”). You acknowledge that you have read and understood Agreements, and agree to be bound of them.</p><p>If you do not agree with (or cannot comply with) Agreements, then you may not use the Service, but please let us know by emailing at hearify.tech@gmail.com so we can try to find a solution. These Terms apply to all visitors, users and others who wish to access or use Service.</p><p>Thank you for being responsible.</p>",
+      "terms": "<h2>General Terms</h2><p>By accessing and using Hearify, you confirm that you are in agreement with and bound by the terms of service contained in the Terms of Service outlined below. These terms apply to the entire website and any email or other type of communication between you and Hearify.</p><p>Under no circumstances shall Hearify team be liable for any direct, indirect, special, incidental or consequential damages, including, but not limited to, loss of data or profit, arising out of the use, or the inability to use, the materials on this site, even if Hearify team or an authorized representative has been advised of the possibility of such damages. If your use of materials from this site results in the need for servicing, repair or correction of equipment or data, you assume any costs thereof.</p><p>Hearify will not be responsible for any outcome that may occur during the course of usage of our resources. We reserve the rights to change prices and revise the resources usage policy in any moment.</p>",
+      "definitions": "<h2>Definitions</h2><p>To help explain things as clearly as possible in this Terms of Service, every time any of these terms are referenced, are strictly defined as:</p><p><strong>SERVICE</strong> means the <a href='https://hearify.org'>https://hearify.org</a> website operated by <strong>Hearify, Inc</strong></p><p><strong>COMPANY</strong> when this terms mention “Company,” “we,” “us,” or “our,” it refers to Hearify Inc., that is responsible for your information under this Terms of Service.</p><p><strong>DEVICE</strong> any internet connected device such as a phone, tablet, computer or any other device that can be used to visit Hearify and use the services.</p><p><strong>COOKIE</strong> Small amount of data generated by a website and saved by your web browser. It is used to identify your browser, provide analytics, remember information about you such as your language preference or login information.</p><p><strong>THIRD-PARTY SERVICE</strong> refers to advertisers, contest sponsors, promotional and marketing partners, and others who provide our content or whose products or services we think may interest you.</p><p><strong>WEBSITE</strong> Hearify’s site, which can be accessed via this URL: <a href='https://hearify.org'>https://hearify.org</a></p><p><strong>YOU</strong> a person or entity that is registered with Hearify to use the Services.</p>",
+      "restrictions": "<h2>Restrictions</h2><p>You agree not to, and you will not permit others to:</p><ul><li>License, sell, rent, lease, transmit, outsource, disclose or otherwise commercially exploit the website or make the platform available to any third party.</li><li>Modify, make derivative works of, disassemble, decrypt, reverse compile or reverse engineer any part of the website.</li><li>Remove, alter or obscure any proprietary notice (including any notice of copyright or trademark) of Hearify or its partners, or the licensors of the website.</li>",
+      "payments": "<h2>Payments</h2><p>If you register to any of our recurring payment plans, you agree to pay all fees or charges to your account for the Service in accordance with the fees, charges and billing terms in effect at the time that each fee or charge is due and payable. Unless otherwise indicated in an order form, you must provide Hearify with a valid credit card (Visa, MasterCard, or any other issuer accepted by us) (“Payment Provider”) as a condition to signing up for the Premium plan. Your Payment Provider agreement governs your use of the designated credit card account, and you must refer to that agreement and not these Terms to determine your rights and liabilities with respect to your Payment Provider.</p><p>By providing Hearify with your credit card number and associated payment information, you agree that Hearify is authorized to verify information immediately, and subsequently invoice your account for all fees and charges due and payable to Hearify hereunder and that no additional notice or consent is required. You agree to immediately notify Hearify of any change in your billing address or the credit card used for payment hereunder. Hearify reserves the right at any time to change its prices and billing methods, either immediately upon posting on our Site or by e-mail delivery to your organization’s administrator(s).</p><p>Any attorney fees, court costs, or other costs incurred in collection of delinquent undisputed amounts shall be the responsibility of and paid for by you.</p><p>Hearify reserves the right to refuse or cancel your order at any time for reasons including but not limited to: product or service availability, errors in the description or price of the product or service, error in your order or other reasons.</p><p>Hearify reserves the right to refuse or cancel your order if fraud or an unauthorized or illegal transaction is suspected.</p><p>You are responsible for any third-party fees that you may incur when using the Service.</p>",
+      "subscriptions": "<h2>Subscriptions</h2><p>Some parts of Service are billed on a subscription basis (“Subscription(s)”). You will be billed in advance on a recurring and periodic basis (“Billing Cycle”). Billing cycles are set either on a monthly, quarterly, or annual basis, depending on the type of subscription plan you select when purchasing a Subscription.</p><p>At the end of each Billing Cycle, your Subscription will automatically renew under the exact same conditions unless you cancel it or Hearify Inc cancels it. You may cancel your Subscription renewal either through your online account management page or by contacting Hearify Inc customer support team.</p><p>A valid payment method, including credit card, is required to process the payment for your subscription. You shall provide Hearify Inc with accurate and complete billing information including full name, address, state, zip code, telephone number, and a valid payment method information. By submitting such payment information, you automatically authorize Hearify Inc to charge all Subscription fees incurred through your account to any such payment instruments.</p><p>Should automatic billing fail to occur for any reason, Hearify Inc will issue an electronic invoice indicating that you must proceed manually, within a certain deadline date, with the full payment corresponding to the billing period as indicated on the invoice.</p>",
+      "free-trial": "<h2>Free Trial</h2><p>Hearify Inc may, at its sole discretion, offer a Subscription with a free trial for a limited period of time (“Free Trial”).</p><p>You may be required to enter your billing information in order to sign up for Free Trial.</p><p>If you do enter your billing information when signing up for Free Trial, you will not be charged by Hearify Inc until Free Trial has expired. On the last day of Free Trial period, unless you cancelled your Subscription, you will be automatically charged the applicable Subscription fees for the type of Subscription you have selected.</p><p>At any time and without notice, Hearify Inc reserves the right to (i) modify Terms of Service of Free Trial offer, or (ii) cancel such Free Trial offer.</p>",
+      "fee-changes": "<h2>Fee Changes</h2><p>Hearify Inc, in its sole discretion and at any time, may modify Subscription fees for the Subscriptions. Any Subscription fee change will become effective at the end of the then-current Billing Cycle.</p><p>Hearify Inc will provide you with a reasonable prior notice of any change in Subscription fees to give you an opportunity to terminate your Subscription before such change becomes effective.</p><p>Your continued use of Service after Subscription fee change comes into effect constitutes your agreement to pay the modified Subscription fee amount.</p>",
+      "refund": "<h2>Return and Refund Policy</h2><p>Except when required by law, paid Subscription fees are non-refundable.</p>",
+      "promotions": "<h2>Promotions</h2><p>Any contests, sweepstakes or other promotions (collectively, “Promotions”) made available through Service may be governed by rules that are separate from these Terms of Service. If you participate in any Promotions, please review the applicable rules as well as our Privacy Policy. If the rules for a Promotion conflict with these Terms of Service, Promotion rules will apply.</p>",
+      "suggestions": "<h2>Your Suggestions</h2><p>Any feedback, comments, ideas, improvements, or suggestions (collectively, \"Suggestions\") provided by you to Hearify with respect to the website shall remain the sole and exclusive property of Hearify.</p><p>Hearify shall be free to use, copy, modify, publish, or redistribute the Suggestions for any purpose and in any way without any credit or any compensation to you.</p>",
+      "links": "<h2>Links to Other Websites</h2><p>This Terms of Service applies only to the Services. The Services may contain links to other websites not operated or controlled by Hearify. We are not responsible for the content, accuracy, or opinions expressed in such websites, and such websites are not investigated, monitored, or checked for accuracy or completeness by us. Please remember that when you use a link to go from the Services to another website, our Terms of Service are no longer in effect. Your browsing and interaction on any other website, including those that have a link on our platform, is subject to that website’s own rules and policies. Such third parties may use their own cookies or other methods to collect information about you.</p>",
+      "cookies": "<h2>Cookies</h2><p>Hearify uses \"Cookies\" to identify the areas of our website that you have visited. A Cookie is a small piece of data stored on your computer or mobile device by your web browser. We use Cookies to enhance the performance and functionality of our website but are non-essential to their use. However, without these cookies, certain functionality may become unavailable or you would be required to enter your login details every time you visit the website as we would not be able to remember that you had logged in previously. Most web browsers can be set to disable the use of Cookies. However, if you disable Cookies, you may not be able to access functionality on our website correctly or at all. We never place Personally Identifiable Information in Cookies.</p>",
+      "changes": "<h2>Changes To Our Terms of Service</h2><p>You acknowledge and agree that Hearify may stop (permanently or temporarily) providing the Service (or any features within the Service) to you or to users generally, without prior notice to you. You may stop using the Service at any time. You do not need to specifically inform Hearify when you stop using the Service. You acknowledge and agree that if Hearify disables access to your account, you may be prevented from accessing the Service, your account details or any files or other materials which is contained in your account.</p><p>If we decide to change our Terms of Service, we will post those changes on this page, and/or update the Terms of Service modification date.</p>",
+      "modifications": "<h2>Modifications to Our website</h2><p>Hearify reserves the right to modify, suspend or discontinue, temporarily or permanently, the website or any service to which it connects, with or without notice and without liability to you.</p>",
+      "updates": "<h2>Updates to Our website</h2><p>Hearify may from time to time provide enhancements or improvements to the features/ functionality of the website, which may include patches, bug fixes, updates, upgrades and other modifications (\"Updates\").</p><p>Updates may modify or delete certain features and/or functionalities of the website. You agree that Hearify has no obligation to (i) provide any Updates, or (ii) continue to provide or enable any particular features and/or functionalities of the website to you.</p><p>You further agree that all Updates will be (i) deemed to constitute an integral part of the website, and (ii) subject to the terms and conditions of this Agreement.</p>",
+      "third-party": "<h2>Third-Party Services</h2><p>We may display, include or make available third-party content (including data, information, applications and other products services) or provide links to third-party websites or services (\"Third- Party Services\").</p><p>You acknowledge and agree that Hearify shall not be responsible for any Third-Party Services, including their accuracy, completeness, timeliness, validity, copyright compliance, legality, decency, quality or any other aspect thereof. Hearify does not assume and shall not have any liability or responsibility to you or any other person or entity for any Third-Party Services.</p><p>Third-Party Services and links thereto are provided solely as a convenience to you and you access and use them entirely at your own risk and subject to such third parties' terms and conditions.</p>",
+      "term-termination": "<h2>Term and Termination</h2><p>This Agreement shall remain in effect until terminated by you or Hearify.</p><p>Hearify may, in its sole discretion, at any time and for any or no reason, suspend or terminate this Agreement with or without prior notice.</p><p>This Agreement will terminate immediately, without prior notice from Hearify, in the event that you fail to comply with any provision of this Agreement. You may also terminate this Agreement by deleting your account from the website.</p><p>Termination of this Agreement will not limit any of Hearify's rights or remedies at law or in equity in case of breach by you (during the term of this Agreement) of any of your obligations under the present Agreement.</p>",
+      "indemnification": "<h2>Indemnification</h2><p>You agree to indemnify and hold Hearify and harmless from any claim or demand, including reasonable attorneys' fees, due to or arising out of your: (a) use of the website; (b) violation of this Agreement or any law or regulation; or (c) violation of any right of a third party.</p>",
+      "warranties": "<h2>No Warranties</h2><p>The website is provided to you \"AS IS\" and \"AS AVAILABLE\" and with all faults and defects without warranty of any kind. To the maximum extent permitted under applicable law, Hearify, on its own behalf expressly disclaims all warranties, whether express, implied, statutory or otherwise, with respect to the website, including all implied warranties of merchantability, fitness for a particular purpose, title and non-infringement, and warranties that may arise out of course of dealing, course of performance, usage or trade practice. Without limitation to the foregoing, Hearify provides no warranty or undertaking, and makes no representation of any kind that the website will meet your requirements, achieve any intended results, be compatible or work with any other software, websites, systems or services, operate without interruption, meet any performance or reliability standards or be error free or that any errors or defects can or will be corrected.</p><p>Without limiting the foregoing, neither Hearify nor any Hearify's provider makes any representation or warranty of any kind, express or implied: (i) as to the operation or availability of the website, or the information, content, and materials or products included thereon; (ii) that the website will be uninterrupted or error-free; (iii) as to the accuracy, reliability, or currency of any information or content provided through the website; or (iv) that the website, its servers, the content, or e-mails sent from or on behalf of Hearify are free of viruses, scripts, trojan horses, worms, malware, timebombs or other harmful components.</p><p>Some jurisdictions do not allow the exclusion of or limitations on implied warranties or the limitations on the applicable statutory rights of a consumer, so some or all of the above exclusions and limitations may not apply to you.</p>",
+      "liability": "<h2>Limitation of Liability</h2><p>Notwithstanding any damages that you might incur, the entire liability of Hearify and any of its providers under any provision of this Agreement and your exclusive remedy for all of the foregoing shall be limited to the amount actually paid by you for the website.</p><p>To the maximum extent permitted by applicable law, in no event shall Hearify or its suppliers be liable for any special, incidental, indirect, or consequential damages whatsoever (including, but not limited to, damages for loss of profits, for loss of data or other information, for business interruption, for personal injury, for loss of privacy arising out of or in any way related to the use of or inability to use the website, third-party software and/or third-party hardware used with the website, or otherwise in connection with any provision of this Agreement), even if Hearify or any supplier has been advised of the possibility of such damages and even if the remedy fails of its essential purpose.</p><p>Some states/jurisdictions do not allow the exclusion or limitation of incidental or consequential damages, so the above limitation or exclusion may not apply to you.</p>",
+      "severability": "<h2>Severability</h2><p>If any provision of this Agreement is held to be unenforceable or invalid, such provision will be changed and interpreted to accomplish the objectives of such provision to the greatest extent possible under applicable law and the remaining provisions will continue in full force and effect.</p><p>This Agreement, together with the Privacy Policy and any other legal notices published by Hearify on the Services, shall constitute the entire agreement between you and Hearify concerning the Services. If any provision of this Agreement is deemed invalid by a court of competent jurisdiction, the invalidity of such provision shall not affect the validity of the remaining provisions of this Agreement, which shall remain in full force and effect. No waiver of any term of this Agreement shall be deemed a further or continuing waiver of such term or any other term, and Hearify’s failure to assert any right or provision under this Agreement shall not constitute a waiver of such right or provision. YOU AND Hearify AGREE THAT ANY CAUSE OF ACTION ARISING OUT OF OR RELATED TO THE SERVICES MUST COMMENCE WITHIN ONE (1) YEAR AFTER THE CAUSE OF ACTION ACCRUES. OTHERWISE, SUCH CAUSE OF ACTION IS PERMANENTLY BARRED.</p>",
+      "waiver": "<h2>Waiver</h2><p>Except as provided herein, the failure to exercise a right or to require performance of an obligation under this Agreement shall not affect a party's ability to exercise such right or require such performance at any time thereafter nor shall be the waiver of a breach constitute waiver of any subsequent breach.</p><p>No failure to exercise, and no delay in exercising, on the part of either party, any right or any power under this Agreement shall operate as a waiver of that right or power. Nor shall any single or partial exercise of any right or power under this Agreement preclude further exercise of that or any other right granted herein. In the event of a conflict between this Agreement and any applicable purchase or other terms, the terms of this Agreement shall govern.</p>",
+      "amendments": "<h2>Amendments to this Agreement</h2><p>Hearify reserves the right, at its sole discretion, to modify or replace this Agreement at any time. If a revision is material we will provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.</p><p>By continuing to access or use our website after any revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, you are no longer authorized to use Hearify.</p>",
+      "agreement": "<h2>Entire Agreement</h2><p>The Agreement constitutes the entire agreement between you and Hearify regarding your use of the website and supersedes all prior and contemporaneous written or oral agreements between you and Hearify.</p><p>You may be subject to additional terms and conditions that apply when you use or purchase other Hearify's services, which Hearify will provide to you at the time of such use or purchase.</p>",
+      "updates-terms": "<h2>Updates to Our Terms</h2><p>We may change our Service and policies, and we may need to make changes to these Terms so that they accurately reflect our Service and policies. Unless otherwise required by law, we will notify you (for example, through our Service) before we make changes to these Terms and give you an opportunity to review them before they go into effect. Then, if you continue to use the Service, you will be bound by the updated Terms. If you do not want to agree to these or any updated Terms, you can delete your account.</p>",
+      "property": "<h2>Intellectual Property</h2><p>The website and its entire contents, features and functionality (including but not limited to all information, software, text, displays, images, video and audio, and the design, selection and arrangement thereof), are owned by Hearify, its licensors or other providers of such material and are protected by international copyright, trademark, patent, trade secret and other intellectual property or proprietary rights laws. The material may not be copied, modified, reproduced, downloaded or distributed in any way, in whole or in part, without the express prior written permission of Hearify, unless and except as is expressly provided in these Terms of Service. Any unauthorized use of the material is prohibited.</p>",
+      "notice": "<h2>Notice of Dispute</h2><p>The Agreement constitutes the entire agreement between you and Hearify regarding your use of the website and supersedes all prior and contemporaneous written or oral agreements between you and Hearify.</p><p>You may be subject to additional terms and conditions that apply when you use or purchase other Hearify's services, which Hearify will provide to you at the time of such use or purchase.</p>",
+      "arbitrate": "<h2>Agreement to Arbitrate</h2><p>This section applies to any dispute EXCEPT IT DOESN’T INCLUDE A DISPUTE RELATING TO CLAIMS FOR INJUNCTIVE OR EQUITABLE RELIEF REGARDING THE ENFORCEMENT OR VALIDITY OF YOUR OR Hearify’s INTELLECTUAL PROPERTY RIGHTS. The term “dispute” means any dispute, action, or other controversy between you and Hearify concerning the Services or this agreement, whether in contract, warranty, tort, statute, regulation, ordinance, or any other legal or equitable basis. “Dispute” will be given the broadest possible meaning allowable under law.</p>",
+      "binding-arbitration": "<h2>Binding Arbitration</h2><p>If you and Hearify don’t resolve any dispute by informal negotiation, any other effort to resolve the dispute will be conducted exclusively by binding arbitration as described in this section. You are giving up the right to litigate (or participate in as a party or class member) all disputes in court before a judge or jury. The dispute shall be settled by binding arbitration in accordance with the commercial arbitration rules of the American Arbitration Association. Either party may seek any interim or preliminary injunctive relief from any court of competent jurisdiction, as necessary to protect the party’s rights or property pending the completion of arbitration. Any and all legal, accounting, and other costs, fees, and expenses incurred by the prevailing party shall be borne by the non-prevailing party.</p>",
+      "submissions-privacy": "<h2>Submissions and Privacy</h2><p>In the event that you submit or post any ideas, creative suggestions, designs, photographs, information, advertisements, data or proposals, including ideas for new or improved products, services, features, technologies or promotions, you expressly agree that such submissions will automatically be treated as non-confidential and non-proprietary and will become the sole property of Hearify without any compensation or credit to you whatsoever. Hearify and its affiliates shall have no obligations with respect to such submissions or posts and may use the ideas contained in such submissions or posts for any purposes in any medium in perpetuity, including, but not limited to, developing, manufacturing, and marketing products and services using such ideas.</p>",
+      "typographical-errors": "<h2>Typographical Errors</h2><p>In the event a product and/or service is listed at an incorrect price or with incorrect information due to typographical error, we shall have the right to refuse or cancel any orders placed for the product and/or service listed at the incorrect price. We shall have the right to refuse or cancel any such order whether or not the order has been confirmed and your credit card charged. If your credit card has already been charged for the purchase and your order is canceled, we shall immediately issue a credit to your credit card account or other payment account in the amount of the charge.</p>",
+      "miscellaneous": "<h2>Miscellaneous</h2><p>If for any reason a court of competent jurisdiction finds any provision or portion of these Terms of Service to be unenforceable, the remainder of these Terms of Service will continue in full force and effect. Any waiver of any provision of these Terms of Service will be effective only if in writing and signed by an authorized representative of Hearify. Hearify will be entitled to injunctive or other equitable relief (without the obligations of posting any bond or surety) in the event of any breach or anticipatory breach by you. Hearify operates and controls the Hearify Service from its offices in Ukraine. The Service is not intended for distribution to or use by any person or entity in any jurisdiction or country where such distribution or use would be contrary to law or regulation. Accordingly, those persons who choose to access the Hearify Service from other locations do so on their own initiative and are solely responsible for compliance with local laws, if and to the extent local laws are applicable. These Terms of Service (which include and incorporate the Hearify Privacy Policy) contains the entire understanding, and supersedes all prior understandings, between you and Hearify concerning its subject matter, and cannot be changed or modified by you. The section headings used in this Agreement are for convenience only and will not be given any legal import.</p>",
+      "disclaimer": "<h2>Disclaimer</h2><p>Hearify is not responsible for any content, code or any other imprecision.</p><p>Hearify does not provide warranties or guarantees.</p><p>In no event shall Hearify be liable for any special, direct, indirect, consequential, or incidental damages or any damages whatsoever, whether in an action of contract, negligence or other tort, arising out of or in connection with the use of the Service or the contents of the Service. The Company reserves the right to make additions, deletions, or modifications to the contents on the Service at any time without prior notice.</p><p>The Hearify Service and its contents are provided \"as is\" and \"as available\" without any warranty or representations of any kind, whether express or implied. Hearify is a distributor and not a publisher of the content supplied by third parties; as such, Hearify exercises no editorial control over such content and makes no warranty or representation as to the accuracy, reliability or currency of any information, content, service or merchandise provided through or accessible via the Hearify Service. Without limiting the foregoing, Hearify specifically disclaims all warranties and representations in any content transmitted on or in connection with the Hearify Service or on sites that may appear as links on the Hearify Service, or in the products provided as a part of, or otherwise in connection with, the Hearify Service, including without limitation any warranties of merchantability, fitness for a particular purpose or non-infringement of third party rights. No oral advice or written information given by Hearify or any of its affiliates, employees, officers, directors, agents, or the like will create a warranty. Price and availability information is subject to change without notice. Without limiting the foregoing, Hearify does not warrant that the Hearify Service will be uninterrupted, uncorrupted, timely, or error-free.</p>",
+      "consent": "<h2>Your Consent</h2><p>By using our website, registering an account, or making a purchase, you hereby consent to our Terms of Service.</p>",
+      "contact-us": "<h2>Contact Us</h2><p>If you have any questions about this Terms of Use, please contact us by email: <a href='mailto:info@hearify.org'>info@hearify.org</a>.</p>"
+    },
+    "PrivacyPolicy": {
+      "title": "Privacy Policy",
+      "date": "(Last updated: August 12th, 2023)",
+      "introduction": "<h2>Introduction</h2><p>Welcome to Hearify, Inc.</p><p>Hearify, Inc («us», «we», or «our») operates <a href='https://hearify.org'>https://hearify.org</a> (hereinafter referred to as «Service»).</p><p>Our Privacy Policy governs your visit to https://hearify.org, and explains how we collect, safeguard and disclose information that results from your use of our Service.</p><p>We use your data to provide and improve Service. By using Service, you agree to the collection and use of information in accordance with this policy. Unless otherwise defined in this Privacy Policy, the terms used in this Privacy Policy have the same meanings as in our Terms and Conditions.</p><p>Our Terms and Conditions («Terms») govern all use of our Service and together with the Privacy Policy constitutes your agreement with us («agreement»).</p>",
+      "definitions": "<h2>Definitions</h2><p><strong>SERVICE</strong> means the https://hearify.org website operated by Hearify, Inc.</p><p><strong>PERSONAL DATA</strong> means data about a living individual who can be identified from those data (or from those and other information either in our possession or likely to come into our possession).</p><p><strong>USAGE DATA</strong> is data collected automatically either generated by the use of Service or from Service infrastructure itself (for example, the duration of a page visit).</p><p><strong>COOKIES</strong> are small files stored on your device (computer or mobile device).</p><p><strong>DATA CONTROLLER</strong> means a natural or legal person who (either alone or jointly or in common with other persons) determines the purposes for which and the manner in which any personal data are, or are to be, processed. For the purpose of this Privacy Policy, we are a Data Controller of your data.</p><p><strong>DATA PROCESSORS (OR SERVICE PROVIDERS)</strong> means any natural or legal person who processes the data on behalf of the Data Controller. We may use the services of various Service Providers in order to process your data more effectively.</p><p><strong>DATA SUBJECT</strong> is any living individual who is the subject of Personal Data.</p><p><strong>THE USER</strong> is the individual using our Service. The User corresponds to the Data Subject, who is the subject of Personal Data.</p>",
+      "information-collection": "<h2>Information Collection and Use</h2><p>We collect several different types of information for various purposes to provide and improve our Service to you.</p>",
+      "types-data": "<h2>Types of Data Collected</h2><h3>Personal Data</h3><p>While using our Service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you («Personal Data»). Personally identifiable information may include, but is not limited to:</p><ul><li>Email address</li><li>First name and last name</li><li>Address, State, Province, ZIP/Postal code, City</li><li>Cookies and Usage Data</li></ul><p>We may use your Personal Data to contact you with newsletters, marketing or promotional materials and other information that may be of interest to you. You may opt out of receiving any, or all, of these communications from us by following the unsubscribe link.</p><h3>Usage Data</h3><p>We may also collect information that your browser sends whenever you visit our Service or when you access Service by or through a mobile device («Usage Data»). This Usage Data may include information such as your computer's Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that you visit, the time and date of your visit, the time spent on those pages, unique device identifiers and other diagnostic data.</p><p>When you access Service with a mobile device, this Usage Data may include information such as the type of mobile device you use, your mobile device unique ID, the IP address of your mobile device, your mobile operating system, the type of mobile Internet browser you use, unique device identifiers and other diagnostic data.</p><h3>Tracking Cookies Data</h3><p>We use cookies and similar tracking technologies to track the activity on our Service and we hold certain information.</p><p>Cookies are files with a small amount of data which may include an anonymous unique identifier. Cookies are sent to your browser from a website and stored on your device. Other tracking technologies are also used such as beacons, tags and scripts to collect and track information and to improve and analyze our Service.</p><p>You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Service.</p><p>Examples of Cookies we use:</p><ul><li><strong>Session Cookies:</strong> We use Session Cookies to operate our Service.</li><li><strong>Preference Cookies:</strong> We use Preference Cookies to remember your preferences and various settings.</li><li><strong>Security Cookies:</strong> We use Security Cookies for security purposes.</li><li><strong>Advertising Cookies:</strong> Advertising Cookies are used to serve you with advertisements that may be relevant to you and your interests.</li></ul>",
+      "use-data": "<h2>Use of Data</h2><p>Hearify, Inc uses the collected data for various purposes:</p><ul><li>to provide and maintain our Service;</li><li>to notify you about changes to our Service;</li><li>to allow you to participate in interactive features of our Service when you choose to do so;</li><li>to provide customer support;</li><li>to gather analysis or valuable information so that we can improve our Service;</li><li>to monitor the usage of our Service;</li><li>to detect, prevent and address technical issues;</li><li>to fulfill any other purpose for which you provide it;</li><li>to carry out our obligations and enforce our rights arising from any contracts entered into between you and us, including for billing and collection;</li><li>to provide you with notices about your account and/or subscription, including expiration and renewal notices, email-instructions, etc.;</li><li>to provide you with news, special offers and general information about other goods, services and events which we offer that are similar to those that you have already purchased or enquired about unless you have opted not to receive such information;</li><li>in any other way we may describe when you provide the information;</li><li>for any other purpose with your consent.</li></ul>",
+      "data-retention": "<h2>Retention of Data</h2><p>We will retain your Personal Data only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use your Personal Data to the extent necessary to comply with our legal obligations (for example, if we are required to retain your data to comply with applicable laws), resolve disputes, and enforce our legal agreements and policies.</p><p>We will also retain Usage Data for internal analysis purposes. Usage Data is generally retained for a shorter period, except when this data is used to strengthen the security or to improve the functionality of our Service, or we are legally obligated to retain this data for longer time periods.</p>",
+      "data-transfer": "<h2>Transfer of Data</h2><p>Your information, including Personal Data, may be transferred to – and maintained on – computers located outside of your state, province, country or other governmental jurisdiction where the data protection laws may differ from those of your jurisdiction.</p><p>If you are located outside the United States and choose to provide information to us, please note that we transfer the data, including Personal Data, to the United States and process it there.</p><p>Your consent to this Privacy Policy followed by your submission of such information represents your agreement to that transfer.</p><p>Hearify, Inc will take all the steps reasonably necessary to ensure that your data is treated securely and in accordance with this Privacy Policy and no transfer of your Personal Data will take place to an organisation or a country unless there are adequate controls in place including the security of your data and other personal information.</p>",
+      "data-disclosure": "<h2>Disclosure of Data</h2><p>We may disclose personal information that we collect, or you provide:</p><h3>(a) Disclosure for Law Enforcement</h3><p>Under certain circumstances, we may be required to disclose your Personal Data if required to do so by law or in response to valid requests by public authorities.</p><h3>(b) Business Transaction</h3><p>If we or our subsidiaries are involved in a merger, acquisition or asset sale, your Personal Data may be transferred.</p><h3>(c) Other cases</h3><p>We may disclose your information also:</p><ul><li>to our subsidiaries and affiliates;</li><li>to contractors, service providers, and other third parties we use to support our business;</li><li>to fulfill the purpose for which you provide it;</li><li>for the purpose of including your company’s logo on our website;</li><li>with your consent in any other cases;</li><li>if we believe disclosure is necessary or appropriate to protect the rights, property, or safety of the Company, our customers, or others.</li></ul>",
+      "data-security": "<h2>Security of Data</h2><p>The security of your data is important to us but remember that no method of transmission over the Internet or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security.</p>",
+      "gdpr-rights": "<h2>Your Data Protection Rights Under General Data Protection Regulation (GDPR)</h2><p>If you are a resident of the European Union (EU) and European Economic Area (EEA), you have certain data protection rights, covered by GDPR.</p><p>We aim to take reasonable steps to allow you to correct, amend, delete, or limit the use of your Personal Data.</p><p>If you wish to be informed what Personal Data we hold about you and if you want it to be removed from our systems, please email us at hearify.tech@gmail.com.</p><p>In certain circumstances, you have the following data protection rights:</p><ul><li>The right to access, update or to delete the information we have on you.</li><li>The right of rectification. You have the right to have your information rectified if that information is inaccurate or incomplete.</li><li>The right to object. You have the right to object to our processing of your Personal Data.</li><li>The right of restriction. You have the right to request that we restrict the processing of your personal information.</li><li>The right to data portability. You have the right to be provided with a copy of your Personal Data in a structured, machine-readable and commonly used format.</li><li>The right to withdraw consent. You also have the right to withdraw your consent at any time where we rely on your consent to process your personal information.</li></ul><p>Please note that we may ask you to verify your identity before responding to such requests.</p><p>Please note, we may not be able to provide Service without some necessary data.</p><p>You have the right to complain to a Data Protection Authority about our collection and use of your Personal Data. For more information, please contact your local data protection authority in the European Economic Area (EEA).</p>",
+      "caloppa-rights": "<h2>Your Data Protection Rights under the California Privacy Protection Act (CalOPPA)</h2><p>CalOPPA is the first state law in the nation to require commercial websites and online services to post a privacy policy. The law’s reach stretches well beyond California to require a person or company in the United States (and conceivable the world) that operates websites collecting personally identifiable information from California consumers to post a conspicuous privacy policy on its website stating exactly the information being collected and those individuals with whom it is being shared, and to comply with this policy.</p><p>According to CalOPPA we agree to the following:</p><ul><li>Users can visit our site anonymously;</li><li>Our Privacy Policy link includes the word «Privacy», and can easily be found on the page specified above on the home page of our website;</li><li>Users will be notified of any privacy policy changes on our Privacy Policy Page;</li><li>Users are able to change their personal information by emailing us at hearify.tech@gmail.com.</li></ul>",
+      "do-not-track": "<h2>Our Policy on «Do Not Track» Signals</h2><p>We honor Do Not Track signals and do not track, plant cookies, or use advertising when a Do Not Track browser mechanism is in place. Do Not Track is a preference you can set in your web browser to inform websites that you do not want to be tracked. You can enable or disable Do Not Track by visiting the Preferences or Settings page of your web browser.</p>",
+      "ccpa-rights": "<h2>Your Data Protection Rights under the California Consumer Privacy Act (CCPA)</h2><p>If you are a California resident, you are entitled to learn what data we collect about you, ask to delete your data and not to sell (share) it. To exercise your data protection rights, you can make certain requests and ask us:</p><h3>(a) What personal information we have about you.</h3><p>If you make this request, we will return to you:</p><ul><li>The categories of personal information we have collected about you.</li><li>The categories of sources from which we collect your personal information.</li><li>The business or commercial purpose for collecting or selling your personal information.</li><li>The categories of third parties with whom we share personal information.</li><li>The specific pieces of personal information we have collected about you.</li><li>A list of categories of personal information that we have sold, along with the category of any other company we sold it to. If we have not sold your personal information, we will inform you of that fact.</li><li>A list of categories of personal information that we have disclosed for a business purpose, along with the category of any other company we shared it with.</li></ul><p>Please note, you are entitled to ask us to provide you with this information up to two times in a rolling twelve-month period. When you make this request, the information provided may be limited to the personal information we collected about you in the previous 12 months.</p><h3>(b) To delete your personal information</h3><p>If you make this request, we will delete the personal information we hold about you as of the date of your request from our records and direct any service providers to do the same. In some cases, deletion may be accomplished through de-identification of the information. If you choose to delete your personal information, you may not be able to use certain functions that require your personal information to operate.</p><h3>(c) To stop selling your personal information</h3><p>We don't sell or rent your personal information to any third parties for any purpose. You are the only owner of your Personal Data and can request disclosure or deletion at any time.</p><p>Please note, if you ask us to delete or stop selling your data, it may impact your experience with us, and you may not be able to participate in certain programs or membership services which require the usage of your personal information to function. But in no circumstances, we will discriminate against you for exercising your rights.</p>",
+      "service-providers": "<h2>Service Providers</h2><p>We may employ third-party companies and individuals to facilitate our Service («Service Providers»), provide Service on our behalf, perform Service-related services or assist us in analysing how our Service is used.</p><p>We may use service providers like OpenAI to process conversational data, which is the part of Usage data for Service provision purposes.</p><p>These third parties have access to your Personal Data only to perform these tasks on our behalf and are obligated not to disclose or use it for any other purpose.</p><p>Check the OpenAI Privacy policy here.</p>",
+      "analytics": "<h2>Analytics</h2><p>We may use third-party Service Providers to monitor and analyze the use of our Service.</p><h3>Google Analytics</h3><p>Google Analytics is a web analytics service offered by Google that tracks and reports website traffic. Google uses the data collected to track and monitor the use of our Service. This data is shared with other Google services. Google may use the collected data to contextualize and personalize the ads of its own advertising network.</p><p>For more information on the privacy practices of Google, please visit the <a href='https://policies.google.com/privacy?hl=en'>https://policies.google.com/privacy?hl=en</a>.</p><p>We also encourage you to review the Google's policy for safeguarding your data: <a href='https://support.google.com/analytics/answer/6004245'>https://support.google.com/analytics/answer/6004245.</a></p>",
+      "ci-cd": "<h2>CI/CD tools</h2><p>We may use third-party Service Providers to automate the development process of our Service.</p><h3>GitHub</h3><p>GitHub is provided by GitHub, Inc.</p><p>GitHub is a development platform to host and review code, manage projects, and build software.</p><p>For more information on what data GitHub collects for what purpose and how the protection of the data is ensured, please visit GitHub Privacy Policy page: <a href='https://help.github.com/en/articles/github-privacy-statement'>https://help.github.com/en/articles/github-privacy-statement.</a></p>",
+      "payments": "<h2>Payments</h2><p>We may provide paid products and/or services within Service. In that case, we use third-party services for payment processing (e.g. payment processors).</p><p>We will not store or collect your payment card details. That information is provided directly to our third-party payment processors whose use of your personal information is governed by their Privacy Policy. These payment processors adhere to the standards set by PCI-DSS as managed by the PCI Security Standards Council, which is a joint effort of brands like Visa, Mastercard, American Express and Discover. PCI-DSS requirements help ensure the secure handling of payment information.</p><p>The payment processors we work with are:</p><h3>Stripe</h3> <p>Their Privacy Policy can be viewed at: <a href='https://stripe.com/us/privacy'>https://stripe.com/us/privacy</a></p><h3>Paddle</h3><p>Their Privacy Policy can be viewed at: <a href='https://www.paddle.com/legal/privacy'>https://www.paddle.com/legal/privacy</a></p>",
+      "links": "<h2>Links to Other Sites</h2><p>Our Service may contain links to other sites that are not operated by us. If you click a third party link, you will be directed to that third party's site. We strongly advise you to review the Privacy Policy of every site you visit.</p><p>We have no control over and assume no responsibility for the content, privacy policies or practices of any third party sites or services.</p><p>Hearify use and transfer to any other app of information received from Google APIs will adhere to the <a href='https://developers.google.com/terms/api-services-user-data-policy#additional_requirements_for_specific_api_scopes'>Google API Services User Data Policy</a>, including the Limited Use requirements.</p>",
+      "children": "<h2>Children's Privacy</h2><p>Our Services are not intended for use by children under the age of 13 («Children»).</p><p>We do not knowingly collect personally identifiable information from Children under 13. If you become aware that a Child has provided us with Personal Data, please contact us. If we become aware that we have collected Personal Data from Children without verification of parental consent, we take steps to remove that information from our servers.</p>",
+      "changes": "<h2>Changes to This Privacy Policy</h2><p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.</p><p>We will let you know via email and/or a prominent notice on our Service, prior to the change becoming effective and update «effective date» at the top of this Privacy Policy.</p><p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>",
+      "contact-us": "<h2>Contact Us</h2><p>If you have any questions about this Privacy Policy, please contact us by email: <a href='mailto:info@hearify.org'>info@hearify.org</a>.</p>"
+    },
+    "AboutUs": {
+      "title": "About us",
+      "bottom-title": "Our vision for the future",
+      "description": "We aim to expand Hearify globally, making it the leading solution for creating AI-powered tests in the education and corporate sectors. Our roadmap includes developing new AI functionality, entering new markets, and forming partnerships with educational platforms and businesses. We are excited to continue innovating and growing together with our users.",
+      "data": [
+        {
+          "title": "Our mission",
+          "description": "At Hearify, we believe in simplifying and revolutionizing the learning process through automation. Our mission is to empower educators, students, and businesses by providing an advanced AI-powered platform for creating personalized tests and assessments quickly and efficiently. By automating routine test creation tasks, we aim to save time and resources while increasing the effectiveness of knowledge assessment."
+        },
+        {
+          "title": "Our story",
+          "description": "Hearify was born out of a deep understanding of the challenges that educators and businesses face in developing personalized learning materials. Our CEO, Sofia Shaposhnikova, with her background and research in artificial intelligence, saw a clear need to automate the creation of tests and assessments. Together with a team of professionals, we have created a solution that uses artificial intelligence to make the learning process more flexible, adaptive, and engaging."
+        },
+        {
+          "title": "Why Hearify?",
+          "description": "We understand that time is one of the most valuable resources in today's fast-paced world. Our platform is designed to eliminate the manual work of test development, allowing educators and companies to focus on what really matters - improving learning outcomes. Hearify provides powerful artificial intelligence tools that automatically generate questions from PDFs, videos, and text, ensuring that tests are tailored to the needs of each learner."
+        }
+      ],
+      "alert-title": "Get in touch",
+      "alert-text": "Interested in learning more about Hearify? Contact us to find out how we can help you optimize your testing and learning processes",
+      "alert-button": "CONTACT US"
+    },
+    "AboutUsCommitted": {
+      "title": "We are committed to",
+      "data": [
+        {
+          "title": "Efficiency",
+          "description": "Reducing the time and effort spent on test creation."
+        },
+        {
+          "title": "Personalization",
+          "description": "Provide a personalized learning experience using artificial intelligence-based tools."
+        },
+        {
+          "title": "Innovation",
+          "description": "Continuously improve our platform based on user feedback and the latest advances in artificial intelligence."
+        },
+        {
+          "title": "Accessibility",
+          "description": "Make our platform accessible to educators, students, and businesses worldwide."
+        }
+      ]
+    },
+    "AboutUsTeam": {
+      "title": "Meet our team",
+      "description": "We are a team of passionate professionals with diverse knowledge and experience",
+      "data": [
+        {
+          "title": "Sofiia Shaposhnikova",
+          "text": "CEO & Founder",
+          "description": "Sofiia has extensive experience in artificial intelligence and IT product management. She has worked as an AI engineer at startups and research institutions, including the University of Toronto. She leads the strategic direction and development of Hearify.",
+          "link": "https://www.linkedin.com/in/sofiia-shaposhnikova/"
+        },
+        {
+          "title": "Valerii Bandurko",
+          "text": "Head of Marketing",
+          "description": "With 12 years of experience in digital marketing and 8 years in EdTech, Valeriy is responsible for marketing strategy and customer acquisition at Hearify.",
+          "link": "https://www.linkedin.com/in/valerii-bandurko/"
+        },
+        {
+          "title": "Sofiia Luchina",
+          "text": "Head of Design",
+          "description": "Sofia is an expert in UX/UI design and prototyping, ensuring that our platform offers an intuitive and seamless user experience.",
+          "link": "https://www.linkedin.com/in/sofiia-luchina/"
+        }
+      ]
+    },
+    "AboutUsValues": {
+      "title": "Our values",
+      "data": [
+        {
+          "title": "User-centricity",
+          "description": "Our platform is built around the needs of our users. We constantly listen to feedback and quickly implement improvements to ensure the best possible experience."
+        },
+        {
+          "title": "Adaptability",
+          "description": "In an ever-evolving education and technology landscape, we strive to remain flexible and responsive to new trends and challenges."
+        },
+        {
+          "title": "Ethical innovation",
+          "description": "We believe in ethical business practices and transparency in everything we do. Our platform is designed to improve learning and development in an inclusive and accessible way."
+        }
+      ]
+    },
+    "ContactUs": {
+      "title": "Contact us",
+      "description": "We'd love to hear from you! We value communication and are always ready to help you. Whether you want to learn more about our platform, need support, or want to explore partnership opportunities, our team is always just a message away. Let us know how we can help you!",
+      "data": [
+        {
+          "title": "Business inquiries",
+          "description": "Interested in partnering with us, or exploring B2B solutions for your organization? Contact our business team to discuss how Hearify can meet your needs.",
+          "links": [
+            {
+              "name": "Email: info@hearify.org",
+              "link": "mailto:info@hearify.org"
+            }
+          ]
+        },
+        {
+          "title": "General inquiries",
+          "description": "Have a question about Hearify or how we can help you streamline your testing and learning processes? Reach out to us at:",
+          "links": [
+            {
+              "name": "Email: hearify.tech@gmail.com",
+              "link": "mailto:hearify.tech@gmail.com"
+            }
+          ]
+        },
+        {
+          "title": "Business inquiriesmedia & press",
+          "description": "For media inquiries, interviews, or press releases, please contact:",
+          "links": [
+            {
+              "name": "Email: partnership@hearify.org",
+              "link": "mailto:partnership@hearify.org"
+            }
+          ]
+        }
+      ]
+    },
+    "HomeBoostAlert": {
+      "title": "Boost Your Knowledge: Create Personalized Quizzes with AI!",
+      "text": "Try our AI quiz creator now—completely free of charge!",
+      "button": "TRY IT NOW"
+    },
+    "Pricing": {
+      "title": "Pick Your Subscription Plan!"
+    },
+     "PricingFAQ": {
+    "title": "Frequently Asked Questions",
+    "blocks": [
+      {
+        "question": "Can I upgrade or downgrade my plan at any time?",
+        "answer": "Yes, you can upgrade or downgrade your plan at any time from your account settings. Changes will be prorated based on your billing cycle."
+      },
+      {
+        "question": "Do you offer discounts for non-profit organizations?",
+        "answer": "Yes, we offer special discounted pricing for non-profit organizations. Please contact our support team to learn more and apply."
+      },
+      {
+        "question": "What payment methods do you accept?",
+        "answer": "We accept major credit cards including Visa, Mastercard, American Express, as well as PayPal for annual plans."
+      },
+      {
+        "question": "How do I cancel my subscription?",
+        "answer": "You can cancel your subscription anytime through your account dashboard. Your plan will remain active until the end of the current billing period."
+      },
+      {
+        "question": "Do you offer a money-back guarantee?",
+        "answer": "Yes, we offer a 14-day money-back guarantee for new customers. If you're not satisfied, simply contact us within the first two weeks."
+      },
+      {
+        "question": "Is there a limit on the number of users on a plan?",
+        "answer": "Each plan includes a defined number of users. You can view user limits on our pricing page or contact us for custom enterprise options."
+      },
+      {
+        "question": "Can I switch from a monthly to an annual plan?",
+        "answer": "Yes, you can switch from a monthly to an annual plan at any time. You'll receive a discount when you upgrade to annual billing."
+      },
+      {
+        "question": "How is my data protected?",
+        "answer": "We use industry-standard encryption, secure data storage, and regular security audits to ensure your data is protected and GDPR-compliant."
+      },
+      {
+        "question": "Do you offer customer support?",
+        "answer": "Yes, we provide customer support via email and live chat. Enterprise and Pro users receive priority support with faster response times."
+      }
+    ]
+  },
+    "freePlan": {
+      "title": "Free Plan",
+      "price": "Free",
+      "annualPrice": "Free - billed yearly",
+      "description": "Perfect for new users who want to explore and experience our platform with ease.",
+      "buttonText": "START NOW FOR 1$",
+      "features": [
+        { "feature": "Credits:", "value": "30" },
+        { "feature": "Questions per Quiz:", "value": "5" },
+        { "feature": "Advanced Quality Settings:", "value": "cross" },
+        { "feature": "Custom Domain and Branding:", "value": "cross" },
+        { "feature": "Dedicated Outcomes Manager:", "value": "cross" }
+      ],
+      "isPremium": false
+    },
+    "premiumPlan": {
+      "title": "Premium Plan",
+      "price": "$29.99/month",
+      "annualPrice": "$179.99 - billed yearly",
+      "description": "Ideal for self-learners or teachers who use our platform occasionally.",
+      "buttonText": "START NOW FOR 1$",
+      "dealLabel": "Best deal",
+      "features": [
+        { "feature": "Credits:", "value": "1000/month" },
+        { "feature": "Questions per Quiz:", "value": "30" },
+        { "feature": "Advanced Quality Settings:", "value": "check" },
+        { "feature": "Custom Domain and Branding:", "value": "cross" },
+        { "feature": "Dedicated Outcomes Manager:", "value": "cross" }
+      ]
+    },
+    "maxPlan": {
+      "title": "Max Plan",
+      "price": "$99.99/month",
+      "annualPrice": "$599.99 - billed yearly",
+      "description": "Designed for heavy users, educators, or institutions.",
+      "buttonText": "START NOW FOR 1$",
+      "features": [
+        { "feature": "Credits:", "value": "Unlimited" },
+        { "feature": "Questions per Quiz:", "value": "50" },
+        { "feature": "Advanced Quality Settings:", "value": "check" },
+        { "feature": "Custom Domain and Branding:", "value": "check" },
+        { "feature": "Dedicated Outcomes Manager:", "value": "check" }
+      ],
+      "isPremium": false
+    },
+    "customPlan": {
+      "title": "Custom Plan",
+      "price": "Custom/month",
+      "description": "For organizations or individuals with unique requirements",
+      "nameLabel": "Organization/Individual name",
+      "namePlaceholder": "Enter organization/individual name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Enter your email",
+      "requirementsLabel": "Description of requirements",
+      "requirementsPlaceholder": "Enter your description of requirements",
+      "button": "CONTACT US",
+      "successMessage": "Your email was sent successfully",
+      "errorMessage": "There was a problem with sending your email"
+    },
+    "comparison": {
+      "title": "Comparison",
+      "billedAnnually": "Billed annually",
+      "saveUpTo33": "Save up to 33% with yearly billing"
+    },
+    "pricingTable": {
+      "featureHeader": "Feature",
+      "planNames": {
+        "free": "Free",
+        "premium": "Premium",
+        "max": "Max",
+        "custom": "Custom"
+      },
+      "features": [
+        "Price",
+        "Credits",
+        "Question Types",
+        "Quiz Complexity",
+        "Early Access to New Features",
+        "Advanced Quality Settings",
+        "Questions per Quiz",
+        "Support",
+        "Analytics and Reporting",
+        "Custom Domain and Branding",
+        "Dedicated Outcomes Manager"
+      ],
+      "prices": {
+        "free": "Free",
+        "premium": {
+          "monthly": "$29/month",
+          "annual": "$179.99 - billed yearly"
+        },
+        "max": {
+          "monthly": "$99/month",
+          "annual": "$599.99 - billed yearly"
+        },
+        "custom": "Custom"
+      },
+      "contactUs": "CONTACT US",
+      "startNow": "START NOW FOR $1",
+      "featureAvailability": [
+        ["30/month", "1000/month", "Unlimited", "Unlimited"],
+        ["Single choice", "All", "All", "All"],
+        ["cross", "check", "check", "check"],
+        ["cross", "check", "check", "check"],
+        ["cross", "check", "check", "check"],
+        ["5", "30", "50", "50"],
+        ["Standard", "Priority", "Priority", "VIP"],
+        ["cross", "check", "check", "check"],
+        ["cross", "cross", "check", "check"],
+        ["cross", "cross", "check", "check"]
+      ]
+    }
+  },
+
+  "containers": {
+    "JoinCommunityAlert": {
+      "title": "Join our community!",
+      "description": "Hearify is here to help you learn faster and more efficiently. Join our Facebook community to get fast feedback on your questions and talk with people who have the same interests.",
+      "button": "JOIN OUR COMMUNITY"
+    }
+  },
+  "start_free": "Try it now",
+  "ai_generate_custom_quiz": "AI Quiz Generator from PDFs, Videos & Text",
+  "ai_automatically_create_questions": "Automatically create questions for assignments, tests, and exams from your content with our ultimate AI question generator. Ideal for educators, students, professionals, and lifelong learners.",
+  "how_it_works": "How it works",
+  "pricing": "Pricing",
+  "contacts": "Contacts",
+  "contact_us": "Contact Us:",
+  "follow_us": "Follow us on social networks:",
+  "blog": "Blog",
+  "faq": "FAQ",
+  "log_in": "LOG IN",
+  "try_for_free": "TRY IT NOW",
+  "sign_up": "Sign up",
+  "how_hearify_works": "How Hearify works",
+  "upload_file": "1. Upload a file",
+  "library": "Library",
+  "customize": "2. Customize",
+  "generate": "3. Generate",
+  "share_play": "4. Share & Play",
+  "see_performance": "5. See performance",
+  "free_to_use": "Is it free to use?",
+  "start_quiz": "START QUIZ",
+  "all_quizzes": "All Quizzes",
+  "welcome_to_library": "Welcome to quiz library!",
+  "recommended_for_you": "Recommended for you",
+  "table_of_contents": "Table of contents",
+  "written_by": "Written by",
+  "related_posts": "Related posts",
+  "related_quizzes": "Related quizzes",
+  "try_out_ai_quiz": "Try our AI quiz creator now—completely free of charge!",
+  "boost_your_knowledge": "Boost Your Knowledge: Create Personalized Quizzes with AI!",
+  "materials_upload": "What kinds of materials can I upload?",
+  "question_types": "What types of questions can I generate?",
+  "quiz_quality": "What is the quality of the quizzes?",
+  "any_material": "It could be any book, presentation, document or YouTube video link",
+  "choose_difficulty": "Choose difficulty, number of questions and your preferences",
+  "click_button": "Click the button, wait a few minutes and your quiz is ready! You can edit it if needed",
+  "copy_code": "Copy code to start your engaging quiz session",
+  "automatic_grading": "The system automatically grades and creates a rating among all participants",
+  "free_beta_testing": "Yes, during beta te sting you can generate up to 30 quizzes per month.",
+  "file_requirements": "It could be any book, presentation, lecture or document. The file must be in PDF format and weigh less than 10 MB. You can also insert YouTube video link.",
+  "question_types": "You can create multiple choice and single choice questions, fill in, matching and open questions.",
+  "create_quiz_in_minute": "Create your <1>custom</1> quiz in just <3>1 minute!</3>",
+  "terms_of_use_and_privacy_policy": "Be sure to take a look at our <1>Terms of Use</1> and <4>Privacy Policy</4>",
+  "welcome_to_blog": "Welcome to our blog",
+  "blog_description": "Dive into the world where artificial intelligence meets personal growth. Our blog is dedicated to providing you with engaging AI quizzes that not only test your knowledge but also enhance your learning experience. Discover insightful tips on how to maximize your study sessions, utilize AI tools for smarter learning, and continuously improve yourself.",
+  "library_description": "Learn, Play, and Challenge Yourself! It's a place where you can find quizzes on all kinds of topics. Whether you want to learn something new or just have a good time, we've got quizzes for you.",
+  "articles": "Articles",
+  "terms": "Terms",
+  "privacy": "Privacy",
+  "business": "Business",
+  "about_us": "About Us"
+}

@@ -1,0 +1,169 @@
+@use 'src/styles/helpers' as *;
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    opacity: 0.5;
+  }
+
+  &::before {
+    width: 900px;
+    height: 800px;
+    background: radial-gradient(rgba(172, 154, 255, 0.9) 25%, rgba(255, 255, 255, 0) 70%);
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+  }
+
+  &::after {
+    width: 600px;
+    height: 500px;
+    transform: rotate(-16deg);
+    background: radial-gradient(rgba(172, 154, 255, 0.9) 25%, rgba(255, 255, 255, 0) 70%);
+    top: -20px;
+    right: -50px;
+    z-index: -1;
+  }
+}
+
+.title {
+  margin-bottom: 24px;
+
+  @include md {
+    @include text-heading-4;
+    text-align: center;
+    max-width: 600px;
+    margin-bottom: 32px;
+  }
+}
+
+.main-description {
+  @include text-subtitle-2;
+  margin-bottom: 32px;
+  max-width: 800px;
+  text-align: center;
+
+  @include md {
+    margin-bottom: 24px;
+  }
+}
+
+.card {
+  display: flex;
+  width: 100%;
+  padding: 32px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.125) 51.98%);
+
+  @include lg {
+    display: block;
+    padding: 32px 16px;
+  }
+}
+
+.sidebar {
+  min-width: 320px;
+  // Hack to fix the gap between the top sidebar item and card body
+  margin-right: -16px;
+}
+
+.sidebar-item {
+  @include text-subtitle-1;
+  display: block;
+  padding: 32px;
+  width: 100%;
+  text-align: start;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  transition: $default-transition;
+
+  &--active {
+    // This is brand-purple-10, however, i need to turn opacity to 0.8
+    background: rgba(250, 249, 255, 0.8);
+    color: var(--brand-purpe-500);
+  }
+
+  &:hover {
+    // This is brand-purple-10, however, i need to turn opacity to 0.8
+    background: rgba(250, 249, 255, 0.8);
+    color: var(--brand-purpe-500);
+  }
+}
+
+.body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 700px;
+  padding: 32px;
+  border-radius: 12px;
+  background-color: var(--brand-purpe-10);
+
+  @include lg {
+    min-height: unset;
+    background-color: transparent;
+    padding: 8px;
+  }
+
+  @include xs {
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: start;
+  }
+}
+
+.subtitle {
+  @include text-heading-4;
+  color: var(--brand-purpe-400);
+  margin-bottom: 8px;
+
+  @include lg {
+    font-weight: 400;
+  }
+}
+
+.description {
+  @include text-field-lg;
+  max-width: 480px;
+  margin-bottom: 16px;
+}
+
+.images {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: 100%;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.carousel {
+  padding-bottom: 48px;
+
+  :global .slide {
+    text-align: center;
+  }
+}
+
+.dots {
+  padding: 0 6px;
+
+  svg {
+    width: 8px;
+    height: 8px;
+    fill: var(--brand-purpe-400);
+  }
+}

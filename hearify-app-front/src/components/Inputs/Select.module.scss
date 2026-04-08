@@ -1,0 +1,121 @@
+.custom_select {
+  display: flex;
+  position: relative;
+}
+
+.selector {
+  padding: 12px 8px;
+
+  border-radius: 8px;
+  border: 1px solid var(--gradients-gradient-violet, #666);
+  background: var(--main-white, #fefdff);
+  cursor: pointer;
+  transition: background 0.3s ease;
+  outline: none;
+
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+
+  & > .label {
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    font-size: 20px;
+    font-weight: 600;
+    text-wrap: nowrap;
+  }
+}
+
+.search_bar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: var(--main-white, #fefdff);
+
+  img {
+    position: absolute;
+    left: 10px;
+  }
+
+  input {
+    width: 100%;
+    font-size: 1rem;
+    padding: 5px 0 5px 30px;
+    background-color: transparent;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.custom_selector {
+  z-index: 1;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 0.571rem;
+  padding: min(calc(4 / 14 * 1rem), calc(4 / (1920 / 100) * 1vw))
+    min(calc(10 / 14 * 1rem), calc(10 / (1920 / 100) * 1vw));
+  cursor: pointer;
+  border-radius: 0.571rem;
+  outline: 1px solid var(--gradients-gradient-violet, #666);
+  background: var(--main-white, #fefdff);
+  color: var(--main-purple, #6444f4);
+  width: 100%;
+
+  & > .label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    span {
+      opacity: 0.5;
+      letter-spacing: 0.01rem;
+    }
+  }
+}
+
+.elements {
+  display: flex;
+  flex-direction: column;
+  gap: 0.571rem;
+  max-height: 10.714rem;
+  padding-bottom: 1px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.element {
+  overflow-x: clip;
+  text-overflow: ellipsis;
+}
+
+.purple {
+  color: var(--main-purple, #6444f4);
+  text-align: center;
+  font-feature-settings: 'liga' off;
+
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.grey {
+  color: var(--secondary-gray, #666);
+  font-size: 20px;
+  font-weight: 600;
+
+  padding: 20px 24px;
+}
+
+.disabled {
+  border-radius: var(--components, 8px);
+  border: 1px solid var(--neutral-400, #94a3b8);
+  background: var(--neutral-100, #f1f5f9);
+  cursor: default;
+}

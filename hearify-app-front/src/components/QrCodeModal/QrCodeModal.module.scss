@@ -1,0 +1,48 @@
+@use "src/styles/helpers" as *;
+
+.quiz_info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 12px;
+  margin: 12px 0 12px 0;
+
+  .quiz_name {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--main-black);
+    text-align: center;
+
+    @include sm {
+      font-size: 22px;
+    }
+  }
+
+  .courseQuestions {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--main-black);
+  }
+}
+
+.qrCode_container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 24px;
+
+  button {
+    width: 100%;
+    max-width: 360px;
+    padding: 16px;
+    border-radius: 8px;
+    color: var(--main-white);
+    font-size: 18px;
+    font-weight: 700;
+    background-color: var( --brand-purpe-400);
+
+    @include md {
+      max-width: 250px;
+    }
+  }
+}

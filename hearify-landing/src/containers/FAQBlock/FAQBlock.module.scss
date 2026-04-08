@@ -1,0 +1,51 @@
+@use 'src/styles/helpers' as *;
+
+.wrapper {
+  overflow: hidden;
+  align-items: center;
+  padding: 32px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: $default-transition;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.175) 68.53%);
+  @include md {
+    padding: 16px 20px;
+    border-radius: 20px;
+  }
+
+  &:hover {
+    box-shadow: 0 0 0 2px rgba(78, 48, 210, 0.3);
+  }
+}
+
+.question {
+  @include text-heading-4;
+  color: var(--brand-purpe-500);
+  display: flex;
+  justify-content: space-between;
+  @include md {
+    @include text-subtitle-2;
+  }
+}
+
+.answer {
+  @include text-main-1;
+  max-height: 0;
+  overflow: hidden;
+  color: var(--general-black);
+  transition:
+    max-height 0.3s ease-out,
+    padding 0.3s ease-out;
+  @include md {
+    @include text-main-2;
+  }
+}
+
+.sign {
+  display: block;
+
+  &:hover {
+    opacity: 0.5;
+    transition: 0.5s;
+  }
+}

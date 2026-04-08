@@ -1,0 +1,72 @@
+.container {
+  position: absolute;
+  top: 100%;
+  right: 0;
+
+  width: 214px;
+
+  border-radius: var(--small_blocks, 12px);
+  background: var(--general-white, #fefdff);
+
+  box-shadow:
+          1.313px 1.969px 0px 0px rgba(255, 255, 255, 0.6) inset,
+          -12.177px 36.69px 44.901px 0px rgba(81, 78, 120, 0.18);
+
+  padding: 20px;
+
+  z-index: 3;
+}
+
+.roleContainer {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 8px;
+  margin-bottom: 8px;
+
+  padding: 4px 16px;
+
+  cursor: pointer;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+
+  h4 {
+    color: #475569;
+  }
+
+  span {
+    font-weight: 600;
+    font-size: 10px;
+    color: #64748B;
+  }
+}
+
+.deleteButton {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+
+  margin-top: 8px;
+
+  padding: 4px 16px;
+
+  h4 {
+    color: #475569;
+  }
+
+  span {
+    font-weight: 600;
+    font-size: 10px;
+    color: #64748B;
+  }
+
+}
+
+.active {
+  background-color: #F0ECFF;
+  border-radius: 12px;
+}
+

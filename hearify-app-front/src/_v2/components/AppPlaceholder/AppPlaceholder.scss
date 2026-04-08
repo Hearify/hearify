@@ -1,0 +1,58 @@
+@use "src/_v2/styles/helpers" as *;
+
+.AppPlaceholder {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+  max-width: 560px;
+  width: 100%;
+  border-radius: 20px;
+  padding: 40px;
+  background-color: var(--general-white);
+
+  box-shadow:
+    0px 0px 0px 0px #00000005,
+    0px 16px 35px 0px #00000005,
+    0px 64px 64px 0px #00000005,
+    0px 144px 86px 0px #00000003,
+    0px 256px 102px 0px #00000000,
+    0px 399px 112px 0px #00000000;
+
+  @include sm {
+    padding: 24px;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 250px;
+    padding: 40px;
+    border-radius: 12px;
+    background-color: var(--neural-300);
+    color: var(--neural-100);
+    @include sm {
+      width: 200px;
+      height: 200px;
+      padding: 24px;
+    }
+  }
+
+  &__text {
+    @include text-subtitle-1;
+    color: var(--neural-600);
+    text-align: center;
+    @include sm {
+      @include text-subtitle-2;
+    }
+  }
+
+  &__body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+}

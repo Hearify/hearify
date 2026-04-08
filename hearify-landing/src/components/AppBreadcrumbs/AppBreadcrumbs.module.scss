@@ -1,0 +1,20 @@
+@use 'src/styles/helpers' as *;
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.item {
+  @include text-subtitle-3;
+  display: flex;
+  align-items: center;
+  transition: $default-transition;
+
+  &--active {
+    &:hover {
+      color: var(--brand-purpe-400);
+    }
+  }
+}

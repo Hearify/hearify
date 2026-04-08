@@ -1,0 +1,26 @@
+@use "src/_v2/styles/helpers" as *;
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 2px solid var(--brand-purpe-50);
+
+  :global .AppSelect__wrapper {
+    max-width: 120px;
+  }
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}

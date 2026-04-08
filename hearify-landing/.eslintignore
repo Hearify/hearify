@@ -1,0 +1,13 @@
+# Dependencies
+node_modules
+
+# Production
+dist
+dist-ssr
+build
+
+# Config files
+.eslintrc.js
+.prettierrc.js
+next.config.mjs
+next-i18next.config.js

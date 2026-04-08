@@ -1,0 +1,242 @@
+@use 'src/_v2/styles/helpers' as *;
+
+.wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ── Left brand panel ───────────────────────────── */
+.brand {
+  position: relative;
+  flex: 0 0 42%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 48px 52px;
+  background: linear-gradient(145deg, #4452f4 0%, #6444F4 55%, #9b59f5 100%);
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.07);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    left: -80px;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  @include md {
+    display: none;
+  }
+}
+
+.brandTop {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.brandName {
+  font-family: 'Nunito', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.5px;
+}
+
+.brandMiddle {
+  position: relative;
+  z-index: 1;
+}
+
+.brandHeadline {
+  font-family: 'Nunito', sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+.brandSubline {
+  font-family: 'Nunito', sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+  max-width: 320px;
+}
+
+.brandBottom {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 28px;
+}
+
+.brandStat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  strong {
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: #fff;
+  }
+
+  span {
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.65);
+  }
+}
+
+/* ── Right form panel ───────────────────────────── */
+.formPanel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--general-white);
+  padding: 48px 32px;
+
+  @include md {
+    background-image: url('/src/assets/images/bg-desktop.png');
+    background-size: cover;
+    background-position: center;
+  }
+
+  @include xs {
+    background-image: url('/src/assets/images/bg-mobile.jpg');
+    padding: 32px 20px;
+  }
+}
+
+.formContainer {
+  width: 100%;
+  max-width: 420px;
+
+  @include md {
+    background: var(--general-white);
+    border-radius: 20px;
+    padding: 40px 32px;
+    box-shadow:
+      1px 2px 0px 0px #ffffff99 inset,
+      -12px 36px 44px 0px #514e782e;
+  }
+
+  @include xs {
+    padding: 32px 20px;
+  }
+}
+
+.title {
+  font-family: 'Nunito', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--general-black);
+  margin-bottom: 4px;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--neural-500);
+  margin-bottom: 32px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.resetPassword {
+  color: var(--neural-600);
+  text-decoration: underline;
+  text-align: right;
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: -8px;
+  transition: color 0.2s;
+
+  &:hover {
+    color: var(--brand-purpe-400);
+  }
+}
+
+.divider {
+  @include text-subtitle-3;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 8px 0;
+
+  &::before,
+  &::after {
+    content: '';
+    flex-grow: 1;
+    height: 1px;
+    background-color: var(--neural-200);
+  }
+}
+
+.googleButtonWrapper {
+  width: 100%;
+}
+
+.copyright {
+  @include text-main-4;
+  text-align: center;
+  color: var(--neural-400);
+  margin-top: 8px;
+
+  &Link {
+    color: inherit;
+    text-decoration: underline;
+
+    &:active { color: inherit; }
+    &:visited { color: inherit; }
+  }
+}
+
+.signUp {
+  @include text-main-3;
+  color: var(--neural-600);
+  text-align: center;
+  margin-top: 16px;
+
+  &Link {
+    color: var(--brand-purpe-400);
+    text-decoration: none;
+    font-weight: 700;
+    margin-left: 4px;
+
+    &:hover { text-decoration: underline; }
+  }
+}

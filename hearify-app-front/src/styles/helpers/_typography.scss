@@ -1,0 +1,188 @@
+@use "variables" as *;
+@use "breakpoints" as *;
+
+@mixin text-main-1 {
+  font-family: $font-nunito;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 150%;
+}
+
+@mixin text-main-2 {
+  font-family: $font-nunito;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+@mixin text-main-3 {
+  font-family: $font-nunito;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+}
+
+@mixin text-main-4 {
+  font-family: $font-nunito;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+}
+
+@mixin text-field-lg {
+  font-family: $font-nunito;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  @include md {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+  }
+}
+
+@mixin text-field-md {
+  font-family: $font-nunito;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+@mixin text-field-sm {
+  font-family: $font-nunito;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+}
+
+@mixin text-button-lg {
+  font-family: $font-nunito;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+@mixin text-button-md {
+  font-family: $font-nunito;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+@mixin text-button-sm {
+  font-family: $font-nunito;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+@mixin text-button-days {
+  font-family: $font-nunito;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 150%;
+}
+
+@mixin text-subtitle-1 {
+  font-family: $font-nunito;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 150%;
+}
+
+@mixin text-subtitle-2 {
+  font-family: $font-nunito;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 150%;
+  @include md {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+  }
+}
+
+@mixin text-subtitle-3 {
+  font-family: $font-nunito;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+@mixin text-subtitle-4 {
+  font-family: $font-nunito;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 150%;
+}
+
+@mixin text-subtitle-5 {
+  font-family: $font-nunito;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 150%;
+}
+
+@mixin text-heading-1 {
+  font-family: $font-nunito;
+  font-weight: 800;
+  font-size: 64px;
+  line-height: 87.3px;
+  @include md {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 150%;
+  }
+}
+
+@mixin text-heading-2 {
+  font-family: $font-nunito;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 150%;
+  @include md {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 150%;
+  }
+}
+
+@mixin text-heading-3 {
+  font-family: $font-nunito;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 150%;
+  @include md {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 150%;
+  }
+}
+
+@mixin text-heading-4 {
+  font-family: $font-nunito;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 150%;
+}
+
+@mixin text-heading-5 {
+  font-family: $font-nunito;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 150%;
+}
+
+@mixin text-features {
+  font-family: $font-caveat;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 100%;
+}
+
+@mixin text-cards {
+  font-family: $font-nunito;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 150%;
+}

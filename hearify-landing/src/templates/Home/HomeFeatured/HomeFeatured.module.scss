@@ -1,0 +1,59 @@
+@use 'src/styles/helpers' as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  @include text-heading-4;
+  margin-bottom: 40px;
+
+  @include md {
+    @include text-heading-4;
+    text-align: center;
+    max-width: 600px;
+    margin-bottom: 24px;
+  }
+}
+
+.slider {
+  animation: scroll 40s linear infinite;
+  display: flex;
+  width: 100vw;
+  gap: 56px;
+
+  @include md {
+    margin-bottom: 24px;
+  }
+
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+.slide {
+  cursor: pointer;
+}
+
+.image {
+  @include md {
+    height: 45px;
+    width: auto;
+  }
+
+  @include sm {
+    height: 30px;
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(var(--total-width) * 2));
+  }
+}

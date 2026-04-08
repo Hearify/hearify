@@ -1,0 +1,48 @@
+@use "src/_v2/styles/helpers" as *;
+
+.AppSelectDropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: $z-index-dropdown;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-height: 270px;
+  width: 100%;
+  margin-top: 2px;
+  padding: 4px;
+  background: var(--white);
+  border-radius: 8px;
+  overflow: auto;
+  transform-origin: top center;
+  will-change: transform, opacity;
+
+  box-shadow:
+          0 79px 32px rgba(134, 159, 172, 0.01),
+          0 44px 27px rgba(134, 159, 172, 0.05),
+          0 20px 20px rgba(134, 159, 172, 0.09),
+          0 5px 11px rgba(134, 159, 172, 0.1);
+
+  &-enter {
+    opacity: 0;
+    transform: scaleY(0);
+
+    &-active {
+      opacity: 1;
+      transform: scaleY(1);
+      transition: transform .3s ease-out, opacity .3s ease-out;
+    }
+  }
+
+  &-exit {
+    opacity: 1;
+    transform: scaleY(1);
+
+    &-active {
+      opacity: 0;
+      transform: scaleY(0);
+      transition: transform .3s ease-out, opacity .3s ease-out;
+    }
+  }
+}

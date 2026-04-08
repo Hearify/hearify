@@ -1,0 +1,69 @@
+@use "src/styles/helpers" as *;
+
+.wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  color: var(--general-black);
+  @include sm {
+    background-color: var(--general-white);
+  }
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: $max-page-width;
+  padding: 32px;
+}
+
+.logo {
+  @include sm {
+    height: 42px;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 20px;
+
+  :global .AppSelect__wrapper {
+    max-width: 80px;
+  }
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+.body {
+  display: flex;
+  width: 100%;
+  padding: 0 32px 40px;
+  max-width: $max-page-width;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+
+  main {
+    width: 100%;
+  }
+}
+
+.actions {
+  flex: 1;
+  justify-content: flex-end;
+  display: flex;
+  gap: 16px;
+  @include sm {
+    flex-grow: 0;
+    gap: 24px;
+  }
+}

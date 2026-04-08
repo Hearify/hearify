@@ -1,0 +1,121 @@
+@use 'src/styles/helpers' as *;
+
+.wrapper {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 200px;
+  @include lg {
+    margin-bottom: 100px;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    opacity: 0.8;
+    z-index: -1;
+    background: radial-gradient(rgba(206, 195, 255, 1) 25%, rgba(255, 255, 255, 0) 70%);
+  }
+
+  &::before {
+    width: 540px;
+    height: 520px;
+    transform: rotate(18deg);
+    top: 80px;
+    left: 100px;
+  }
+
+  &::after {
+    width: 550px;
+    height: 490px;
+    transform: rotate(-12deg);
+    top: -30px;
+    left: -90px;
+  }
+}
+
+.title {
+  @include text-heading-2;
+  margin-bottom: 32px;
+}
+
+.description {
+  @include text-subtitle-2;
+  max-width: 590px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+  @include sm {
+    grid-template-columns: 1fr;
+  }
+}
+
+.item {
+  list-style-type: none;
+  background: var(--general-white);
+  border-radius: 32px;
+  padding: 20px;
+  @include sm {
+    width: 100%;
+    max-width: 320px;
+    padding: 24px 16px 16px;
+  }
+
+  box-shadow:
+    0px 5px 11px 0px rgba(134, 159, 172, 0.1),
+    0px 20px 20px 0px rgba(134, 159, 172, 0.09),
+    0px 44px 27px 0px rgba(134, 159, 172, 0.05),
+    0px 79px 32px 0px rgba(134, 159, 172, 0.01),
+    0px 123px 35px 0px rgba(134, 159, 172, 0);
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 17px;
+}
+
+.image {
+  position: relative;
+
+  img {
+    @include sm {
+      width: 60px;
+      height: 60px;
+    }
+  }
+
+  svg {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: white;
+    border-radius: 2px;
+    @include sm {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+.item-title {
+  @include text-field-lg;
+}
+
+.text {
+  @include text-field-sm;
+}
+
+.item-description {
+  @include text-main-2;
+  max-width: 540px;
+}

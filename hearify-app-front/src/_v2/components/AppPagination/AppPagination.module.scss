@@ -1,0 +1,75 @@
+@use "src/_v2/styles/helpers" as *;
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  @include md {
+    gap: 4px;
+  }
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  color: var(--general-black);
+  border-radius: 8px;
+  transition: $default-transition;
+  @include md {
+    width: 32px;
+    height: 32px;
+  }
+
+  &:hover {
+    color: var(--general-white);
+    background-color: var(--brand-purpe-400);
+  }
+
+  &:disabled {
+    pointer-events: none;
+    color: var(--neural-200);
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.page {
+  @include text-button-lg;
+  color: var(--neural-600);
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  transition: all .3s ease-in-out;
+  cursor: pointer;
+  @include md {
+    @include text-main-2;
+    font-weight: 700;
+    width: 32px;
+    height: 32px;
+  }
+
+  &:hover {
+    color: var(--general-white);
+    background-color: var(--brand-purpe-400);
+  }
+
+  &--active {
+    pointer-events: none;
+    color: var(--general-white);
+    background-color: var(--brand-purpe-400);
+  }
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 28px;
+  height: 28px;
+}

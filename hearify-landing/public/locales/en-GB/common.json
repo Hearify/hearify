@@ -1,0 +1,14 @@
+{
+  "pages": {
+    "HomePage": {
+      "title": "Quiz Maker UK: Create Interactive Tests, Surveys & Assessments",
+      "description": "Use our AI-powered quiz generator in the UK to convert any text, PDF, or video into engaging quizzes or surveys. Ideal for teachers, HR teams, gamifying learning, and professional training across various industries."
+    }
+  },
+  "templates": {
+    "HomeHero": {
+      "title": "Quiz Generator UK - AI Solutions for Interactive Content",
+      "description": " From classrooms to corporate teams, our AI quiz creator helps UK professionals design engaging and effective quizzes in minutes."
+    }
+  }
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "slug": "general-knowledge-quiz",
+    "title": "Ultimate General Knowledge Quiz — 20 Questions",
+    "headline": "Test your knowledge across history, science, geography, and pop culture",
+    "description": "Take our free general knowledge quiz with 20 questions covering history, science, geography, literature, and pop culture. Great for pub quizzes, classrooms, and party games.",
+    "coverUrl": "https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=1200&h=630&fit=crop",
+    "appUrl": "https://hearify.org/app",
+    "authorSlug": "sarah-mitchell",
+    "meta": {
+      "keywords": "general knowledge quiz, trivia questions, pub quiz, quiz questions and answers, free trivia quiz"
+    }
+  },
+  {
+    "slug": "science-quiz-for-students",
+    "title": "High School Science Quiz — Physics, Chemistry & Biology",
+    "headline": "Challenge yourself with 15 science questions from the high school curriculum",
+    "description": "A free high school science quiz covering physics, chemistry, and biology fundamentals. Ideal for GCSE, SAT, and AP exam preparation. Get instant feedback and explanations.",
+    "coverUrl": "https://images.unsplash.com/photo-1532094349884-543559373b82?w=1200&h=630&fit=crop",
+    "appUrl": "https://hearify.org/app",
+    "authorSlug": "sarah-mitchell",
+    "meta": {
+      "keywords": "science quiz, high school science quiz, GCSE science, SAT science, biology quiz, physics quiz, chemistry quiz"
+    }
+  },
+  {
+    "slug": "world-history-quiz",
+    "title": "World History Quiz — From Ancient Civilizations to Modern Times",
+    "headline": "How well do you know world history? Test yourself with 20 challenging questions",
+    "description": "Test your knowledge of world history with this free quiz. Questions span ancient Egypt, the Roman Empire, World Wars, and modern geopolitics. Perfect for students, history buffs, and trivia enthusiasts.",
+    "coverUrl": "https://images.unsplash.com/photo-1447069387593-a5de0862481e?w=1200&h=630&fit=crop",
+    "appUrl": "https://hearify.org/app",
+    "authorSlug": "james-okonkwo",
+    "meta": {
+      "keywords": "world history quiz, history trivia, history test, ancient history quiz, world war quiz"
+    }
+  },
+  {
+    "slug": "english-grammar-quiz",
+    "title": "English Grammar Quiz — Test Your Language Skills",
+    "headline": "20 grammar questions to sharpen your English writing and communication",
+    "description": "Take this free English grammar quiz to test punctuation, verb tenses, sentence structure, and common mistakes. Suitable for ESL learners, students, and professionals who want to improve their writing.",
+    "coverUrl": "https://images.unsplash.com/photo-1546521343-4eb2c01aa44b?w=1200&h=630&fit=crop",
+    "appUrl": "https://hearify.org/app",
+    "authorSlug": "sarah-mitchell",
+    "meta": {
+      "keywords": "English grammar quiz, grammar test, ESL quiz, punctuation quiz, verb tense quiz, English language test"
+    }
+  },
+  {
+    "slug": "geography-quiz-countries-capitals",
+    "title": "Countries and Capitals Quiz — How Many Can You Name?",
+    "headline": "Test your world geography knowledge with 25 countries and capital cities",
+    "description": "A fun and challenging countries and capitals quiz featuring 25 questions from every continent. Test your world map knowledge, learn new capitals, and compete with friends.",
+    "coverUrl": "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=1200&h=630&fit=crop",
+    "appUrl": "https://hearify.org/app",
+    "authorSlug": "james-okonkwo",
+    "meta": {
+      "keywords": "countries and capitals quiz, world geography quiz, capital cities quiz, geography trivia, world map quiz"
+    }
+  }
+]

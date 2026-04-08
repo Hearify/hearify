@@ -1,0 +1,90 @@
+@use 'src/styles/helpers' as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  margin-top: 100px;
+  @include lg {
+    margin-top: 60px;
+    gap: 56px;
+  }
+}
+
+.hero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  @include lg {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__content {
+    flex: 1 0 0;
+    max-width: 630px;
+    min-width: 440px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    @include lg {
+      min-width: unset;
+      align-items: center;
+    }
+  }
+
+  &__title {
+    text-align: start;
+    @include md {
+      text-align: center;
+    }
+  }
+
+  &__text {
+    @include text-subtitle-2;
+    margin-top: 16px;
+  }
+
+  &__image {
+    flex: 2 0 0;
+    max-width: 650px;
+    border-radius: 8px;
+    @include md {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__button {
+    @include xs {
+      width: 100% !important;
+    }
+  }
+}
+
+.topics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.topics-title {
+  margin-bottom: 16px;
+  @include md {
+    margin-bottom: 8px;
+  }
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
+  gap: 24px;
+  @include lg {
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+  }
+  @include sm {
+    grid-template-columns: repeat(1, minmax(300px, 1fr));
+  }
+}

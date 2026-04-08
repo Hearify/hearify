@@ -1,0 +1,54 @@
+@use 'src/_v2/styles/helpers' as *;
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 24px 24px 44px;
+  border: 2px solid var(--brand-purpe-100);
+  border-radius: 12px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.box {
+  display: flex;
+  gap: 12px;
+}
+
+.title {
+  @include text-subtitle-3;
+}
+
+.text {
+  @include text-main-3;
+  margin-bottom: 9px;
+}
+
+.date {
+  @include text-subtitle-5;
+  color: var(--neural-400);
+}
+
+.progress-bar {
+  width: 84px;
+  height: 84px;
+
+  :global .CircularProgressbar-path {
+    stroke: var(--brand-purpe-400);
+  }
+  :global .CircularProgressbar-trail {
+    stroke: var(--brand-purpe-50);
+  }
+  :global .CircularProgressbar-text {
+    @include text-subtitle-2;
+    fill: var(--general-black);
+  }
+  :global .CircularProgressbar-background {
+    fill: var(--brand-purpe-50);
+  }
+}

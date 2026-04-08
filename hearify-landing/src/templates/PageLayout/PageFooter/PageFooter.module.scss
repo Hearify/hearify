@@ -1,0 +1,194 @@
+@use 'src/styles/helpers' as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 32px;
+  max-width: $max-page-width;
+  @include md {
+    flex-direction: column;
+    padding: 16px;
+  }
+  @include sm {
+    padding: 0;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+  @include md {
+    align-items: center;
+    padding: 0 20px;
+  }
+  @include sm {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.phone-footer {
+  @include sm {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+}
+
+.socials {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  flex: 0 1 25%;
+  gap: 16px;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    justify-content: flex-end;
+  }
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  @include sm {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.phone-socials {
+  @include md {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
+
+.title {
+  @include text-subtitle-2;
+  @include lg {
+    @include text-subtitle-3;
+  }
+}
+
+.subtitle {
+  @include text-subtitle-2;
+  margin-top: 12px;
+  margin-bottom: 8px;
+  @include lg {
+    @include text-subtitle-3;
+    margin-bottom: 4px;
+  }
+  @include sm {
+    @include text-subtitle-4;
+  }
+}
+
+.email {
+  @include text-main-2;
+  transition: $default-transition;
+  text-align: right;
+  @include lg {
+    @include text-main-3;
+  }
+  @include sm {
+    @include text-subtitle-5;
+  }
+
+  &:hover {
+    color: var(--brand-purpe-400);
+  }
+}
+
+.terms {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  flex-basis: 30%;
+}
+
+.logo {
+  width: 180px;
+  height: 68px;
+  @include sm {
+    width: 106px;
+    height: 43px;
+  }
+}
+
+.privacy {
+  @include text-subtitle-3;
+  text-align: center;
+  color: var(--neural-400);
+  @include lg {
+    @include text-subtitle-4;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+.navigation {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 16px 40px;
+  @include md {
+    gap: 16px 20px;
+  }
+  @include sm {
+    width: 100%;
+    justify-content: space-between;
+    gap: 12px 0;
+  }
+  @include xs {
+    grid-template-columns: 1fr;
+  }
+}
+
+.link {
+  @include text-subtitle-3;
+  transition: $default-transition;
+  @include sm {
+    @include text-subtitle-4;
+  }
+
+  &:hover {
+    color: var(--brand-purpe-400);
+  }
+}
+
+.nav-links-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.local-links {
+  display: flex;
+  gap: 16px;
+  list-style-type: none;
+  flex-wrap: wrap;
+
+  @include md {
+    margin-top: 20px;
+  }
+}

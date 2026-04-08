@@ -1,0 +1,13 @@
+@use "src/_v2/styles/helpers" as *;
+
+.wrapper {
+  @include tile;
+  padding: 40px;
+  gap: 24px;
+  width: 800px;
+  max-width: 100%;
+  box-shadow: -12.1766px 36.6898px 44.9014px rgba(81, 78, 120, 0.18), inset 1.31294px 1.96941px 0px rgba(255, 255, 255, 0.6);
+  @include md {
+    padding: 24px;
+  }
+}

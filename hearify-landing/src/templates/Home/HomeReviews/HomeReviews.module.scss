@@ -1,0 +1,176 @@
+@use 'src/styles/helpers' as *;
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    opacity: 0.5;
+  }
+
+  &::before {
+    width: 750px;
+    height: 550px;
+    background: radial-gradient(rgba(187, 143, 255, 0.9) 25%, rgba(255, 255, 255, 0) 70%);
+    right: 150px;
+    top: 150px;
+    z-index: -1;
+  }
+
+  &::after {
+    width: 600px;
+    height: 500px;
+    background: radial-gradient(rgba(172, 154, 255, 0.9) 25%, rgba(255, 255, 255, 0) 70%);
+    top: -20px;
+    right: -50px;
+    z-index: -1;
+  }
+
+  @include lg {
+    width: 960px;
+  }
+
+  @include md {
+    width: 710px;
+    padding: 40px 0 32px 0;
+    gap: 20px;
+  }
+
+  @include sm {
+    width: 380px;
+  }
+
+  @include rwd(375) {
+    width: 330px;
+  }
+
+  @include rwd(320) {
+    width: 300px;
+  }
+}
+
+.title {
+  margin-bottom: 24px;
+
+  @include md {
+    @include text-heading-4;
+    text-align: center;
+    max-width: 600px;
+    margin-bottom: 32px;
+  }
+}
+
+.description {
+  @include text-subtitle-2;
+  margin-bottom: 64px;
+  max-width: 800px;
+  text-align: center;
+
+  @include md {
+    @include text-subtitle-3;
+    margin-bottom: 32px;
+    max-width: 600px;
+    font-size: clamp(14px, 2vw, 16px);
+  }
+}
+
+.card {
+  width: 100%;
+}
+
+.carousel {
+  max-width: 100% !important;
+  padding-bottom: 48px;
+
+  :global .slide {
+    text-align: center;
+  }
+}
+
+.image {
+  width: 100px;
+  height: 100px;
+
+  @include md {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+.dots {
+  padding: 0 6px;
+
+  svg {
+    width: 8px;
+    height: 8px;
+    fill: var(--brand-purpe-400);
+  }
+}
+
+.arrow {
+  color: var(--black) !important;
+  background-color: transparent !important;
+  transition: $default-transition;
+
+  svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  &:hover {
+    color: var(--brand-purpe-400) !important;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 8px;
+}
+
+.review {
+  height: 100%;
+  text-align: start;
+  width: 100%;
+  max-width: 960px;
+  padding: 48px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.125) 68.53%);
+
+  @include md {
+    padding: 24px;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.name {
+  @include text-field-lg;
+}
+
+.position {
+  @include text-field-sm;
+}
+
+.content {
+  @include text-subtitle-2;
+  white-space: pre-wrap;
+
+  @include md {
+    @include text-subtitle-3;
+    font-size: clamp(14px, 2vw, 16px);
+  }
+}
