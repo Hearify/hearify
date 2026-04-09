@@ -11,6 +11,7 @@ RUN apt-get update -y && apt-get install -y --no-install-recommends build-essent
 
 RUN pip3 install --upgrade pip \
     && pip3 install "setuptools<70" wheel \
+    && pip3 install --no-cache-dir torch==2.2.2 torchvision==0.17.2 --index-url https://download.pytorch.org/whl/cpu \
     && echo "setuptools<70" > /tmp/constraints.txt \
     && PIP_CONSTRAINT=/tmp/constraints.txt pip3 install --no-cache-dir -r /usr/src/app/requirements.txt \
     && rm -rf /root/.cache/pip /tmp/constraints.txt
