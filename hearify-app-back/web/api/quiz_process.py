@@ -4,7 +4,7 @@ import tempfile
 import arrow
 from bson import ObjectId
 from fastapi import APIRouter, Depends, File, HTTPException, UploadFile, status
-import whisper
+# whisper is imported lazily inside the route that needs it to avoid loading torch at startup
 
 from api.dependencies import (
     QuestionRepository,
@@ -154,6 +154,7 @@ async def answer_file_question(
     try:
         if quiz_process["is_flashcard"]:
             if current_question.type == "fc_record_answer":
+                import whisper  # noqa: PLC0415
                 model = whisper.load_model("base")
                 with tempfile.NamedTemporaryFile(delete=True, suffix=".mp3") as tmp_file:
                     contents = await audio_file.read()
