@@ -5,7 +5,7 @@
   "scripts": {
     "start": "next dev",
     "build": "npm run build:app && next build",
-    "build:app": "cd ../hearify-app-front && HUSKY=0 npm install --include=dev && npm run build && mkdir -p ../hearify-landing/public/app && cp -r dist/. ../hearify-landing/public/app/",
+    "build:app": "cd ../hearify-app-front && HUSKY=0 npm install --include=dev && VITE_BACKEND_URL=$VITE_BACKEND_URL VITE_GTM_ID=$VITE_GTM_ID npm run build && mkdir -p ../hearify-landing/public/app && cp -r dist/. ../hearify-landing/public/app/",
     "start:prod": "next start",
     "lint": "next lint"
   },
