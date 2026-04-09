@@ -44,7 +44,7 @@ const FreePlan: React.FC = () => {
           <p className={styles.price}>{planInfo.price}</p>
           <p className={styles.description}>{planInfo.description}</p>
         </div>
-        <a href="https://app.hearify.org/pricing" target="_blank" className={styles['start-button']}>
+        <a href="/app/pricing" target="_blank" className={styles['start-button']}>
           {planInfo.buttonText}
         </a>
         <div className={styles.features}>

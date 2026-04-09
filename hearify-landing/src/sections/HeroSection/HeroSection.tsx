@@ -18,7 +18,7 @@ const HeroSection: React.FC<HeroProps> = ({ title, description, button, image })
     <section className={styles.wrapper} id="hero">
       <h1 className={styles.title}>{title}</h1>
       <p className={styles.description}>{description}</p>
-      <AppButtonLink className={styles.button} href="https://app.hearify.org/signup" size="lg">
+      <AppButtonLink className={styles.button} href="/app/signup" size="lg">
         {button}
         <CalendarIcon />
       </AppButtonLink>

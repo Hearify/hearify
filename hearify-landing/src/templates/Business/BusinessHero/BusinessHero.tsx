@@ -46,7 +46,7 @@ const BusinessHero: React.FC = () => {
     <section className={styles.wrapper} id="hero">
       <h1 className={styles.title}>{t('title')}</h1>
       <p className={styles.description}>{t('description')}</p>
-      <AppButtonLink className={styles.button} href="https://app.hearify.org/signup" size="lg">
+      <AppButtonLink className={styles.button} href="/app/signup" size="lg">
         {t('button')}
         <CalendarIcon />
       </AppButtonLink>

@@ -14,7 +14,7 @@ const ForWhomCard: React.FC<ForWhomCardProps> = ({
   title,
   description,
   image: ImageComponent,
-  link = 'https://app.hearify.org/signup',
+  link = '/app/signup',
 }) => {
   return (
     <Link href={link} className={styles.wrapper}>

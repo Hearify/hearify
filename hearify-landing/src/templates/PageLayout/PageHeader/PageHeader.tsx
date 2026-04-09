@@ -104,10 +104,10 @@ const PageHeader: React.FC = () => {
           </div>
 
           <div className={styles.actions}>
-            <AppButtonLink variant="secondary" width="110px" href="https://app.hearify.org/login">
+            <AppButtonLink variant="secondary" width="110px" href="/app/login">
               {t('log_in')}
             </AppButtonLink>
-            <AppButtonLink href="https://app.hearify.org/signup">{t('try_for_free')}</AppButtonLink>
+            <AppButtonLink href="/app/signup">{t('try_for_free')}</AppButtonLink>
           </div>
         </>
       ) : (
@@ -191,10 +191,10 @@ const PageHeader: React.FC = () => {
               </nav>
 
               <div className={styles.actions}>
-                <AppButtonLink variant="secondary" width="110px" href="https://app.hearify.org/login">
+                <AppButtonLink variant="secondary" width="110px" href="/app/login">
                   {t('log_in')}
                 </AppButtonLink>
-                <AppButtonLink href="https://app.hearify.org/signup">{t('try_for_free')}</AppButtonLink>
+                <AppButtonLink href="/app/signup">{t('try_for_free')}</AppButtonLink>
               </div>
             </div>
           </div>

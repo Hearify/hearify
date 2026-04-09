@@ -25,7 +25,7 @@ const HomeHero: React.FC = () => {
           <h1 className={styles.title}>{t('title')}</h1>
           <p className={styles.description}>{t('description')}</p>
 
-          <AppButtonLink href="https://app.hearify.org/signup" size="lg" className={styles.button}>
+          <AppButtonLink href="/app/signup" size="lg" className={styles.button}>
             {t('button')}
             <ArrowIcon />
           </AppButtonLink>
@@ -36,7 +36,7 @@ const HomeHero: React.FC = () => {
           </Link>
         </div>
 
-        <Link href="https://app.hearify.org/signup">
+        <Link href="/app/signup">
           {isDeviceLarge ? (
             <>
               <Image

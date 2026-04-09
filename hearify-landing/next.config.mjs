@@ -31,16 +31,29 @@ const config = {
   },
 
   async rewrites() {
-    // In development, proxy to local Vite dev server.
-    // In production, /app/* is served as static files from public/app/.
     if (process.env.NODE_ENV === 'development') {
+      // In development, proxy to local Vite dev server
       const appUrl = process.env.APP_URL || 'http://localhost:5173';
-      return [
-        { source: '/app', destination: `${appUrl}/app` },
-        { source: '/app/:path*', destination: `${appUrl}/app/:path*` },
-      ];
+      return {
+        beforeFiles: [],
+        afterFiles: [],
+        fallback: [
+          { source: '/app', destination: `${appUrl}/app` },
+          { source: '/app/:path*', destination: `${appUrl}/app/:path*` },
+        ],
+      };
     }
-    return [];
+    // In production, static files in public/app/ are served by Next.js.
+    // Fallback rewrites kick in only when no static file matches,
+    // so /app/login, /app/signup etc. all get served index.html for SPA routing.
+    return {
+      beforeFiles: [],
+      afterFiles: [],
+      fallback: [
+        { source: '/app', destination: '/app/index.html' },
+        { source: '/app/:path*', destination: '/app/index.html' },
+      ],
+    };
   },
 
   async redirects() {

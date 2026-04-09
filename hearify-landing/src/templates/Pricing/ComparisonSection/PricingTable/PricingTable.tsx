@@ -63,13 +63,13 @@ const PricingTable: React.FC = () => {
                       <div className={styles.monthly}>{plan.monthly}</div>
                       <div className={styles.annual}>{plan.annual || <br />}</div>
                       {plan.monthly === t('templates.pricingTable.prices.custom') ? (
-                        <a href="https://app.hearify.org/pricing" className={styles.priceButton}>
+                        <a href="/app/pricing" className={styles.priceButton}>
                           <EnvelopeIcon width={22} height={22} />
                           {t('templates.pricingTable.contactUs')}
                         </a>
                       ) : (
                         <a
-                          href="https://app.hearify.org/pricing"
+                          href="/app/pricing"
                           className={`${styles.priceButton} ${index === 1 ? styles.priceButtonPremium : ''}`}
                         >
                           {t('templates.pricingTable.startNow')}

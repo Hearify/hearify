@@ -21,7 +21,7 @@ const BoostAlert: React.FC<BoostAlertProps> = ({ title, text, button, image, wid
       <div className={styles.content}>
         <h3 className={styles.title}>{title}</h3>
         <p className={styles.text}>{text}</p>
-        <AppButtonLink className={styles.button} href="https://app.hearify.org/signup" width="240px" size="lg">
+        <AppButtonLink className={styles.button} href="/app/signup" width="240px" size="lg">
           {button}
         </AppButtonLink>
       </div>

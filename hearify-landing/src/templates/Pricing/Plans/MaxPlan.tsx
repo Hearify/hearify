@@ -48,7 +48,7 @@ const MaxPlan: React.FC = () => {
           <p className={styles.description}>{planInfo.description}</p>
           {isDeviceLarge && <br />}
         </div>
-        <a href="https://app.hearify.org/pricing" target="_blank" className={styles['start-button']}>
+        <a href="/app/pricing" target="_blank" className={styles['start-button']}>
           {planInfo.buttonText}
         </a>
         <div className={styles.features}>

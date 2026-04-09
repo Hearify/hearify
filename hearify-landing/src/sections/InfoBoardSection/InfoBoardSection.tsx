@@ -44,7 +44,7 @@ const InfoBoardSection: React.FC<InfoBoardProps> = ({
         </div>
 
         {button && (
-          <AppButtonLink className={styles.button} href="https://app.hearify.org/signup" size="lg">
+          <AppButtonLink className={styles.button} href="/app/signup" size="lg">
             {button}
             {showButtonIcon && <CalendarIcon />}
           </AppButtonLink>

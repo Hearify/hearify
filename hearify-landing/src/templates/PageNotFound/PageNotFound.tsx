@@ -23,7 +23,7 @@ const PageNotFound: React.FC = () => {
         <AppButtonLink variant="secondary" size="lg" width="280px" href="/library">
           {t('secondary-button')}
         </AppButtonLink>
-        <AppButtonLink variant="primary" size="lg" width="280px" href="https://app.hearify.org/login">
+        <AppButtonLink variant="primary" size="lg" width="280px" href="/app/login">
           <StarsIcon />
           {t('primary-button')}
         </AppButtonLink>
