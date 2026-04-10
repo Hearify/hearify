@@ -12,7 +12,14 @@ import fitz
 import openai as openai_module
 from pandas import DataFrame
 import tolerantjson
+import os
+import http.cookiejar
+
+import requests as requests_lib
 from youtube_transcript_api import YouTubeTranscriptApi
+from youtube_transcript_api.proxies import GenericProxyConfig
+
+YOUTUBE_COOKIES_PATH = os.environ.get("YOUTUBE_COOKIES_PATH", "/usr/files/youtube_cookies.txt")
 
 from api.dependencies import get_database, get_subscriptions_repository
 from core import config
@@ -399,14 +406,30 @@ class YoutubeGptHandler(GptHandler):
         self.current_index = 0
         self.transcript_cache = {}
 
+    def _make_api(self, proxy_url: str | None = None) -> YouTubeTranscriptApi:
+        """Build a YouTubeTranscriptApi instance, optionally with cookies and/or proxy."""
+        http_client = None
+        if os.path.exists(YOUTUBE_COOKIES_PATH):
+            try:
+                jar = http.cookiejar.MozillaCookieJar(YOUTUBE_COOKIES_PATH)
+                jar.load(ignore_discard=True, ignore_expires=True)
+                session = requests_lib.Session()
+                session.cookies = jar
+                http_client = session
+                logger.warning("YouTube: using cookies from %s", YOUTUBE_COOKIES_PATH)
+            except Exception as e:
+                logger.warning("YouTube: failed to load cookies (%s), proceeding without", e)
+
+        proxy_config = GenericProxyConfig(https_url=proxy_url) if proxy_url else None
+        return YouTubeTranscriptApi(proxy_config=proxy_config, http_client=http_client)
+
     async def validate_proxie(self, proxie):
         database = get_database()
         video_id = VIDEO_WITH_SUBTITLES[-11:]
         subscript_available = True
         try:
-            available_transcripts = YouTubeTranscriptApi.list_transcripts(
-                video_id, proxies={"https": proxie["proxie"]}
-            )
+            api = self._make_api(proxy_url=proxie["proxie"])
+            api.list(video_id)
         except Exception:
             await database["proxies"].update_one(
                 {"_id": proxie["_id"]}, {"$set": {"is_valid": False}}
@@ -448,6 +471,24 @@ class YoutubeGptHandler(GptHandler):
         logger.warning("Selected %s paragraphs", len(selected_paragraphs))
         return selected_paragraphs
 
+    def _fetch_transcript(self, video_id: str, proxy_url: str | None = None):
+        """Fetch transcript using new v1.x API, with optional cookies and proxy.
+        Returns a list of dicts with keys: text, start, duration."""
+        api = self._make_api(proxy_url=proxy_url)
+        transcript_list = api.list(video_id)
+        # Prefer manually created, then auto-generated
+        try:
+            transcript = transcript_list.find_manually_created_transcript(
+                list(transcript_list._manually_created_transcripts.keys()) or ["en"]
+            )
+        except Exception:
+            transcript = transcript_list.find_generated_transcript(
+                list(transcript_list._generated_transcripts.keys()) or ["en"]
+            )
+        fetched = transcript.fetch()
+        # Normalize to list of dicts for backwards compatibility
+        return [{"text": s.text, "start": s.start, "duration": s.duration} for s in fetched]
+
     async def get_transcript(
         self,
         video_id: str,
@@ -457,45 +498,40 @@ class YoutubeGptHandler(GptHandler):
         if video_id in self.transcript_cache:
             return self.transcript_cache[video_id]
 
+        # 1. Try direct (with cookies if available)
+        try:
+            transcript = self._fetch_transcript(video_id)
+            self.transcript_cache[video_id] = transcript
+            logger.warning("Fetched transcript for %s (direct/cookies)", video_id)
+            return transcript
+        except Exception as direct_error:
+            logger.warning("Direct transcript fetch failed (%s), trying proxy...", direct_error)
+
+        # 2. Fall back to a proxy from DB
         database = get_database()
         proxies = (
             await database["proxies"]
             .find({"is_valid": True})
             .to_list(length=None)
         )
-
         chosen_proxy = await self.select_random_proxie(proxies)
 
         if not chosen_proxy:
-            raise Exception(f"No proxie available")
+            raise Exception(
+                f"Could not fetch transcript for {video_id}. "
+                "The server IP may be blocked by YouTube. "
+                "Please add YouTube cookies to /usr/files/youtube_cookies.txt or configure a proxy."
+            )
 
         try:
-            available_transcripts = YouTubeTranscriptApi.list_transcripts(
-                video_id, proxies={"https": chosen_proxy["proxie"]}
-            )
-            manually_created_languages = (
-                available_transcripts._manually_created_transcripts
-            )
-            generated_language = available_transcripts._generated_transcripts
-            chosen_languages = list(generated_language.keys()) + list(
-                manually_created_languages.keys()
-            )
-            youtube_transcript = YouTubeTranscriptApi.get_transcript(
-                video_id,
-                chosen_languages,
-                proxies={"https": chosen_proxy["proxie"]},
-            )
-
-            # Store the transcript in the cache
-            self.transcript_cache[video_id] = youtube_transcript
-
-            for inactive_proxie in checked_proxies:
-                await database["proxies"].update_one(
-                    {"_id": chosen_proxy["_id"]}, {"$set": {"is_valid": False}}
-                )
-            return youtube_transcript
-
+            transcript = self._fetch_transcript(video_id, proxy_url=chosen_proxy["proxie"])
+            self.transcript_cache[video_id] = transcript
+            logger.warning("Fetched transcript for %s via proxy", video_id)
+            return transcript
         except Exception as e:
+            await database["proxies"].update_one(
+                {"_id": chosen_proxy["_id"]}, {"$set": {"is_valid": False}}
+            )
             raise Exception(
                 f"Failed to retrieve transcript for video {video_id}: {str(e)}"
             )
