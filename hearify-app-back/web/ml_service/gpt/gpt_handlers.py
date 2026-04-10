@@ -21,6 +21,7 @@ from youtube_transcript_api.proxies import GenericProxyConfig
 
 YOUTUBE_COOKIES_PATH = os.environ.get("YOUTUBE_COOKIES_PATH", "/usr/files/youtube_cookies.txt")
 
+
 from api.dependencies import get_database, get_subscriptions_repository
 from core import config
 from core.config import USE_GPT_3_5, VIDEO_WITH_SUBTITLES
@@ -498,14 +499,14 @@ class YoutubeGptHandler(GptHandler):
         if video_id in self.transcript_cache:
             return self.transcript_cache[video_id]
 
-        # 1. Try direct (with cookies if available)
+        # 1. Try with configured proxy (env var) or direct if none set
         try:
-            transcript = self._fetch_transcript(video_id)
+            transcript = self._fetch_transcript(video_id, proxy_url=config.YOUTUBE_PROXY_URL)
             self.transcript_cache[video_id] = transcript
-            logger.warning("Fetched transcript for %s (direct/cookies)", video_id)
+            logger.warning("Fetched transcript for %s (proxy=%s)", video_id, bool(config.YOUTUBE_PROXY_URL))
             return transcript
         except Exception as direct_error:
-            logger.warning("Direct transcript fetch failed (%s), trying proxy...", direct_error)
+            logger.warning("Transcript fetch failed (%s), trying DB proxy...", direct_error)
 
         # 2. Fall back to a proxy from DB
         database = get_database()
