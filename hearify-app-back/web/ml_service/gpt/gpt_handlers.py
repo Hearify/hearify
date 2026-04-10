@@ -15,7 +15,12 @@ from pandas import DataFrame
 import requests as requests_lib
 import tolerantjson
 from youtube_transcript_api import YouTubeTranscriptApi
-from youtube_transcript_api.proxies import WebshareProxyConfig, GenericProxyConfig
+try:
+    from youtube_transcript_api.proxies import WebshareProxyConfig, GenericProxyConfig
+except ImportError:
+    # youtube-transcript-api < 1.0 — proxy support unavailable
+    WebshareProxyConfig = None
+    GenericProxyConfig = None
 
 
 from api.dependencies import get_database, get_subscriptions_repository
@@ -407,13 +412,13 @@ class YoutubeGptHandler(GptHandler):
         """Build a YouTubeTranscriptApi instance with Webshare proxy if configured."""
         proxy_config = None
 
-        if config.WEBSHARE_PROXY_USERNAME and config.WEBSHARE_PROXY_PASSWORD:
+        if config.WEBSHARE_PROXY_USERNAME and config.WEBSHARE_PROXY_PASSWORD and WebshareProxyConfig:
             proxy_config = WebshareProxyConfig(
                 proxy_username=config.WEBSHARE_PROXY_USERNAME,
                 proxy_password=config.WEBSHARE_PROXY_PASSWORD,
                 retries_when_blocked=5,
             )
-        elif proxy_url:
+        elif proxy_url and GenericProxyConfig:
             proxy_config = GenericProxyConfig(https_url=proxy_url)
 
         return YouTubeTranscriptApi(proxy_config=proxy_config)
