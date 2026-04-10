@@ -95,7 +95,7 @@ class RoadmapPublic(BaseModel):
 class GeneratedQuiz(BaseModel):
     """Defines a structure for gpt-generated quiz data"""
 
-    name: str
+    name: str = "Generated Quiz"
     questions: List[QuestionBase]
 
 
