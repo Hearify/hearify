@@ -4,7 +4,6 @@ from io import BytesIO
 import logging
 import os
 import random
-import time
 
 from celery.utils.collections import List
 from docx import Document
@@ -16,67 +15,7 @@ from pandas import DataFrame
 import requests as requests_lib
 import tolerantjson
 from youtube_transcript_api import YouTubeTranscriptApi
-from youtube_transcript_api.proxies import GenericProxyConfig
-
-YOUTUBE_COOKIES_PATH = os.environ.get("YOUTUBE_COOKIES_PATH", "/usr/files/youtube_cookies.txt")
-
-
-class WebshareProxyManager:
-    """Fetches proxies from Webshare API and rotates on failure."""
-
-    WEBSHARE_API = "https://proxy.webshare.io/api/v2/proxy/list/?mode=direct&page=1&page_size=25"
-    CACHE_TTL = 3600  # re-fetch proxy list every hour
-
-    def __init__(self):
-        self._proxies: list[str] = []
-        self._failed: set[str] = set()
-        self._fetched_at: float = 0
-
-    def _fetch_from_api(self, api_key: str) -> list[str]:
-        resp = requests_lib.get(
-            self.WEBSHARE_API,
-            headers={"Authorization": f"Token {api_key}"},
-            timeout=10,
-        )
-        resp.raise_for_status()
-        results = resp.json().get("results", [])
-        proxies = []
-        for p in results:
-            if not p.get("valid", True):
-                continue
-            host = p["proxy_address"]
-            port = p["port"]
-            username = p["username"]
-            password = p["password"]
-            proxies.append(f"http://{username}:{password}@{host}:{port}")
-        return proxies
-
-    def get_proxy(self, api_key: str) -> str | None:
-        """Return a working proxy URL, refreshing the list if needed."""
-        now = time.time()
-        if not self._proxies or (now - self._fetched_at) > self.CACHE_TTL:
-            try:
-                self._proxies = self._fetch_from_api(api_key)
-                self._failed.clear()
-                self._fetched_at = now
-                logger.warning("Webshare: loaded %d proxies", len(self._proxies))
-            except Exception as e:
-                logger.warning("Webshare: failed to fetch proxy list (%s)", e)
-
-        available = [p for p in self._proxies if p not in self._failed]
-        return available[0] if available else None
-
-    def mark_failed(self, proxy_url: str):
-        self._failed.add(proxy_url)
-        logger.warning("Webshare: marked proxy as failed (%s), %d remaining",
-                       proxy_url.split("@")[-1],
-                       len([p for p in self._proxies if p not in self._failed]))
-        # If all proxies exhausted, force re-fetch next call
-        if not [p for p in self._proxies if p not in self._failed]:
-            self._fetched_at = 0
-
-
-_webshare = WebshareProxyManager()
+from youtube_transcript_api import proxies as yt_proxies
 
 
 from api.dependencies import get_database, get_subscriptions_repository
@@ -465,21 +404,19 @@ class YoutubeGptHandler(GptHandler):
         self.transcript_cache = {}
 
     def _make_api(self, proxy_url: str | None = None) -> YouTubeTranscriptApi:
-        """Build a YouTubeTranscriptApi instance, optionally with cookies and/or proxy."""
-        http_client = None
-        if os.path.exists(YOUTUBE_COOKIES_PATH):
-            try:
-                jar = http.cookiejar.MozillaCookieJar(YOUTUBE_COOKIES_PATH)
-                jar.load(ignore_discard=True, ignore_expires=True)
-                session = requests_lib.Session()
-                session.cookies = jar
-                http_client = session
-                logger.warning("YouTube: using cookies from %s", YOUTUBE_COOKIES_PATH)
-            except Exception as e:
-                logger.warning("YouTube: failed to load cookies (%s), proceeding without", e)
+        """Build a YouTubeTranscriptApi instance with Webshare proxy if configured."""
+        proxy_config = None
 
-        proxy_config = GenericProxyConfig(https_url=proxy_url) if proxy_url else None
-        return YouTubeTranscriptApi(proxy_config=proxy_config, http_client=http_client)
+        if config.WEBSHARE_PROXY_USERNAME and config.WEBSHARE_PROXY_PASSWORD:
+            proxy_config = yt_proxies.WebshareProxyConfig(
+                proxy_username=config.WEBSHARE_PROXY_USERNAME,
+                proxy_password=config.WEBSHARE_PROXY_PASSWORD,
+                retries_when_blocked=5,
+            )
+        elif proxy_url:
+            proxy_config = yt_proxies.GenericProxyConfig(https_url=proxy_url)
+
+        return YouTubeTranscriptApi(proxy_config=proxy_config)
 
     async def validate_proxie(self, proxie):
         database = get_database()
@@ -556,32 +493,16 @@ class YoutubeGptHandler(GptHandler):
         if video_id in self.transcript_cache:
             return self.transcript_cache[video_id]
 
-        # 1. Try Webshare proxies (with rotation on failure)
-        if config.WEBSHARE_API_KEY:
-            for attempt in range(5):  # try up to 5 proxies before giving up
-                proxy_url = _webshare.get_proxy(config.WEBSHARE_API_KEY)
-                if not proxy_url:
-                    break
-                try:
-                    transcript = self._fetch_transcript(video_id, proxy_url=proxy_url)
-                    self.transcript_cache[video_id] = transcript
-                    logger.warning("Fetched transcript for %s via Webshare (attempt %d)", video_id, attempt + 1)
-                    return transcript
-                except Exception as e:
-                    logger.warning("Webshare proxy failed (%s): %s", proxy_url.split("@")[-1], e)
-                    _webshare.mark_failed(proxy_url)
-
-        # 2. Try direct as last resort (works on non-datacenter IPs / dev machines)
         try:
-            transcript = self._fetch_transcript(video_id, proxy_url=None)
+            transcript = self._fetch_transcript(video_id)
             self.transcript_cache[video_id] = transcript
-            logger.warning("Fetched transcript for %s directly", video_id)
+            logger.warning("Fetched transcript for %s (webshare=%s)", video_id, bool(config.WEBSHARE_PROXY_USERNAME))
             return transcript
-        except Exception as direct_error:
+        except Exception as e:
             raise Exception(
                 f"Could not fetch transcript for {video_id}. "
-                f"Last error: {direct_error}. "
-                "Set WEBSHARE_API_KEY in prod.env to enable proxy rotation."
+                f"Error: {e}. "
+                "Set WEBSHARE_PROXY_USERNAME and WEBSHARE_PROXY_PASSWORD in prod.env."
             )
 
     async def get_video_duration(self, video_id: str):

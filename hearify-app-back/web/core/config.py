@@ -58,8 +58,9 @@ OPENROUTER_FALLBACK_MODELS = [
     "openai/gpt-oss-20b:free",
 ]
 
-# YOUTUBE
-WEBSHARE_API_KEY = os.getenv("WEBSHARE_API_KEY", default=None)  # from proxy.webshare.io → API Keys
+# YOUTUBE — Webshare proxy (proxy.webshare.io → Proxy List → username/password)
+WEBSHARE_PROXY_USERNAME = os.getenv("WEBSHARE_PROXY_USERNAME", default=None)
+WEBSHARE_PROXY_PASSWORD = os.getenv("WEBSHARE_PROXY_PASSWORD", default=None)
 
 # SUPABASE
 SUPABASE_URL = os.getenv("SUPABASE_URL")
