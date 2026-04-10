@@ -134,12 +134,59 @@ class GptHandler:
         for client, models in attempts:
             for model in models:
                 try:
+                    try:
+                        completion = client.chat.completions.create(
+                            model=model,
+                            messages=[{"role": "user", "content": prompt}],
+                            temperature=temperature,
+                            response_format={"type": "json_object"},
+                        )
+                    except Exception:
+                        completion = client.chat.completions.create(
+                            model=model,
+                            messages=[{"role": "user", "content": prompt}],
+                            temperature=temperature,
+                        )
+                    return tolerantjson.tolerate(completion.choices[0].message.content)
+                except Exception as e:
+                    logger.warning("Model %s failed (%s), trying next.", model, e)
+                    last_error = e
+                    continue
+
+        raise last_error
+
+    @staticmethod
+    def text_request(prompt, model_name, temperature=0.8):
+        attempts = []
+
+        if config.USE_GROQ and config.GROQ_API_KEY:
+            attempts.append((
+                openai_module.OpenAI(api_key=config.GROQ_API_KEY, base_url=config.GROQ_BASE_URL),
+                config.GROQ_MODELS,
+            ))
+
+        if config.USE_DEEPSEEK and config.OPENROUTER_API_KEY:
+            attempts.append((
+                openai_module.OpenAI(api_key=config.OPENROUTER_API_KEY, base_url=config.OPENROUTER_BASE_URL),
+                config.OPENROUTER_FALLBACK_MODELS,
+            ))
+
+        if not attempts:
+            attempts.append((
+                openai_module.OpenAI(api_key=config.OPENAI_API_KEY),
+                [model_name],
+            ))
+
+        last_error = None
+        for client, models in attempts:
+            for model in models:
+                try:
                     completion = client.chat.completions.create(
                         model=model,
                         messages=[{"role": "user", "content": prompt}],
                         temperature=temperature,
                     )
-                    return tolerantjson.tolerate(completion.choices[0].message.content)
+                    return completion.choices[0].message.content
                 except Exception as e:
                     logger.warning("Model %s failed (%s), trying next.", model, e)
                     last_error = e

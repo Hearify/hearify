@@ -1,27 +1,19 @@
 import asyncio
+import concurrent.futures
 import json
 import time
 
 from celery import Celery
-from langchain.chat_models import ChatOpenAI
 
 from core import config
 
 
-def get_chat_model(model_name: str) -> ChatOpenAI:
-    if config.USE_GROQ and config.GROQ_API_KEY:
-        return ChatOpenAI(
-            model=config.GROQ_MODELS[0],
-            openai_api_key=config.GROQ_API_KEY,
-            openai_api_base=config.GROQ_BASE_URL,
-        )
-    if config.USE_DEEPSEEK and config.OPENROUTER_API_KEY:
-        return ChatOpenAI(
-            model=config.OPENROUTER_FALLBACK_MODELS[0],
-            openai_api_key=config.OPENROUTER_API_KEY,
-            openai_api_base=config.OPENROUTER_BASE_URL,
-        )
-    return ChatOpenAI(model=model_name)
+worker = Celery(
+    broker=config.CELERY_BROKER_URL, backend=config.CELERY_BACKEND_URL
+)
+
+worker.conf.result_expires = 30 * 60
+
 from db.database import get_db
 from ext.functions import send_email
 from helpers.helpers import remove_extra_questions
@@ -42,17 +34,38 @@ from schemas.quizzes import GeneratedQuiz, GeneratedRoadmap
 from tasks.async_tasks import generate_quiz, generate_roadmap, add_new_subtopic, regenerate_subtopics_task
 from tasks.utils import save_generation_info
 
-worker = Celery(
-    broker=config.CELERY_BROKER_URL, backend=config.CELERY_BACKEND_URL
-)
+# Parallelize PDF generation when text exceeds this length
+_PARALLEL_CHUNK_THRESHOLD = 5000
+_MAX_PARALLEL_CHUNKS = 3
 
-worker.conf.result_expires = 30 * 60
+
+def _build_quiz_prompt(question_types, text, language, difficulty, additional_prompt, dynamic_types_request, multiple_types_request):
+    if dynamic_types_request:
+        return DynamicTypesQuestionTemplate().build_dynamic_types(
+            question_types, text=text, language=language,
+            difficulty=difficulty, additional_prompt=additional_prompt,
+        ), multiple_types_request
+    if len(question_types) == 1:
+        return type_prompt_mapper(question_types[0]["name"]).build(
+            text=text,
+            questions_num=question_types[0]["number_of_questions"],
+            language=language,
+            difficulty=difficulty,
+            additional_prompt=additional_prompt,
+        ), False
+    return MultipleTypesQuestionTemplate().build(
+        question_types, text=text, language=language,
+        difficulty=difficulty, additional_prompt=additional_prompt,
+    ), True
+
+
+def _format_quiz(raw, multiple_types_request):
+    return multiple_format_fill_in_questions(raw) if multiple_types_request else format_fill_in_questions(raw)
 
 
 @worker.task
 def task_send_email(recipients: list[str], subject: str, body: str):
     """"""
-
     send_email(recipients=recipients, subject=subject, body=body)
 
 
@@ -86,7 +99,6 @@ def generate_questions_pipeline(
         else format_fill_in_questions(quiz)
     )
     quiz = remove_extra_questions(quiz, question_types)
-    # TODO: use logging instead of print
     print(f"Number of generated quizzes: {len(quiz['questions'])}")
     print(f"Generated quiz from pdf: {quiz}")
 
@@ -118,95 +130,84 @@ def generate_questions_from_file(
     dynamic_types_request: str | None,
 ):
     database = get_db()
-    gpt_handler = GptHandler()
-
-    chatbot = get_chat_model(model_name)
     multiple_types_request = False
     dynamic_types_request = dynamic_types_request == "dynamic"
 
-    if dynamic_types_request:
-        prompt = DynamicTypesQuestionTemplate().build_dynamic_types(
-            question_types,
-            text=pdf_text,
-            language=language,
-            difficulty=difficulty,
-            additional_prompt=additional_prompt,
-        )
-    else:
-        if len(question_types) == 1:
-            prompt = type_prompt_mapper(question_types[0]["name"]).build(
-                text=pdf_text,
-                questions_num=question_types[0]["number_of_questions"],
-                language=language,
-                difficulty=difficulty,
-                additional_prompt=additional_prompt,
-            )
-        else:
-            multiple_types_request = True
-            prompt = MultipleTypesQuestionTemplate().build(
-                question_types,
-                text=pdf_text,
-                language=language,
-                difficulty=difficulty,
-                additional_prompt=additional_prompt,
-            )
-
+    total_questions = sum(qt["number_of_questions"] for qt in question_types)
     start = time.time()
-    raw_quiz = chatbot.predict(prompt)
-    print(f"Generation time: {time.time() - start}")
+
     try:
-        quiz = json.loads(gpt_handler.extract_json_from_block(raw_quiz))
-        quiz = (
-            multiple_format_fill_in_questions(quiz)
-            if multiple_types_request
-            else format_fill_in_questions(quiz)
-        )
-        quiz = remove_extra_questions(quiz, question_types)
+        # C: parallel chunk generation for large texts (single/multi type only, not dynamic)
+        if (
+            not dynamic_types_request
+            and len(pdf_text) > _PARALLEL_CHUNK_THRESHOLD
+        ):
+            chunk_size = len(pdf_text) // _MAX_PARALLEL_CHUNKS
+            chunks = [
+                pdf_text[i: i + chunk_size]
+                for i in range(0, len(pdf_text), chunk_size)
+            ][: _MAX_PARALLEL_CHUNKS]
 
-    except json.JSONDecodeError:
-        print(f"{raw_quiz = }")
-        print("Not a correct json. Generating new")
-        start = time.time()
-        raw_quiz = chatbot.predict(prompt)
-        print(f"Generation time 2: {time.time() - start}")
-        print(f"new_{raw_quiz = }")
-        try:
-            quiz = json.loads(gpt_handler.extract_json_from_block(raw_quiz))
-        except json.JSONDecodeError:
-            print("JSON decoding error")
-            asyncio.run(
-                save_generation_info(
-                    user_id=user_id,
-                    database=database,
-                    class_code=class_code,
-                    generation_payload=generation_payload,
-                    error="JSON decoding error",
+            per_chunk = max(1, total_questions // len(chunks))
+            chunk_question_types = [
+                {**qt, "number_of_questions": per_chunk} for qt in question_types
+            ]
+
+            prompts = []
+            for chunk in chunks:
+                p, multiple_types_request = _build_quiz_prompt(
+                    chunk_question_types, chunk, language, difficulty,
+                    additional_prompt, dynamic_types_request, len(question_types) > 1,
                 )
+                prompts.append(p)
+
+            def _call(p):
+                return GptHandler.json_request(p, model_name)
+
+            with concurrent.futures.ThreadPoolExecutor(max_workers=len(chunks)) as ex:
+                futures = [ex.submit(_call, p) for p in prompts]
+                results = [f.result() for f in concurrent.futures.as_completed(futures)]
+
+            all_questions = []
+            for r in results:
+                fmt = _format_quiz(r, multiple_types_request)
+                all_questions.extend(fmt.get("questions", []))
+
+            quiz = {"questions": all_questions[:total_questions]}
+        else:
+            prompt, multiple_types_request = _build_quiz_prompt(
+                question_types, pdf_text, language, difficulty,
+                additional_prompt, dynamic_types_request, len(question_types) > 1,
             )
-            return
+            raw = GptHandler.json_request(prompt, model_name)
+            quiz = _format_quiz(raw, multiple_types_request)
+            quiz = remove_extra_questions(quiz, question_types)
 
-        quiz = remove_extra_questions(quiz, question_types)
-        quiz = (
-            multiple_format_fill_in_questions(quiz)
-            if multiple_types_request
-            else format_fill_in_questions(quiz)
+        print(f"Generation time: {time.time() - start}")
+        print(f"Number of generated quizzes: {len(quiz['questions'])}")
+
+        generated_quiz = GeneratedQuiz.model_validate(quiz)
+        asyncio.run(
+            generate_quiz(
+                user_id=user_id,
+                database=database,
+                quiz=generated_quiz,
+                class_code=class_code,
+                settings=settings,
+                generation_payload=generation_payload,
+            )
         )
-
-    print(f"Number of generated quizzes: {len(quiz['questions'])}")
-    print(f"Generated quiz from pdf: {quiz}")
-
-    generated_quiz = GeneratedQuiz.model_validate(quiz)
-
-    asyncio.run(
-        generate_quiz(
-            user_id=user_id,
-            database=database,
-            quiz=generated_quiz,
-            class_code=class_code,
-            settings=settings,
-            generation_payload=generation_payload,
+    except Exception as e:
+        print(f"Generation error: {e}")
+        asyncio.run(
+            save_generation_info(
+                user_id=user_id,
+                database=database,
+                class_code=class_code,
+                generation_payload=generation_payload,
+                error=str(e),
+            )
         )
-    )
 
 
 @worker.task
@@ -223,89 +224,41 @@ def generate_youtube_questions_task(
     question_types: list[dict] | None,
 ):
     database = get_db()
-    gpt_handler = GptHandler()
-
-    chatbot = get_chat_model(model_name)
-
     start = time.time()
-    multiple_types_request = False
-    if len(question_types) == 1:
-        prompt = type_prompt_mapper(question_types[0]["name"]).build(
-            text=text,
-            questions_num=question_types[0]["number_of_questions"],
-            language=language,
-            difficulty=difficulty,
-            additional_prompt=additional_prompt,
-        )
-    else:
-        multiple_types_request = True
-        prompt = MultipleTypesQuestionTemplate().build(
-            question_types,
-            text=text,
-            language=language,
-            difficulty=difficulty,
-            additional_prompt=additional_prompt,
-        )
 
-    raw_quiz = chatbot.predict(prompt)
     try:
-        quiz = json.loads(gpt_handler.extract_json_from_block(raw_quiz))
-        quiz = (
-            multiple_format_fill_in_questions(quiz)
-            if multiple_types_request
-            else format_fill_in_questions(quiz)
+        prompt, multiple_types_request = _build_quiz_prompt(
+            question_types, text, language, difficulty,
+            additional_prompt, False, len(question_types) > 1,
         )
-    except json.JSONDecodeError:
-        print("Not a correct json. Generating new")
+        raw = GptHandler.json_request(prompt, model_name)
+        quiz = _format_quiz(raw, multiple_types_request)
 
-        raw_quiz = chatbot.predict(prompt)
-        print(f"Generation time 2: {time.time() - start}")
+        print(f"Generation time: {time.time() - start}")
+        print(f"Number of generated questions: {len(quiz['questions'])}")
 
-        print(f"new_{raw_quiz = }")
-        try:
-            quiz = json.loads(gpt_handler.extract_json_from_block(raw_quiz))
-        except json.JSONDecodeError:
-            print("JSON decoding error")
-            asyncio.run(
-                save_generation_info(
-                    user_id=user_id,
-                    database=database,
-                    class_code=class_code,
-                    generation_payload={
-                        "url": url,
-                        "generated_by": "youtube",
-                    },
-                    error="JSON decoding error",
-                )
+        generated_quiz = GeneratedQuiz.model_validate(quiz)
+        asyncio.run(
+            generate_quiz(
+                user_id=user_id,
+                database=database,
+                quiz=generated_quiz,
+                class_code=class_code,
+                settings=settings,
+                generation_payload={"url": url, "generated_by": "youtube"},
             )
-            return
-
-        quiz = (
-            multiple_format_fill_in_questions(quiz)
-            if multiple_types_request
-            else format_fill_in_questions(quiz)
         )
-
-    print(f"Generation time: {time.time() - start}")
-
-    print(f"Number of generated questions: {len(quiz['questions'])}")
-    print(f"Generated questions from pdf: {quiz}")
-
-    generated_quiz = GeneratedQuiz.model_validate(quiz)
-
-    asyncio.run(
-        generate_quiz(
-            user_id=user_id,
-            database=database,
-            quiz=generated_quiz,
-            class_code=class_code,
-            settings=settings,
-            generation_payload={
-                "url": url,
-                "generated_by": "youtube",
-            },
+    except Exception as e:
+        print(f"Generation error: {e}")
+        asyncio.run(
+            save_generation_info(
+                user_id=user_id,
+                database=database,
+                class_code=class_code,
+                generation_payload={"url": url, "generated_by": "youtube"},
+                error=str(e),
+            )
         )
-    )
 
 
 @worker.task
@@ -321,87 +274,42 @@ def generate_questions_from_text(
     question_types: list[dict] | None,
 ):
     database = get_db()
-    gpt_handler = GptHandler()
-    chatbot = get_chat_model(model_name)
-    multiple_types_request = False
-    if len(question_types) == 1:
-        prompt = type_prompt_mapper(question_types[0]["name"]).build(
-            text=text,
-            questions_num=question_types[0]["number_of_questions"],
-            language=language,
-            difficulty=difficulty,
-            additional_prompt=additional_prompt,
-        )
-    else:
-        multiple_types_request = True
-        prompt = MultipleTypesQuestionTemplate().build(
-            question_types,
-            text=text,
-            language=language,
-            difficulty=difficulty,
-            additional_prompt=additional_prompt,
-        )
-
     start = time.time()
-    raw_quiz = chatbot.predict(prompt)
-    print(f"Generation time: {time.time() - start}")
+
     try:
-        quiz = json.loads(gpt_handler.extract_json_from_block(raw_quiz))
-        quiz = (
-            multiple_format_fill_in_questions(quiz)
-            if multiple_types_request
-            else format_fill_in_questions(quiz)
+        prompt, multiple_types_request = _build_quiz_prompt(
+            question_types, text, language, difficulty,
+            additional_prompt, False, len(question_types) > 1,
         )
-    except json.JSONDecodeError:
-        print(f"{raw_quiz = }")
-        print("Not a correct json. Generating new")
+        raw = GptHandler.json_request(prompt, model_name)
+        quiz = _format_quiz(raw, multiple_types_request)
+        quiz = remove_extra_questions(quiz, question_types)
 
-        start = time.time()
-        raw_quiz = chatbot.predict(prompt)
-        print(f"Generation time 2: {time.time() - start}")
+        print(f"Generation time: {time.time() - start}")
+        print(f"Number of generated questions: {len(quiz['questions'])}")
 
-        print(f"new_{raw_quiz = }")
-
-        try:
-            quiz = json.loads(gpt_handler.extract_json_from_block(raw_quiz))
-        except json.JSONDecodeError:
-            print("JSON decoding error")
-            asyncio.run(
-                save_generation_info(
-                    user_id=user_id,
-                    database=database,
-                    class_code=class_code,
-                    generation_payload={
-                        "text_length": len(text),
-                        "generated_by": "text",
-                    },
-                    error="JSON decoding error",
-                )
+        generated_quiz = GeneratedQuiz.model_validate(quiz)
+        asyncio.run(
+            generate_quiz(
+                user_id=user_id,
+                database=database,
+                quiz=generated_quiz,
+                class_code=class_code,
+                settings=settings,
+                generation_payload={"generated_by": "text", "text_length": len(text)},
             )
-            return
-
-        quiz = (
-            multiple_format_fill_in_questions(quiz)
-            if multiple_types_request
-            else format_fill_in_questions(quiz)
         )
-
-    print(f"Number of generated questions: {len(quiz['questions'])}")
-    print(f"Generated questions from pdf: {quiz}")
-    generated_quiz = GeneratedQuiz.model_validate(quiz)
-    asyncio.run(
-        generate_quiz(
-            user_id=user_id,
-            database=database,
-            quiz=generated_quiz,
-            class_code=class_code,
-            settings=settings,
-            generation_payload={
-                "generated_by": "text",
-                "text_length": len(text),
-            },
+    except Exception as e:
+        print(f"Generation error: {e}")
+        asyncio.run(
+            save_generation_info(
+                user_id=user_id,
+                database=database,
+                class_code=class_code,
+                generation_payload={"generated_by": "text", "text_length": len(text)},
+                error=str(e),
+            )
         )
-    )
 
 
 @worker.task
@@ -413,16 +321,10 @@ def generate_roadmap_from_text(
     model_name: str,
 ):
     database = get_db()
-    gpt_handler = GptHandler()
-    chatbot = get_chat_model(model_name)
-    prompt = roadmap_type_prompt_mapper().build(
-        text=text,
-        language=language,
-    )
     start = time.time()
-    raw_roadmap = chatbot.predict(prompt)
+    prompt = roadmap_type_prompt_mapper().build(text=text, language=language)
+    roadmap = GptHandler.json_request(prompt, model_name)
     print(f"Generation time: {time.time() - start}")
-    roadmap = json.loads(gpt_handler.extract_json_from_block(raw_roadmap))
     generated_roadmap = GeneratedRoadmap.model_validate(roadmap)
     asyncio.run(
         generate_roadmap(
@@ -430,149 +332,108 @@ def generate_roadmap_from_text(
             database=database,
             roadmap=generated_roadmap,
             class_code=class_code,
-            generation_payload={
-                "generated_by": "text",
-                "text_length": len(text),
-            },
+            generation_payload={"generated_by": "text", "text_length": len(text)},
         )
     )
 
 
 @worker.task
 def generate_roadmap_from_file(
-        pdf_text: str,
-        generation_payload: dict,
-        user_id: str,
-        class_code: str,
-        language: str | None,
-        model_name: str,
+    pdf_text: str,
+    generation_payload: dict,
+    user_id: str,
+    class_code: str,
+    language: str | None,
+    model_name: str,
 ):
     database = get_db()
-    gpt_handler = GptHandler()
-
-    chatbot = get_chat_model(model_name)
-
-    prompt = roadmap_type_prompt_mapper().build(
-        text=pdf_text,
-        language=language,
-    )
-
     start = time.time()
-    raw_roadmap = chatbot.predict(prompt)
-
+    prompt = roadmap_type_prompt_mapper().build(text=pdf_text, language=language)
+    roadmap = GptHandler.json_request(prompt, model_name)
     print(f"Generation time: {time.time() - start}")
-    roadmap = json.loads(gpt_handler.extract_json_from_block(raw_roadmap))
     generated_roadmap = GeneratedRoadmap.model_validate(roadmap)
-
     asyncio.run(
         generate_roadmap(
             user_id=user_id,
             database=database,
             roadmap=generated_roadmap,
             class_code=class_code,
-            generation_payload=generation_payload
+            generation_payload=generation_payload,
         )
     )
 
 
 @worker.task
 def generate_roadmap_from_youtube(
-        text: str,
-        url: str,
-        user_id: str,
-        class_code: str,
-        language: str | None,
-        model_name: str,
+    text: str,
+    url: str,
+    user_id: str,
+    class_code: str,
+    language: str | None,
+    model_name: str,
 ):
     database = get_db()
-    gpt_handler = GptHandler()
-
-    chatbot = get_chat_model(model_name)
-
-    prompt = roadmap_type_prompt_mapper().build(
-        text=text,
-        language=language,
-    )
-
     start = time.time()
-    raw_roadmap = chatbot.predict(prompt)
-
+    prompt = roadmap_type_prompt_mapper().build(text=text, language=language)
+    roadmap = GptHandler.json_request(prompt, model_name)
     print(f"Generation time: {time.time() - start}")
-    roadmap = json.loads(gpt_handler.extract_json_from_block(raw_roadmap))
     generated_roadmap = GeneratedRoadmap.model_validate(roadmap)
-
     asyncio.run(
         generate_roadmap(
             user_id=user_id,
             database=database,
             roadmap=generated_roadmap,
             class_code=class_code,
-            generation_payload={
-                "url": url,
-                "generated_by": "youtube",
-            },
+            generation_payload={"url": url, "generated_by": "youtube"},
         )
     )
+
 
 @worker.task
 def generate_subtopic_from_topic(
-        topic_name: str,
-        subtopics: str,
-        class_code: str,
-        language: str | None,
-        model_name: str,
+    topic_name: str,
+    subtopics: str,
+    class_code: str,
+    language: str | None,
+    model_name: str,
 ):
     database = get_db()
-    gpt_handler = GptHandler()
-    chatbot = get_chat_model(model_name)
     text = f"Topic name: {topic_name}. Subtopics: {subtopics}."
-    prompt = new_subtopic_prompt_mapper().build(
-        text=text,
-        language=language,
-    )
+    prompt = new_subtopic_prompt_mapper().build(text=text, language=language)
     start = time.time()
-    subtopic = chatbot.predict(prompt)
+    new_subtopic = GptHandler.json_request(prompt, model_name)
     print(f"Generation time: {time.time() - start}")
-
-    new_subtopic = json.loads(gpt_handler.extract_json_from_block(subtopic))
     asyncio.run(
-            add_new_subtopic(
-                database=database,
-                class_code=class_code,
-                subtopic=new_subtopic,
-                topic_name=topic_name,
-            )
+        add_new_subtopic(
+            database=database,
+            class_code=class_code,
+            subtopic=new_subtopic,
+            topic_name=topic_name,
         )
+    )
 
 
 @worker.task
 def regenerate_subtopics(
-        topic_name: str,
-        class_code: str,
-        model_name: str,
-        language: str | None = None,
+    topic_name: str,
+    class_code: str,
+    model_name: str,
+    language: str | None = None,
 ):
     database = get_db()
-    gpt_handler = GptHandler()
-    chatbot = get_chat_model(model_name)
     text = f"Topic name: {topic_name}."
-    prompt = regenerated_subtopics_prompt_mapper().build(
-        text=text,
-        language=language,
-    )
+    prompt = regenerated_subtopics_prompt_mapper().build(text=text, language=language)
     start = time.time()
-    subtopics = chatbot.predict(prompt)
+    new_subtopics = GptHandler.json_request(prompt, model_name)
     print(f"Generation time: {time.time() - start}")
-
-    new_subtopics = json.loads(gpt_handler.extract_json_from_block(subtopics))
     asyncio.run(
-            regenerate_subtopics_task(
-                database=database,
-                class_code=class_code,
-                subtopics=new_subtopics,
-                topic_name=topic_name,
-            )
+        regenerate_subtopics_task(
+            database=database,
+            class_code=class_code,
+            subtopics=new_subtopics,
+            topic_name=topic_name,
         )
+    )
 
 
 @worker.task
@@ -582,7 +443,6 @@ def check_open_question(
     user_answer: str,
     model_name: str,
 ) -> int:
-    chatbot = get_chat_model(model_name)
     template = CheckOpenQuestion()
     prompt = template.build_open_question_check(
         question=question,
@@ -590,7 +450,7 @@ def check_open_question(
         user_answer=user_answer,
     )
 
-    result = chatbot.predict(prompt)
+    result = GptHandler.text_request(prompt, model_name)
     print(f"Result: {result}")
 
     try:

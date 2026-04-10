@@ -6,7 +6,8 @@ services:
       context: .
       dockerfile: ./docker/Dockerfile
     container_name: hearify_api
-    command: uvicorn main:application_factory --workers 2 --host 0.0.0.0 --port 8001
+    command: uvicorn main:application_factory --workers 1 --host 0.0.0.0 --port 8001
+    restart: unless-stopped
     ports:
       - "8001:8001"
     volumes:
@@ -30,6 +31,7 @@ services:
       dockerfile: ./docker/Dockerfile
     container_name: hearify_queue
     command: celery -A tasks.tasks worker -c 1 --prefetch-multiplier 1 --loglevel=info
+    restart: unless-stopped
     volumes:
       - ./web/:/usr/src/
     env_file:
@@ -49,6 +51,7 @@ services:
   redis:
     image: redis:6-alpine
     container_name: hearify_redis
+    restart: unless-stopped
     volumes:
       - redis_data:/data
     deploy:
