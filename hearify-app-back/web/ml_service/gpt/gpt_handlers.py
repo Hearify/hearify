@@ -2,7 +2,9 @@ from datetime import timedelta
 from enum import Enum
 from io import BytesIO
 import logging
+import os
 import random
+import time
 
 from celery.utils.collections import List
 from docx import Document
@@ -11,15 +13,70 @@ from fastapi import HTTPException, Depends
 import fitz
 import openai as openai_module
 from pandas import DataFrame
-import tolerantjson
-import os
-import http.cookiejar
-
 import requests as requests_lib
+import tolerantjson
 from youtube_transcript_api import YouTubeTranscriptApi
 from youtube_transcript_api.proxies import GenericProxyConfig
 
 YOUTUBE_COOKIES_PATH = os.environ.get("YOUTUBE_COOKIES_PATH", "/usr/files/youtube_cookies.txt")
+
+
+class WebshareProxyManager:
+    """Fetches proxies from Webshare API and rotates on failure."""
+
+    WEBSHARE_API = "https://proxy.webshare.io/api/v2/proxy/list/?mode=direct&page=1&page_size=25"
+    CACHE_TTL = 3600  # re-fetch proxy list every hour
+
+    def __init__(self):
+        self._proxies: list[str] = []
+        self._failed: set[str] = set()
+        self._fetched_at: float = 0
+
+    def _fetch_from_api(self, api_key: str) -> list[str]:
+        resp = requests_lib.get(
+            self.WEBSHARE_API,
+            headers={"Authorization": f"Token {api_key}"},
+            timeout=10,
+        )
+        resp.raise_for_status()
+        results = resp.json().get("results", [])
+        proxies = []
+        for p in results:
+            if not p.get("valid", True):
+                continue
+            host = p["proxy_address"]
+            port = p["port"]
+            username = p["username"]
+            password = p["password"]
+            proxies.append(f"http://{username}:{password}@{host}:{port}")
+        return proxies
+
+    def get_proxy(self, api_key: str) -> str | None:
+        """Return a working proxy URL, refreshing the list if needed."""
+        now = time.time()
+        if not self._proxies or (now - self._fetched_at) > self.CACHE_TTL:
+            try:
+                self._proxies = self._fetch_from_api(api_key)
+                self._failed.clear()
+                self._fetched_at = now
+                logger.warning("Webshare: loaded %d proxies", len(self._proxies))
+            except Exception as e:
+                logger.warning("Webshare: failed to fetch proxy list (%s)", e)
+
+        available = [p for p in self._proxies if p not in self._failed]
+        return available[0] if available else None
+
+    def mark_failed(self, proxy_url: str):
+        self._failed.add(proxy_url)
+        logger.warning("Webshare: marked proxy as failed (%s), %d remaining",
+                       proxy_url.split("@")[-1],
+                       len([p for p in self._proxies if p not in self._failed]))
+        # If all proxies exhausted, force re-fetch next call
+        if not [p for p in self._proxies if p not in self._failed]:
+            self._fetched_at = 0
+
+
+_webshare = WebshareProxyManager()
 
 
 from api.dependencies import get_database, get_subscriptions_repository
@@ -499,42 +556,32 @@ class YoutubeGptHandler(GptHandler):
         if video_id in self.transcript_cache:
             return self.transcript_cache[video_id]
 
-        # 1. Try with configured proxy (env var) or direct if none set
+        # 1. Try Webshare proxies (with rotation on failure)
+        if config.WEBSHARE_API_KEY:
+            for attempt in range(5):  # try up to 5 proxies before giving up
+                proxy_url = _webshare.get_proxy(config.WEBSHARE_API_KEY)
+                if not proxy_url:
+                    break
+                try:
+                    transcript = self._fetch_transcript(video_id, proxy_url=proxy_url)
+                    self.transcript_cache[video_id] = transcript
+                    logger.warning("Fetched transcript for %s via Webshare (attempt %d)", video_id, attempt + 1)
+                    return transcript
+                except Exception as e:
+                    logger.warning("Webshare proxy failed (%s): %s", proxy_url.split("@")[-1], e)
+                    _webshare.mark_failed(proxy_url)
+
+        # 2. Try direct as last resort (works on non-datacenter IPs / dev machines)
         try:
-            transcript = self._fetch_transcript(video_id, proxy_url=config.YOUTUBE_PROXY_URL)
+            transcript = self._fetch_transcript(video_id, proxy_url=None)
             self.transcript_cache[video_id] = transcript
-            logger.warning("Fetched transcript for %s (proxy=%s)", video_id, bool(config.YOUTUBE_PROXY_URL))
+            logger.warning("Fetched transcript for %s directly", video_id)
             return transcript
         except Exception as direct_error:
-            logger.warning("Transcript fetch failed (%s), trying DB proxy...", direct_error)
-
-        # 2. Fall back to a proxy from DB
-        database = get_database()
-        proxies = (
-            await database["proxies"]
-            .find({"is_valid": True})
-            .to_list(length=None)
-        )
-        chosen_proxy = await self.select_random_proxie(proxies)
-
-        if not chosen_proxy:
             raise Exception(
                 f"Could not fetch transcript for {video_id}. "
-                "The server IP may be blocked by YouTube. "
-                "Please add YouTube cookies to /usr/files/youtube_cookies.txt or configure a proxy."
-            )
-
-        try:
-            transcript = self._fetch_transcript(video_id, proxy_url=chosen_proxy["proxie"])
-            self.transcript_cache[video_id] = transcript
-            logger.warning("Fetched transcript for %s via proxy", video_id)
-            return transcript
-        except Exception as e:
-            await database["proxies"].update_one(
-                {"_id": chosen_proxy["_id"]}, {"$set": {"is_valid": False}}
-            )
-            raise Exception(
-                f"Failed to retrieve transcript for video {video_id}: {str(e)}"
+                f"Last error: {direct_error}. "
+                "Set WEBSHARE_API_KEY in prod.env to enable proxy rotation."
             )
 
     async def get_video_duration(self, video_id: str):

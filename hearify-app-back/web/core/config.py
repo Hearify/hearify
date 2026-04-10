@@ -59,7 +59,7 @@ OPENROUTER_FALLBACK_MODELS = [
 ]
 
 # YOUTUBE
-YOUTUBE_PROXY_URL = os.getenv("YOUTUBE_PROXY_URL", default=None)  # e.g. http://user:pass@proxy.webshare.io:8080
+WEBSHARE_API_KEY = os.getenv("WEBSHARE_API_KEY", default=None)  # from proxy.webshare.io → API Keys
 
 # SUPABASE
 SUPABASE_URL = os.getenv("SUPABASE_URL")
