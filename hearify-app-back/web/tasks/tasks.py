@@ -63,6 +63,24 @@ def _format_quiz(raw, multiple_types_request):
     return multiple_format_fill_in_questions(raw) if multiple_types_request else format_fill_in_questions(raw)
 
 
+def _ensure_quiz_name(quiz: dict, text: str, model_name: str) -> dict:
+    """If LLM didn't return a name, generate one with a fast separate call."""
+    if quiz.get("name") and quiz["name"] != "Generated Quiz":
+        return quiz
+    try:
+        snippet = text[:600].strip()
+        name_prompt = (
+            f"Give a short quiz title (2-5 words) that describes the topic of this text. "
+            f"Reply with ONLY the title, no punctuation, no quotes:\n\n{snippet}"
+        )
+        name = GptHandler.text_request(name_prompt, model_name, temperature=0.3)
+        if name:
+            quiz["name"] = name.strip().strip('"').strip("'")[:80]
+    except Exception:
+        pass
+    return quiz
+
+
 @worker.task
 def task_send_email(recipients: list[str], subject: str, body: str):
     """"""
@@ -169,11 +187,15 @@ def generate_questions_from_file(
                 results = [f.result() for f in concurrent.futures.as_completed(futures)]
 
             all_questions = []
+            name = None
             for r in results:
                 fmt = _format_quiz(r, multiple_types_request)
+                if not name:
+                    name = fmt.get("name")
                 all_questions.extend(fmt.get("questions", []))
 
-            quiz = {"questions": all_questions[:total_questions]}
+            quiz = {"name": name, "questions": all_questions[:total_questions]}
+            quiz = _ensure_quiz_name(quiz, pdf_text, model_name)
         else:
             prompt, multiple_types_request = _build_quiz_prompt(
                 question_types, pdf_text, language, difficulty,
@@ -182,6 +204,7 @@ def generate_questions_from_file(
             raw = GptHandler.json_request(prompt, model_name)
             quiz = _format_quiz(raw, multiple_types_request)
             quiz = remove_extra_questions(quiz, question_types)
+            quiz = _ensure_quiz_name(quiz, pdf_text, model_name)
 
         print(f"Generation time: {time.time() - start}")
         print(f"Number of generated quizzes: {len(quiz['questions'])}")
@@ -233,6 +256,7 @@ def generate_youtube_questions_task(
         )
         raw = GptHandler.json_request(prompt, model_name)
         quiz = _format_quiz(raw, multiple_types_request)
+        quiz = _ensure_quiz_name(quiz, text, model_name)
 
         print(f"Generation time: {time.time() - start}")
         print(f"Number of generated questions: {len(quiz['questions'])}")
@@ -284,6 +308,7 @@ def generate_questions_from_text(
         raw = GptHandler.json_request(prompt, model_name)
         quiz = _format_quiz(raw, multiple_types_request)
         quiz = remove_extra_questions(quiz, question_types)
+        quiz = _ensure_quiz_name(quiz, text, model_name)
 
         print(f"Generation time: {time.time() - start}")
         print(f"Number of generated questions: {len(quiz['questions'])}")
