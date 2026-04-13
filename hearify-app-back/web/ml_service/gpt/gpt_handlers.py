@@ -674,22 +674,22 @@ class YoutubeGptHandler(GptHandler):
 
         logger.warning("Subs lengths: %s", len(result_text))
 
-        # Keep text within ~8 000 chars to stay under Groq free-tier TPM limits
-        # (Cyrillic/CJK text can reach ~1.7 chars/token, so 8 000 chars ≈ 4 700 tokens
-        # leaving plenty of room for the prompt template).
+        # Keep text within ~8 000 chars to stay under Groq free-tier TPM limits.
+        # Instead of random sampling (which gives disconnected fragments), take
+        # evenly-spaced contiguous sections from beginning / middle / end so the
+        # LLM receives coherent, readable context from across the whole video.
         _MAX_YOUTUBE_TEXT = 8_000
+        _NUM_SECTIONS = 3
         if len(result_text) > _MAX_YOUTUBE_TEXT:
-            logger.warning(
-                "Subs lengths before splitting: %s", len(result_text)
-            )
-            paragraphs = self.split_text_into_chunks(result_text)
-            # Select enough chunks to fill ~_MAX_YOUTUBE_TEXT chars
-            chunk_size = 1000
-            num_chunks = max(num_questions, _MAX_YOUTUBE_TEXT // chunk_size)
-            selected_paragraphs = self.select_random_paragraphs(
-                paragraphs, num_chunks
-            )
-            result_text = "\n\n".join(selected_paragraphs)
+            logger.warning("Subs lengths before splitting: %s", len(result_text))
+            section_len = _MAX_YOUTUBE_TEXT // _NUM_SECTIONS
+            total = len(result_text)
+            sections = []
+            for i in range(_NUM_SECTIONS):
+                # Start of each section evenly distributed across the text
+                start = (total * i) // _NUM_SECTIONS
+                sections.append(result_text[start: start + section_len])
+            result_text = "\n\n...\n\n".join(sections)
             logger.warning("Subs lengths after splitting: %s", len(result_text))
 
         return result_text.strip(), len(result_text)  # minute_length
