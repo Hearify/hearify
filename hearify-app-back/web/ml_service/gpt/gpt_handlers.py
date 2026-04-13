@@ -82,6 +82,40 @@ def _fetch_webshare_proxies() -> list[str]:
 
     return _WEBSHARE_PROXY_CACHE  # return stale cache on error
 
+
+def _fetch_transcript_via_supadata(video_id: str) -> list[dict]:
+    """Fetch transcript from Supadata API (no proxy required).
+
+    Returns list of dicts: [{"text": str, "start": float, "duration": float}, ...]
+    Raises on any failure so caller can fall back.
+    """
+    api_key = config.SUPADATA_API_KEY
+    if not api_key:
+        raise RuntimeError("SUPADATA_API_KEY not configured")
+
+    url = f"https://api.supadata.ai/v1/youtube/transcript?videoId={video_id}"
+    resp = requests_lib.get(
+        url,
+        headers={"x-api-key": api_key},
+        timeout=30,
+    )
+    resp.raise_for_status()
+    data = resp.json()
+
+    content = data.get("content", [])
+    if not content:
+        raise RuntimeError(f"Supadata returned empty transcript for {video_id}")
+
+    # Supadata returns offset/duration in milliseconds → convert to seconds
+    return [
+        {
+            "text": item["text"],
+            "start": item["offset"] / 1000.0,
+            "duration": item["duration"] / 1000.0,
+        }
+        for item in content
+    ]
+
 PROXY_LIST = config.PROXY_LIST
 
 
@@ -541,7 +575,17 @@ class YoutubeGptHandler(GptHandler):
 
         last_error: Exception | None = None
 
-        # 1. Try direct (no proxy) first — works in dev and in some cloud regions
+        # 1. Supadata API — no proxy needed, works from any IP
+        try:
+            transcript = _fetch_transcript_via_supadata(video_id)
+            self.transcript_cache[video_id] = transcript
+            logger.warning("Fetched transcript for %s via Supadata (%d snippets)", video_id, len(transcript))
+            return transcript
+        except Exception as e:
+            last_error = e
+            logger.warning("Supadata fetch failed for %s: %s", video_id, e)
+
+        # 2. Direct (no proxy) — works in dev / non-blocked environments
         try:
             transcript = self._fetch_transcript(video_id)
             self.transcript_cache[video_id] = transcript
@@ -551,7 +595,7 @@ class YoutubeGptHandler(GptHandler):
             last_error = e
             logger.warning("Direct fetch failed for %s: %s", video_id, e)
 
-        # 2. Rotate through Webshare datacenter proxies
+        # 3. Rotate through Webshare datacenter proxies
         proxies = _fetch_webshare_proxies()
         if proxies:
             shuffled = list(proxies)

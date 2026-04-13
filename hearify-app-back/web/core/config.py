@@ -58,7 +58,10 @@ OPENROUTER_FALLBACK_MODELS = [
     "openai/gpt-oss-20b:free",
 ]
 
-# YOUTUBE — Webshare proxy
+# YOUTUBE — Supadata transcript API (primary, no proxy needed)
+SUPADATA_API_KEY = os.getenv("SUPADATA_API_KEY", default=None)
+
+# YOUTUBE — Webshare proxy (fallback)
 # API key from Webshare dashboard (used to fetch current proxy list)
 WEBSHARE_API_KEY = os.getenv("WEBSHARE_API_KEY", default=None)
 WEBSHARE_PROXY_USERNAME = os.getenv("WEBSHARE_PROXY_USERNAME", default=None)
