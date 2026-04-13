@@ -674,15 +674,20 @@ class YoutubeGptHandler(GptHandler):
 
         logger.warning("Subs lengths: %s", len(result_text))
 
-        # is_text_long = self.validate_text(result_text, user, minute_length)
-        # if is_text_long:
-        if len(result_text) > 50_000:
+        # Keep text within ~8 000 chars to stay under Groq free-tier TPM limits
+        # (Cyrillic/CJK text can reach ~1.7 chars/token, so 8 000 chars ≈ 4 700 tokens
+        # leaving plenty of room for the prompt template).
+        _MAX_YOUTUBE_TEXT = 8_000
+        if len(result_text) > _MAX_YOUTUBE_TEXT:
             logger.warning(
                 "Subs lengths before splitting: %s", len(result_text)
             )
             paragraphs = self.split_text_into_chunks(result_text)
+            # Select enough chunks to fill ~_MAX_YOUTUBE_TEXT chars
+            chunk_size = 1000
+            num_chunks = max(num_questions, _MAX_YOUTUBE_TEXT // chunk_size)
             selected_paragraphs = self.select_random_paragraphs(
-                paragraphs, num_questions
+                paragraphs, num_chunks
             )
             result_text = "\n\n".join(selected_paragraphs)
             logger.warning("Subs lengths after splitting: %s", len(result_text))
