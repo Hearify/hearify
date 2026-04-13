@@ -58,7 +58,9 @@ OPENROUTER_FALLBACK_MODELS = [
     "openai/gpt-oss-20b:free",
 ]
 
-# YOUTUBE — Webshare proxy (proxy.webshare.io → Proxy List → username/password)
+# YOUTUBE — Webshare proxy
+# API key from Webshare dashboard (used to fetch current proxy list)
+WEBSHARE_API_KEY = os.getenv("WEBSHARE_API_KEY", default=None)
 WEBSHARE_PROXY_USERNAME = os.getenv("WEBSHARE_PROXY_USERNAME", default=None)
 WEBSHARE_PROXY_PASSWORD = os.getenv("WEBSHARE_PROXY_PASSWORD", default=None)
 

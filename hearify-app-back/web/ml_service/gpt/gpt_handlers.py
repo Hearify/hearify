@@ -4,6 +4,7 @@ from io import BytesIO
 import logging
 import os
 import random
+import time
 
 from celery.utils.collections import List
 from docx import Document
@@ -22,7 +23,6 @@ except ImportError:
     WebshareProxyConfig = None
     GenericProxyConfig = None
 
-
 from api.dependencies import get_database, get_subscriptions_repository
 from core import config
 from core.config import USE_GPT_3_5, VIDEO_WITH_SUBTITLES
@@ -32,6 +32,55 @@ from helpers.helpers import get_lang_code_name
 from schemas.user import UserDB, UserSubscriptionEnum
 
 logger = logging.getLogger("uvicorn.error")
+
+# ---------------------------------------------------------------------------
+# Webshare proxy cache — refreshed at most every hour
+# ---------------------------------------------------------------------------
+_WEBSHARE_PROXY_CACHE: list[str] = []
+_WEBSHARE_PROXY_CACHE_TS: float = 0.0
+_WEBSHARE_PROXY_TTL = 3600  # seconds
+
+
+def _fetch_webshare_proxies() -> list[str]:
+    """Return a list of proxy URLs from the Webshare API.
+
+    Format: ["http://user:pass@ip:port", ...]
+    Caches results for _WEBSHARE_PROXY_TTL seconds.
+    """
+    global _WEBSHARE_PROXY_CACHE, _WEBSHARE_PROXY_CACHE_TS
+
+    now = time.time()
+    if _WEBSHARE_PROXY_CACHE and now - _WEBSHARE_PROXY_CACHE_TS < _WEBSHARE_PROXY_TTL:
+        return _WEBSHARE_PROXY_CACHE
+
+    api_key = config.WEBSHARE_API_KEY
+    username = config.WEBSHARE_PROXY_USERNAME
+    password = config.WEBSHARE_PROXY_PASSWORD
+
+    if not api_key or not username or not password:
+        return []
+
+    try:
+        resp = requests_lib.get(
+            "https://proxy.webshare.io/api/v2/proxy/list/?mode=direct&page=1&page_size=25",
+            headers={"Authorization": f"Token {api_key}"},
+            timeout=10,
+        )
+        resp.raise_for_status()
+        proxies = []
+        for p in resp.json().get("results", []):
+            addr = p.get("proxy_address")
+            port = p.get("port")
+            if addr and port:
+                proxies.append(f"http://{username}:{password}@{addr}:{port}")
+        if proxies:
+            _WEBSHARE_PROXY_CACHE = proxies
+            _WEBSHARE_PROXY_CACHE_TS = now
+            return proxies
+    except Exception as exc:
+        logger.warning("Failed to fetch Webshare proxy list: %s", exc)
+
+    return _WEBSHARE_PROXY_CACHE  # return stale cache on error
 
 PROXY_LIST = config.PROXY_LIST
 
@@ -409,18 +458,10 @@ class YoutubeGptHandler(GptHandler):
         self.transcript_cache = {}
 
     def _make_api(self, proxy_url: str | None = None) -> YouTubeTranscriptApi:
-        """Build a YouTubeTranscriptApi instance with Webshare proxy if configured."""
+        """Build a YouTubeTranscriptApi instance with an optional direct proxy."""
         proxy_config = None
-
-        if config.WEBSHARE_PROXY_USERNAME and config.WEBSHARE_PROXY_PASSWORD and WebshareProxyConfig:
-            proxy_config = WebshareProxyConfig(
-                proxy_username=config.WEBSHARE_PROXY_USERNAME,
-                proxy_password=config.WEBSHARE_PROXY_PASSWORD,
-                retries_when_blocked=5,
-            )
-        elif proxy_url and GenericProxyConfig:
-            proxy_config = GenericProxyConfig(https_url=proxy_url)
-
+        if proxy_url and GenericProxyConfig:
+            proxy_config = GenericProxyConfig(https_url=proxy_url, http_url=proxy_url)
         return YouTubeTranscriptApi(proxy_config=proxy_config)
 
     async def validate_proxie(self, proxie):
@@ -498,17 +539,38 @@ class YoutubeGptHandler(GptHandler):
         if video_id in self.transcript_cache:
             return self.transcript_cache[video_id]
 
+        last_error: Exception | None = None
+
+        # 1. Try direct (no proxy) first — works in dev and in some cloud regions
         try:
             transcript = self._fetch_transcript(video_id)
             self.transcript_cache[video_id] = transcript
-            logger.warning("Fetched transcript for %s (webshare=%s)", video_id, bool(config.WEBSHARE_PROXY_USERNAME))
+            logger.warning("Fetched transcript for %s (direct)", video_id)
             return transcript
         except Exception as e:
-            raise Exception(
-                f"Could not fetch transcript for {video_id}. "
-                f"Error: {e}. "
-                "Set WEBSHARE_PROXY_USERNAME and WEBSHARE_PROXY_PASSWORD in prod.env."
-            )
+            last_error = e
+            logger.warning("Direct fetch failed for %s: %s", video_id, e)
+
+        # 2. Rotate through Webshare datacenter proxies
+        proxies = _fetch_webshare_proxies()
+        if proxies:
+            shuffled = list(proxies)
+            random.shuffle(shuffled)
+            for proxy_url in shuffled:
+                try:
+                    transcript = self._fetch_transcript(video_id, proxy_url=proxy_url)
+                    self.transcript_cache[video_id] = transcript
+                    logger.warning("Fetched transcript for %s via proxy %s", video_id, proxy_url.split("@")[-1])
+                    return transcript
+                except Exception as e:
+                    last_error = e
+                    logger.warning("Proxy %s failed for %s: %s", proxy_url.split("@")[-1], video_id, e)
+
+        raise Exception(
+            f"Could not fetch transcript for {video_id}. "
+            f"Last error: {last_error}. "
+            "The video may not have subtitles, or all proxies are blocked."
+        )
 
     async def get_video_duration(self, video_id: str):
         transcript = await self.get_transcript(video_id)
